@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomBehavior : MonoBehaviour
 {
     public GameObject[] doors;
-    public GameObject[] walls; // 0 up 1 down 2 right 3 left
+    public GameObject[] walls; // 0 up 1 right 2 down 3 left
     // Start is called before the first frame update
     public bool[] testStatus;
     void Start()
