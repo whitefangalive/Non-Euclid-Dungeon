@@ -1,23 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(RoomBehavior))]
 public class DungeonGeneraotr : MonoBehaviour
 {
-    public GameObject[] rooms;
-    public GameObject[] hallways;
-
+    
     private GenerationManager generationManager;
+    private RoomBehavior roomBehavior;
+    public GameObject[] possibleNodes;
+
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 randomDirection = new Vector3(0, 0, 1);
+        int randomNode = Random.Range(0, possibleNodes.Length);
+        roomBehavior = GetComponent<RoomBehavior>();
+        int rand = Random.Range(0, roomBehavior.doors.Length - 1);
+        GameObject randomWall = roomBehavior.doors[rand];
         generationManager = GameObject.Find("GenerationManager").GetComponent<GenerationManager>();
-        if (generationManager.CanPlaceRoom(Vector3.forward, rooms[0].GetComponent<Renderer>().bounds.size.x))
+        if (generationManager.CanPlaceRoom(randomWall.transform, randomWall.transform.forward, possibleNodes[randomNode].GetComponent<BoxCollider>().size.z))
         {
             if (generationManager.AmountOfRooms > 0)
             {
-                Instantiate(rooms[1], new Vector3(transform.position.x + (((rooms[0].GetComponent<Renderer>().bounds.size.x) / 2) + (rooms[1].GetComponent<Renderer>().bounds.size.x) / 2), 0, 0), Quaternion.identity);
+                Instantiate(possibleNodes[randomNode], randomWall.transform.position, Quaternion.Euler(0,
+                    randomWall.transform.rotation.eulerAngles.y, 0));
+
                 generationManager.AmountOfRooms -= 1;
             }
             
@@ -28,22 +34,6 @@ public class DungeonGeneraotr : MonoBehaviour
     void Update()
     {
 
-    }
-
-    // Cannot think of better way to do this but think it could be simplified to single line of code
-    Vector3 randomDirection()
-    {
-        int rand = Random.Range(0, 3);
-        switch (rand)
-        {
-            case 0:
-                return new Vector3(0, 0, 1);
-                break;
-            case 1:
-                return new Vector3(0, 0, -1);
-            default:
-                return new Vector3(-1, 0, 0);
-        }
     }
 
 }
