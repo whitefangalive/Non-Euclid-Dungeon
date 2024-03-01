@@ -7,18 +7,20 @@ public class GenerationManager : MonoBehaviour
     public int AmountOfRooms = 4;
     public GameObject[] rooms;
     public GameObject[] hallways;
+
+    
     public bool CanPlaceRoom(Transform pos, Vector3 Direction, float prefabLength)
     {
         bool result = true;
         RaycastHit hit;
-        Debug.DrawRay(pos.position, Direction * prefabLength, Color.yellow);
+        
         if (Physics.Raycast(pos.position, Direction, out hit, prefabLength))
         {
-            if (hit.transform.CompareTag("Room"))
-            {
                 result = false;
-            }
+                Debug.Log("Couln't Generate room at " + pos.position.ToString() + " facing " + Direction.ToString() + " Because of " + hit.transform.name + " tag " + hit.transform.tag );
+                Debug.DrawRay(pos.position, Direction * (prefabLength - 0.5f), Color.red);
         }
+        Debug.DrawRay(pos.position, Direction * (prefabLength - 3f), Color.green);
         return result;
     }
 }
