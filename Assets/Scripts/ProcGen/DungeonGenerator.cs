@@ -1,50 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(RoomBehavior))]
 public class DungeonGeneraotr : MonoBehaviour
 {
-    public GameObject[] rooms;
-    public GameObject[] hallways;
 
     private GenerationManager generationManager;
+    private RoomBehavior roomBehavior;
+    public GameObject[] possibleNodes;
+
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 randomDirection = new Vector3(0, 0, 1);
+        roomBehavior = GetComponent<RoomBehavior>();
         generationManager = GameObject.Find("GenerationManager").GetComponent<GenerationManager>();
-        if (generationManager.CanPlaceRoom(Vector3.forward, rooms[0].GetComponent<Renderer>().bounds.size.x))
-        {
-            if (generationManager.AmountOfRooms > 0)
-            {
-                Instantiate(rooms[1], new Vector3(transform.position.x + (((rooms[0].GetComponent<Renderer>().bounds.size.x) / 2) + (rooms[1].GetComponent<Renderer>().bounds.size.x) / 2), 0, 0), Quaternion.identity);
-                generationManager.AmountOfRooms -= 1;
-            }
-            
-        }
+        StartCoroutine(waiter());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+/*        for (int i = 0; i < roomBehavior.doors.Length; i++) 
+        {
+            generationManager.CanPlaceRoom(roomBehavior.doors[i].transform, roomBehavior.doors[i].transform.forward, possibleNodes[0].GetComponent<BoxCollider>().size.z);
+        }*/
     }
 
-    // Cannot think of better way to do this but think it could be simplified to single line of code
-    Vector3 randomDirection()
+    IEnumerator waiter()
     {
-        int rand = Random.Range(0, 3);
-        switch (rand)
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(0.5f);
+
+
+        for (int i = 0; i < Mathf.Clamp(roomBehavior.doors.Length, 0, 2); i++)
         {
-            case 0:
-                return new Vector3(0, 0, 1);
-                break;
-            case 1:
-                return new Vector3(0, 0, -1);
-            default:
-                return new Vector3(-1, 0, 0);
+            int randomNode = Random.Range(0, possibleNodes.Length);
+
+            int rand = Random.Range(0, roomBehavior.doors.Length);
+            GameObject randomWall = roomBehavior.doors[rand];
+            if (generationManager.CanPlaceRoom(randomWall.transform, randomWall.transform.forward, possibleNodes[randomNode].GetComponent<BoxCollider>().size.z))
+            {
+                if (generationManager.AmountOfRooms > 0)
+                {
+                    generateRoom(randomWall, randomNode);
+                }
+
+            }
+            else 
+            {
+                rand = randomNumberThatIsnt(rand, 0, roomBehavior.doors.Length);
+                randomWall = roomBehavior.doors[rand];
+                if (generationManager.CanPlaceRoom(randomWall.transform, randomWall.transform.forward, possibleNodes[randomNode].GetComponent<BoxCollider>().size.z))
+                {
+                    if (generationManager.AmountOfRooms > 0)
+                    {
+                        generateRoom(randomWall, randomNode);
+                    }
+                }
+            }
         }
     }
 
+    private void generateRoom(GameObject randomWall, int randomNode)
+    {
+            GameObject nextRoom = Instantiate(possibleNodes[randomNode], randomWall.transform.position, Quaternion.Euler(0,
+                randomWall.transform.rotation.eulerAngles.y, 0));
+            nextRoom.name = name + generationManager.AmountOfRooms.ToString();
+            generationManager.AmountOfRooms -= 1;
+    }
+
+    private int randomNumberThatIsnt(int number, int min, int max)
+    {
+        int result = number;
+        while (result == number) 
+        {
+            result = Random.Range(min, max);
+        }
+        return result;
+    }
 }
 
