@@ -144,7 +144,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.55, z: 5}
-  m_LocalScale: {x: 1.9125, y: 1, z: 0.65}
+  m_LocalScale: {x: 7.7699137, y: 3.1765, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3310240233715175452}
@@ -366,7 +366,7 @@ MonoBehaviour:
   walls:
   - {fileID: 996499836212749986}
   - {fileID: 7279263992990901787}
-  testStatus: 0101
+  testStatus: 0001
 --- !u!114 &8224290505887798225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.55, z: -5}
-  m_LocalScale: {x: 1.9125, y: 1, z: 0.65}
+  m_LocalScale: {x: 7.7699137, y: 3.1765, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3310240233715175452}

@@ -17,7 +17,27 @@ public class ResetParent : MonoBehaviour
     {
         if (other.gameObject.name == "HeadCollider")
         {
-            gameObject.GetComponentInChildren<RoomDegenerator>().Parent = previousParent;
+            gameObject.GetComponentInChildren<RoomDegenerator>().Parent = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>().gameObject;
         }
+    }
+
+    Transform GetClosestRoom()
+    {
+        GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = GameObject.Find("HeadCollider").transform.position;
+        foreach (GameObject t in rooms)
+        {
+            if (t != null) {
+                float dist = Vector3.Distance(t.transform.position, currentPos);
+                if (dist < minDist)
+                {
+                    tMin = t.transform;
+                    minDist = dist;
+                }
+            }
+        }
+        return tMin;
     }
 }

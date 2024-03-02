@@ -9,12 +9,13 @@ public class RoomDegenerator : MonoBehaviour
 
     private bool once = false;
 
-    public int chanceToDespawn = 10;
+    public int chanceToDespawn;
     public int randomNumber;
     // Start is called before the first frame update
     void Start()
     {
         generationManager = GameObject.Find("GenerationManager").GetComponent<GenerationManager>();
+        chanceToDespawn = generationManager.ChanceToDespawn;
     }
 
     // Update is called once per frame
@@ -34,7 +35,9 @@ public class RoomDegenerator : MonoBehaviour
                     once = true;
                     if (randomNumber == 1 && Parent != transform.parent.gameObject)
                     {
-                        Parent.GetComponent<DungeonGenerator>().currentPlacedNodes--;
+                        DungeonGenerator dungGen = Parent.GetComponent<DungeonGenerator>();
+                        dungGen.ResetAllWalls();
+                        dungGen.currentPlacedNodes--;
                         generationManager.AmountOfRooms++;
                         Destroy(gameObject.transform.parent.gameObject);
                     }

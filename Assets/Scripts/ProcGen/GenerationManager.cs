@@ -9,8 +9,9 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] hallways;
 
     public float generationDistance = 50.0f;
+    public int ChanceToDespawn = 10;
 
-    
+
     public bool CanPlaceRoom(Transform pos, Vector3 Direction, float prefabLength)
     {
         bool result = true;

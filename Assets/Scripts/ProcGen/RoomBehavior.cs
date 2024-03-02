@@ -26,4 +26,10 @@ public class RoomBehavior : MonoBehaviour
             walls[i].SetActive(!status[i]);
         }
     }
+
+    public void UpdateRoomWall(bool doorOpen, int wallNumber) 
+    {
+        doors[wallNumber].SetActive(doorOpen);
+        walls[wallNumber].SetActive(!doorOpen);
+    }
 }
