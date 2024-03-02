@@ -8,6 +8,8 @@ public class GenerationManager : MonoBehaviour
     public GameObject[] rooms;
     public GameObject[] hallways;
 
+    public float generationDistance = 50.0f;
+
     
     public bool CanPlaceRoom(Transform pos, Vector3 Direction, float prefabLength)
     {
@@ -22,5 +24,11 @@ public class GenerationManager : MonoBehaviour
         }
         Debug.DrawRay(pos.position, Direction * (prefabLength - 3f), Color.green);
         return result;
+    }
+
+    public bool IsVisibleToCamera(GameObject obj)
+    {
+        Vector3 visTest = Camera.main.WorldToViewportPoint(obj.transform.position);
+        return ((visTest.x >= 0 && visTest.y >= 0) && (visTest.x <= 1 && visTest.y <= 1) && visTest.z >= 0) || obj.GetComponent<Renderer>().isVisible;
     }
 }
