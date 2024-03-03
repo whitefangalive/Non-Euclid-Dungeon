@@ -29,7 +29,6 @@ public class GenerationManager : MonoBehaviour
 
     public bool IsVisibleToCamera(GameObject obj)
     {
-        Vector3 visTest = Camera.main.WorldToViewportPoint(obj.transform.position);
-        return ((visTest.x >= 0 && visTest.y >= 0) && (visTest.x <= 1 && visTest.y <= 1) && visTest.z >= 0) || obj.GetComponent<Renderer>().isVisible;
+        return obj.GetComponent<Renderer>().isVisible;
     }
 }
