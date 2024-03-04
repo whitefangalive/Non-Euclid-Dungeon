@@ -5,15 +5,50 @@ using UnityEngine;
 public class ProgressionScript : MonoBehaviour
 {
     public int roomsExplored = 0;
-    // Start is called before the first frame update
-    void Start()
+    public float height;
+    private Transform player;
+    public bool TimeToProgress = false;
+
+    public GameObject StairAsset;
+    public int level = 0;
+
+    private float difference;
+
+    public int AmountOfRoomsLevelOne = 25;
+
+    private int HeightLevelAchieved = 0;
+    private void Start()
     {
-        
+        player = GameObject.Find("FollowHead").transform;
+        RoomBehavior room = StairAsset.GetComponentInChildren<RoomBehavior>();
+        difference = (room.doors[0].transform.position.y - room.doors[1].transform.position.y);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
+        height = player.position.y;
         
+        
+        level = Mathf.RoundToInt(height / difference);
+        if (level > HeightLevelAchieved) 
+        {
+            height = level;
+        }
+
+        if (roomsExplored == AmountOfRoomsLevelOne && level == 0)
+        {
+            TimeToProgress = true;
+            roomsExplored = 0;
+        }
+    }
+
+    public bool onCurrentLevel()
+    {
+        bool result = false;
+        if (level == HeightLevelAchieved) 
+        {
+            result = true;
+        }
+        return result;
     }
 }

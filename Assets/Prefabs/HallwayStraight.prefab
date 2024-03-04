@@ -345,8 +345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleNodes:
   - {fileID: 23565704959500471, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
-  - {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90, type: 3}
   - {fileID: 23565704959500471, guid: 45821d2d135f9354da8a8d4ab8a84918, type: 3}
+  - {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90, type: 3}
+  ignoreLastNodes: 1
   maxNodes: 0
   currentPlacedNodes: 0
 --- !u!114 &8180545440479842082
