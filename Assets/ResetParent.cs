@@ -5,12 +5,14 @@ using UnityEngine;
 public class ResetParent : MonoBehaviour
 {
     private GameObject previousParent;
+    private ProgressionScript progressionScript;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.transform.name.ToString());
         if (other.gameObject.name == "HeadCollider") {
             previousParent = GetComponentInChildren<RoomDegenerator>().Parent;
             gameObject.GetComponentInChildren<RoomDegenerator>().Parent = gameObject;
+            GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>().roomsExplored++;
         }
     }
     private void OnTriggerExit(Collider other)
