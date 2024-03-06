@@ -16,7 +16,7 @@ public class ProgressionScript : MonoBehaviour
 
     public int AmountOfRoomsLevelOne = 25;
 
-    private int HeightLevelAchieved = 0;
+    public int HeightLevelAchieved = 0;
     private void Start()
     {
         player = GameObject.Find("FollowHead").transform;
@@ -32,7 +32,7 @@ public class ProgressionScript : MonoBehaviour
         level = Mathf.RoundToInt(height / difference);
         if (level > HeightLevelAchieved) 
         {
-            height = level;
+            HeightLevelAchieved = level;
         }
 
         if (roomsExplored == AmountOfRoomsLevelOne && level == 0)

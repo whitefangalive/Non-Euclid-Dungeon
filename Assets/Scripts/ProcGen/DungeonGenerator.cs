@@ -9,7 +9,6 @@ public class DungeonGenerator : MonoBehaviour
     private GenerationManager generationManager;
     private RoomBehavior roomBehavior;
     public GameObject[] possibleNodes;
-    public bool SpawnStairs = false;
     public int maxNodes;
     public int currentPlacedNodes = 0;
     private int rand = -1;
@@ -29,18 +28,18 @@ public class DungeonGenerator : MonoBehaviour
     void Update()
     {
         int randomNode = Random.Range(0, possibleNodes.Length - 1);
-        progressionEnforcer();
-        if (SpawnStairs) 
+
+        if (progression.TimeToProgress) 
         {
             randomNode = possibleNodes.Length - 1;
         }
 
-        if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 || SpawnStairs) && Vector3.Distance(transform.position, Camera.main.transform.position) < generationManager.generationDistance) {
-            SpawnStairs = false;
+        if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 || progression.TimeToProgress) && Vector3.Distance(transform.position, Camera.main.transform.position) < generationManager.generationDistance) {
+            progression.TimeToProgress = false;
 
             rand = Random.Range(0, roomBehavior.doors.Length);
             GameObject randomWall = roomBehavior.doors[rand];
-            if (generationManager.CanPlaceRoom(randomWall.transform, randomWall.transform.forward, possibleNodes[randomNode].GetComponent<BoxCollider>().size.z))
+            if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode]))
             {
                  generateRoom(randomWall, randomNode);
             }
@@ -48,19 +47,11 @@ public class DungeonGenerator : MonoBehaviour
             {
                 rand = randomNumberThatIsnt(rand, 0, roomBehavior.doors.Length);
                 randomWall = roomBehavior.doors[rand];
-                if (generationManager.CanPlaceRoom(randomWall.transform, randomWall.transform.forward, possibleNodes[randomNode].GetComponent<BoxCollider>().size.z))
+                if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode]))
                 {
                     generateRoom(randomWall, randomNode);
                 }
             }
-        }
-    }
-
-    private void progressionEnforcer() 
-    {
-       if (progression.TimeToProgress) 
-        {
-            SpawnStairs = true;
         }
     }
     private void generateRoom(GameObject randomWall, int randomNode)
@@ -90,7 +81,7 @@ public class DungeonGenerator : MonoBehaviour
         for (int i = 0; i < roomBehavior.doors.Length; i++)
         {
             GameObject wall = roomBehavior.doors[i];
-            if (generationManager.CanPlaceRoom(wall.transform, wall.transform.forward, 1.0f))
+            if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 1.0f))
             {
                 roomBehavior.UpdateRoomWall(false, i);
             }

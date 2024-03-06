@@ -597,6 +597,7 @@ MonoBehaviour:
     type: 3}
   level: 0
   AmountOfRoomsLevelOne: 25
+  HeightLevelAchieved: 0
 --- !u!4 &1968147606
 Transform:
   m_ObjectHideFlags: 0
@@ -648,6 +649,9 @@ MonoBehaviour:
   hallways: []
   generationDistance: 50
   ChanceToDespawn: 35
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!4 &2142764459
 Transform:
   m_ObjectHideFlags: 0
