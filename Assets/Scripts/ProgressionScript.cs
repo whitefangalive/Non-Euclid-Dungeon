@@ -8,6 +8,7 @@ public class ProgressionScript : MonoBehaviour
     public float height;
     private Transform player;
     public bool TimeToProgress = false;
+    public bool DisableDegeneration = false;
 
     public GameObject StairAsset;
     public int level = 0;
@@ -17,6 +18,8 @@ public class ProgressionScript : MonoBehaviour
     public int AmountOfRoomsLevelOne = 25;
 
     public int HeightLevelAchieved = 0;
+
+    public int previousLevel = 0;
     private void Start()
     {
         player = GameObject.Find("FollowHead").transform;
@@ -26,6 +29,7 @@ public class ProgressionScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        checkForChangeInLevel();
         height = player.position.y;
         
         
@@ -35,9 +39,10 @@ public class ProgressionScript : MonoBehaviour
             HeightLevelAchieved = level;
         }
 
-        if (roomsExplored == AmountOfRoomsLevelOne && level == 0)
+        if (roomsExplored == AmountOfRoomsLevelOne)
         {
             TimeToProgress = true;
+            DisableDegeneration = true;
             roomsExplored = 0;
         }
     }
@@ -50,5 +55,14 @@ public class ProgressionScript : MonoBehaviour
             result = true;
         }
         return result;
+    }
+
+    private void checkForChangeInLevel()
+    {
+        if (previousLevel != level)
+        {
+            previousLevel = level;
+            DisableDegeneration = false;
+        }
     }
 }

@@ -11,6 +11,7 @@ public class RoomDegenerator : MonoBehaviour
 
     public int chanceToDespawn;
     public int randomNumber;
+  
 
     private ProgressionScript progression;
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class RoomDegenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!progression.TimeToProgress) {
+        if (!progression.DisableDegeneration) {
             if (Parent == null)
             {
                 Destroy(gameObject.transform.parent.gameObject);
@@ -54,6 +55,4 @@ public class RoomDegenerator : MonoBehaviour
             }
         }
     }
-
-
 }

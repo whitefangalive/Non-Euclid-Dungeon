@@ -593,11 +593,13 @@ MonoBehaviour:
   roomsExplored: 0
   height: 0
   TimeToProgress: 0
+  DisableDegeneration: 0
   StairAsset: {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90,
     type: 3}
   level: 0
   AmountOfRoomsLevelOne: 25
   HeightLevelAchieved: 0
+  previousLevel: 0
 --- !u!4 &1968147606
 Transform:
   m_ObjectHideFlags: 0

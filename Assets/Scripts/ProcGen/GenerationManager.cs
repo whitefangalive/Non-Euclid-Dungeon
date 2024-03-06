@@ -20,10 +20,9 @@ public class GenerationManager : MonoBehaviour
     Vector3 forward;
     public LayerMask m_LayerMask;
 
-    public bool CanPlaceRoom(GameObject door, GameObject node)
+    public bool CanPlaceRoom(GameObject door, GameObject node, QueryTriggerInteraction collide)
     {
         bool result = true;
-        
 
         rotation = door.transform.rotation;
         forward = door.transform.forward;
@@ -34,7 +33,7 @@ public class GenerationManager : MonoBehaviour
         
         Debug.DrawRay(center, Vector3.Scale(absScale / 2, forward), Color.red);
         
-        count = Physics.OverlapBoxNonAlloc(center, absScale / 2, m_HitDetect, Quaternion.identity, m_LayerMask, QueryTriggerInteraction.Collide);
+        count = Physics.OverlapBoxNonAlloc(center, absScale / 2, m_HitDetect, Quaternion.identity, m_LayerMask, collide);
         Debug.Log(m_HitDetect.Length);
         if (count > 0)
         {

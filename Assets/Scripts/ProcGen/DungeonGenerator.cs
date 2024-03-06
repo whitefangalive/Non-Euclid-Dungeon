@@ -35,11 +35,12 @@ public class DungeonGenerator : MonoBehaviour
         }
 
         if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 || progression.TimeToProgress) && Vector3.Distance(transform.position, Camera.main.transform.position) < generationManager.generationDistance) {
-            progression.TimeToProgress = false;
+
+            
 
             rand = Random.Range(0, roomBehavior.doors.Length);
             GameObject randomWall = roomBehavior.doors[rand];
-            if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode]))
+            if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode], QueryTriggerInteraction.Collide))
             {
                  generateRoom(randomWall, randomNode);
             }
@@ -47,7 +48,7 @@ public class DungeonGenerator : MonoBehaviour
             {
                 rand = randomNumberThatIsnt(rand, 0, roomBehavior.doors.Length);
                 randomWall = roomBehavior.doors[rand];
-                if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode]))
+                if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode], QueryTriggerInteraction.Collide))
                 {
                     generateRoom(randomWall, randomNode);
                 }
@@ -63,7 +64,8 @@ public class DungeonGenerator : MonoBehaviour
         randomWall.transform.rotation.eulerAngles.y, 0));
         nextRoom.name = name + generationManager.AmountOfRooms.ToString();
         nextRoom.GetComponentInChildren<RoomDegenerator>().Parent = gameObject;
-        
+        progression.TimeToProgress = false;
+
     }
 
     private int randomNumberThatIsnt(int number, int min, int max)
