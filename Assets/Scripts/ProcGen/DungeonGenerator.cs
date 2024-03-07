@@ -9,6 +9,7 @@ public class DungeonGenerator : MonoBehaviour
     private GenerationManager generationManager;
     private RoomBehavior roomBehavior;
     public GameObject[] possibleNodes;
+    public GameObject[] specialNodes;
     public int maxNodes;
     public int currentPlacedNodes = 0;
     private int rand = -1;
@@ -27,40 +28,39 @@ public class DungeonGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int randomNode = Random.Range(0, possibleNodes.Length - 1);
+        GameObject node = possibleNodes[Random.Range(0, possibleNodes.Length)];
 
         if (progression.TimeToProgress) 
         {
-            randomNode = possibleNodes.Length - 1;
+            node = specialNodes[0];
         }
 
-        if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 || progression.TimeToProgress) && Vector3.Distance(transform.position, Camera.main.transform.position) < generationManager.generationDistance) {
-
-            
+        if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 ||
+            progression.TimeToProgress) && Vector3.Distance(transform.position, Camera.main.transform.position) < generationManager.generationDistance) {
 
             rand = Random.Range(0, roomBehavior.doors.Length);
             GameObject randomWall = roomBehavior.doors[rand];
-            if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode], QueryTriggerInteraction.Collide))
+            if (generationManager.CanPlaceRoom(randomWall, node, QueryTriggerInteraction.Collide))
             {
-                 generateRoom(randomWall, randomNode);
+                 generateRoom(randomWall, node);
             }
             else
             {
                 rand = randomNumberThatIsnt(rand, 0, roomBehavior.doors.Length);
                 randomWall = roomBehavior.doors[rand];
-                if (generationManager.CanPlaceRoom(randomWall, possibleNodes[randomNode], QueryTriggerInteraction.Collide))
+                if (generationManager.CanPlaceRoom(randomWall, node, QueryTriggerInteraction.Collide))
                 {
-                    generateRoom(randomWall, randomNode);
+                    generateRoom(randomWall, node);
                 }
             }
         }
     }
-    private void generateRoom(GameObject randomWall, int randomNode)
+    private void generateRoom(GameObject randomWall, GameObject node)
     {
         roomBehavior.UpdateRoomWall(true, rand);
         generationManager.AmountOfRooms -= 1;
         currentPlacedNodes++;
-        GameObject nextRoom = Instantiate(possibleNodes[randomNode], randomWall.transform.position, Quaternion.Euler(0,
+        GameObject nextRoom = Instantiate(node, randomWall.transform.position, Quaternion.Euler(0,
         randomWall.transform.rotation.eulerAngles.y, 0));
         nextRoom.name = name + generationManager.AmountOfRooms.ToString();
         nextRoom.GetComponentInChildren<RoomDegenerator>().Parent = gameObject;

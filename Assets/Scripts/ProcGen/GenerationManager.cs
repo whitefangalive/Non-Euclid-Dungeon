@@ -34,7 +34,6 @@ public class GenerationManager : MonoBehaviour
         Debug.DrawRay(center, Vector3.Scale(absScale / 2, forward), Color.red);
         
         count = Physics.OverlapBoxNonAlloc(center, absScale / 2, m_HitDetect, Quaternion.identity, m_LayerMask, collide);
-        Debug.Log(m_HitDetect.Length);
         if (count > 0)
         {
             result = false;
