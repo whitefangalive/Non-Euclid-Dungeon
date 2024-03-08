@@ -5,11 +5,14 @@ using UnityEngine;
 public class item : MonoBehaviour
 {
     public GameObject bag = null;
-    private Transform offset;
+    private Vector3 offsetPos;
+    private Quaternion offsetRot;
+
+    private bool once = true;
     // Start is called before the first frame update
     void Start()
     {
-        offset = transform;
+
     }
 
     // Update is called once per frame
@@ -17,8 +20,15 @@ public class item : MonoBehaviour
     {
         if (bag != null) 
         {
-            transform.position = bag.transform.position + offset.position;
-            transform.rotation = bag.transform.rotation * offset.rotation;
+            if (once)
+            {
+                offsetPos = transform.position - bag.transform.position;
+                offsetRot = transform.rotation * Quaternion.Inverse(bag.transform.rotation);
+                once = false;
+            }
+
+            transform.position = bag.transform.position + offsetPos;
+            transform.rotation = bag.transform.rotation * offsetRot;
         }
     }
 }

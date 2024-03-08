@@ -17,7 +17,7 @@ public class BagScript : MonoBehaviour
     {
         foreach (GameObject thing in inventory) 
         {
-            if (thing.transform.parent != null)
+            if (thing.transform.parent == null)
             {
                 if (thing.GetComponent<item>().bag != gameObject) 
                 {
@@ -40,7 +40,7 @@ public class BagScript : MonoBehaviour
         rb = thing.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            inventory.Add(thing);
+            inventory.Add(thing.transform.parent.gameObject);
         }
     }
 }
