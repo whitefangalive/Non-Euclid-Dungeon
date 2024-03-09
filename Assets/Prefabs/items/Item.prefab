@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3100259986337605755}
   - component: {fileID: 4228770271950752920}
+  - component: {fileID: 7710302234394747808}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -303,3 +304,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c82e9e789c2354da1d10a73e92991f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bag: {fileID: 0}
+--- !u!65 &7710302234394747808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934170708909775145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.089647904, y: 0.0988736, z: 0.25090176}
+  m_Center: {x: -0.02609645, y: 0.53, z: 0.10169512}
