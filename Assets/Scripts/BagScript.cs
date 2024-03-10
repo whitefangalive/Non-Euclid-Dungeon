@@ -6,6 +6,7 @@ public class BagScript : MonoBehaviour
 {
     public List<GameObject> inventory = new List<GameObject>();
     private Rigidbody rb;
+    private item it;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,8 @@ public class BagScript : MonoBehaviour
     {
         GameObject thing = other.transform.gameObject;
         rb = thing.GetComponent<Rigidbody>();
-        if (rb != null)
+        it = thing.GetComponent<item>();
+        if (it != null && rb != null)
         {
             inventory.Add(thing.transform.parent.gameObject);
         }
