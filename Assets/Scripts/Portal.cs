@@ -7,7 +7,7 @@ public class Portal : MonoBehaviour
     public GameObject Destination;
     [HideInInspector]
     public bool AbleToTeleport = true;
-    private Vector3 posDiff;
+    private Vector3 playerDiff;
     private Quaternion rotDiff;
     private Vector3 scaleDiff;
     // Start is called before the first frame update
@@ -15,9 +15,9 @@ public class Portal : MonoBehaviour
     {
         Transform objF = gameObject.transform;
         Transform objD = Destination.transform;
-        posDiff = objD.position - objF.position;
         rotDiff = objD.rotation * Quaternion.Inverse(objF.rotation);
         scaleDiff = objD.localScale - objF.localScale;
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -30,14 +30,21 @@ public class Portal : MonoBehaviour
             {
                 player = other.transform.parent.parent.parent.parent;
             }
+            playerDiff = player.position - gameObject.transform.position;
+
+            playerDiff = RotateVector(playerDiff, rotDiff);
 
             player.rotation *= rotDiff;
             player.localScale += scaleDiff;
-            player.position += posDiff;
+            player.position = Destination.transform.position + playerDiff;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         AbleToTeleport = true;
+    }
+    Vector3 RotateVector(Vector3 vector, Quaternion rotation)
+    {
+        return rotation * vector;
     }
 }

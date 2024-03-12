@@ -39,10 +39,20 @@ public class BagScript : MonoBehaviour
     {
         GameObject thing = other.transform.gameObject;
         rb = thing.GetComponent<Rigidbody>();
-        it = thing.GetComponent<item>();
+        it = thing.transform.parent.gameObject.GetComponent<item>();
         if (it != null && rb != null)
         {
             inventory.Add(thing.transform.parent.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject thing = other.transform.gameObject;
+        rb = thing.GetComponent<Rigidbody>();
+        it = thing.transform.parent.gameObject.GetComponent<item>();
+        if (it != null && rb != null)
+        {
+            inventory.Remove(thing.transform.parent.gameObject);
         }
     }
 }
