@@ -71,6 +71,6 @@ public class GenerationManager : MonoBehaviour
 
     public bool IsVisibleToCamera(GameObject obj)
     {
-        return obj.GetComponent<Renderer>().isVisible;
+        return obj.GetComponent<Renderer>().isVisible || obj.GetComponentInChildren<Renderer>().isVisible;
     }
 }

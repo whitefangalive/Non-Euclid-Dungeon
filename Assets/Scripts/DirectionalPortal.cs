@@ -21,7 +21,7 @@ public class DirectionalPortal : MonoBehaviour
         Transform objF = gameObject.transform;
         Transform objD = Destination.transform;
         rotDiff = objD.rotation * Quaternion.Inverse(objF.rotation);
-        scaleDiff = objD.localScale - objF.localScale;
+        scaleDiff = Divide(objD.localScale, objF.localScale);
         NeededEulerRotationYMin = NeededEulerRotationYMin + transform.root.rotation.eulerAngles.y;
         NeededEulerRotationYMax = NeededEulerRotationYMax + transform.root.rotation.eulerAngles.y;
     }
@@ -53,8 +53,9 @@ public class DirectionalPortal : MonoBehaviour
 
 
                 player.rotation *= rotDiff;
-                player.localScale += scaleDiff;
+                player.localScale = Multiply(player.localScale, scaleDiff);
                 player.position = Destination.transform.position + playerDiff;
+                
             }
         }
     }
@@ -65,5 +66,19 @@ public class DirectionalPortal : MonoBehaviour
     Vector3 RotateVector(Vector3 vector, Quaternion rotation)
     {
         return rotation * vector;
+    }
+    public static Vector3 Divide(Vector3 v1, Vector3 v2)
+    {
+        if (v2.x == 0f || v2.y == 0f || v2.z == 0f)
+        {
+            Debug.LogError("Division by zero detected. Returning Vector3.zero.");
+            return Vector3.zero;
+        }
+
+        return new Vector3(v1.x / v2.x, v1.y / v2.y, v1.z / v2.z);
+    }
+    public static Vector3 Multiply(Vector3 v1, Vector3 v2)
+    {
+        return new Vector3(v1.x * v2.x, v1.y * v2.y, v1.z * v2.z);
     }
 }

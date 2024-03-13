@@ -20,7 +20,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         roomBehavior = GetComponent<RoomBehavior>();
         generationManager = GameObject.Find("GenerationManager").GetComponent<GenerationManager>();
-        maxNodes = Mathf.Clamp(roomBehavior.doors.Length - 1, 0, 2);
+        maxNodes = Mathf.Clamp(roomBehavior.doors.Length - 1, 0, roomBehavior.doors.Length / 2);
         progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
     }
 
@@ -71,7 +71,7 @@ public class DungeonGenerator : MonoBehaviour
     private int randomNumberThatIsnt(int number, int min, int max)
     {
         int result = number;
-        while (result == number) 
+        while (result == number && max - min > 1) 
         {
             result = Random.Range(min, max);
         }
@@ -86,6 +86,10 @@ public class DungeonGenerator : MonoBehaviour
             if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 1.0f))
             {
                 roomBehavior.UpdateRoomWall(false, i);
+            }
+            else 
+            {
+                roomBehavior.UpdateRoomWall(true, i);
             }
         }
     }
