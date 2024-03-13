@@ -10,10 +10,13 @@ public class item : MonoBehaviour
     private Rigidbody rb;
     private bool once = true;
     private bool originalUseGrav;
+    private new Collider collider;
+    public bool handAttached;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody>();
+        collider = gameObject.transform.GetChild(0).GetComponent<Collider>();
         originalUseGrav = rb.useGravity;
     }
 
@@ -26,18 +29,31 @@ public class item : MonoBehaviour
             {
                 offsetPos = transform.position - bag.transform.position;
                 offsetRot = transform.rotation * Quaternion.Inverse(bag.transform.rotation);
-                rb.velocity = Vector3.zero;
-                rb.useGravity = false;
                 
+                collider.excludeLayers = 1;
                 once = false;
             }
 
             transform.position = bag.transform.position + offsetPos;
             transform.rotation = bag.transform.rotation * offsetRot;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
         }
         else 
         {
+            once = true;
             rb.useGravity = originalUseGrav;
+            collider.excludeLayers = 0;
         }
+    }
+
+    public void attached()
+    {
+        handAttached = true;
+    }
+    public void unattached()
+    {
+        handAttached = false;
     }
 }

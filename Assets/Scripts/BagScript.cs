@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BagScript : MonoBehaviour
 {
-    public List<GameObject> inventory = new List<GameObject>();
+    public HashSet<GameObject> inventory = new HashSet<GameObject>();
     private Rigidbody rb;
     private item it;
+    public LayerMask ExludeLayers;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,22 +38,27 @@ public class BagScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        GameObject thing = other.transform.gameObject;
-        rb = thing.GetComponent<Rigidbody>();
-        it = thing.transform.parent.gameObject.GetComponent<item>();
-        if (it != null && rb != null)
-        {
-            inventory.Add(thing.transform.parent.gameObject);
-        }
+            GameObject thing = other.transform.gameObject;
+            rb = thing.GetComponent<Rigidbody>();
+            it = thing.transform.parent.gameObject.GetComponent<item>();
+            if (it != null && rb != null)
+            {
+                inventory.Add(thing.transform.parent.gameObject);
+            }
     }
     private void OnTriggerExit(Collider other)
     {
         GameObject thing = other.transform.gameObject;
-        rb = thing.GetComponent<Rigidbody>();
         it = thing.transform.parent.gameObject.GetComponent<item>();
-        if (it != null && rb != null)
+        if (it.handAttached == true) 
         {
-            inventory.Remove(thing.transform.parent.gameObject);
+            rb = thing.GetComponent<Rigidbody>();
+            if (it != null && rb != null)
+            {
+                inventory.Remove(thing.transform.parent.gameObject);
+                thing.transform.parent.gameObject.GetComponent<item>().bag = null;
+            }
         }
     }
+
 }
