@@ -21,6 +21,7 @@ public class followObject : MonoBehaviour
     {
         //Updates camera position to be position of the player plus the initial offset.
         transform.position = followee.transform.position + offset;
+        //transform.rotation = new Quaternion(transform.rotation.x, followee.transform.rotation.y + offset.y, transform.rotation.z, transform.rotation.w);
     }
 
 }

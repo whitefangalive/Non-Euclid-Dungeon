@@ -1431,7 +1431,7 @@ PrefabInstance:
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -1461,7 +1461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[4]
       value: 
-      objectReference: {fileID: 8277455420034929921, guid: 08f679d74e94a89468dbf43d3b95e8ad,
+      objectReference: {fileID: 8277455420034929921, guid: f421459b5bb0d6548b4eb2ca8c1603dc,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2048,7 +2048,7 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 8277455420034929921, guid: c7f5bba8fcc38ba4297f27b0e2c44a60,
+      objectReference: {fileID: 8277455420034929921, guid: f421459b5bb0d6548b4eb2ca8c1603dc,
         type: 3}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -2212,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -2242,7 +2242,7 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[4]
       value: 
-      objectReference: {fileID: 8277455420034929921, guid: 08f679d74e94a89468dbf43d3b95e8ad,
+      objectReference: {fileID: 8277455420034929921, guid: f421459b5bb0d6548b4eb2ca8c1603dc,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2339,13 +2339,13 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 8277455420034929921, guid: c7f5bba8fcc38ba4297f27b0e2c44a60,
+      objectReference: {fileID: 8277455420034929921, guid: f421459b5bb0d6548b4eb2ca8c1603dc,
         type: 3}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.data[3]
       value: 
-      objectReference: {fileID: 8277455420034929921, guid: c7f5bba8fcc38ba4297f27b0e2c44a60,
+      objectReference: {fileID: 8277455420034929921, guid: f421459b5bb0d6548b4eb2ca8c1603dc,
         type: 3}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}

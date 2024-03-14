@@ -17,5 +17,6 @@ public class changeGravity : MonoBehaviour
     public void GravityOn() 
     {
         rb.useGravity = true;
+        Debug.Log(rb.transform.gameObject.name);
     }
 }

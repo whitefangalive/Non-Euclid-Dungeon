@@ -239,7 +239,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3827246199134948732}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 56
+  attachmentFlags: 20
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -356,10 +356,34 @@ MonoBehaviour:
   restoreOriginalParent: 1
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3959061846820914597}
+        m_TargetAssemblyTypeName: item, Assembly-CSharp
+        m_MethodName: attached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3959061846820914597}
+        m_TargetAssemblyTypeName: item, Assembly-CSharp
+        m_MethodName: unattached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7211129498821000339}
         m_TargetAssemblyTypeName: changeGravity, Assembly-CSharp
         m_MethodName: GravityOn
@@ -5256,7 +5280,6 @@ GameObject:
   - component: {fileID: 2319864255614170963}
   - component: {fileID: 6537600821008500548}
   - component: {fileID: 3959061846820914597}
-  - component: {fileID: 2237824966227994898}
   m_Layer: 0
   m_Name: torch
   m_TagString: Untagged
@@ -5314,16 +5337,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
---- !u!114 &2237824966227994898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8277455420034929921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c82e9e789c2354da1d10a73e92991f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bag: {fileID: 0}
+  handAttached: 0
+  value: 5

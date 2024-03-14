@@ -19,21 +19,10 @@ public class BagScript : MonoBehaviour
     {
         foreach (GameObject thing in inventory) 
         {
-            if (thing.transform.parent == null)
+            if (thing.GetComponent<item>().bag != gameObject) 
             {
-                if (thing.GetComponent<item>().bag != gameObject) 
-                {
-                    thing.GetComponent<item>().bag = gameObject;
-                }
+                thing.GetComponent<item>().bag = gameObject;
             }
-            else 
-            {
-                if (thing.GetComponent<item>().bag != null) 
-                {
-                    thing.GetComponent<item>().bag = null;
-                }
-            }
-            
         }
     }
     private void OnTriggerEnter(Collider other)

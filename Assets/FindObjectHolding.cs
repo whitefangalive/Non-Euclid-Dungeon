@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class FindObjectHolding : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool pickUp;
+    public bool detach;
+    public bool holding;
 
-    // Update is called once per frame
-    void Update()
+    public void hold() 
     {
-        
+        holding = true;
     }
+    
 }

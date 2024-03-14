@@ -9,9 +9,11 @@ public class item : MonoBehaviour
     private Quaternion offsetRot;
     private Rigidbody rb;
     private bool once = true;
+    private bool once2 = true;
     private bool originalUseGrav;
     private new Collider collider;
     public bool handAttached;
+    public int value = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class item : MonoBehaviour
     {
         if (bag != null)
         {
+            once2 = true;
             if (once)
             {
                 offsetPos = transform.position - bag.transform.position;
@@ -43,14 +46,21 @@ public class item : MonoBehaviour
         else 
         {
             once = true;
-            rb.useGravity = originalUseGrav;
-            collider.excludeLayers = 0;
+            if (once2)
+            {
+                once2 = false;
+                
+                rb.useGravity = originalUseGrav;
+                collider.excludeLayers = 0;
+            }
+
         }
     }
 
     public void attached()
     {
         handAttached = true;
+        gameObject.transform.parent = null;
     }
     public void unattached()
     {
