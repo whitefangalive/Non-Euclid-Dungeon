@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 182075670451601587}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.507, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
-  m_Mesh: {fileID: 4300010, guid: 35bf13fffe3e1b54b9be7cf6d9808f97, type: 3}
+  m_Mesh: {fileID: 6121590469811200223, guid: cc72ec885bf48624c9a244e6653ff914, type: 3}
 --- !u!23 &5363879018942492699
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ceb48f72b3325c74e95838fb760d0ab0, type: 2}
+  - {fileID: 2100000, guid: f0401fcbb106868479ee884528ba5f44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,9 +96,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.05
+  m_Drag: 0.01
+  m_AngularDrag: 0.01
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -267,7 +267,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
-  m_Material: {fileID: 13400000, guid: 62fff496745433840a3e13b09ec26332, type: 2}
+  m_Material: {fileID: 13400000, guid: 17d18e1be9ee8104e8a17771e21ed1a3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -281,7 +281,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: 35bf13fffe3e1b54b9be7cf6d9808f97, type: 3}
+  m_Mesh: {fileID: 6121590469811200223, guid: cc72ec885bf48624c9a244e6653ff914, type: 3}
 --- !u!1 &8934170708909775145
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 4228770271950752920}
   - component: {fileID: 7710302234394747808}
   m_Layer: 0
-  m_Name: Item
+  m_Name: KleinBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,8 +309,8 @@ Transform:
   m_GameObject: {fileID: 8934170708909775145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 3.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309969000715047571}
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
   handAttached: 0
-  value: 10000
+  value: 42000
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -350,5 +350,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.089647904, y: 0.0988736, z: 0.25090176}
-  m_Center: {x: -0.02609645, y: 0.53, z: 0.10169512}
+  m_Size: {x: 0.03161045, y: 0.0238938, z: 0.042084277}
+  m_Center: {x: 0.0038450137, y: 4.656613e-10, z: 0.02159074}
