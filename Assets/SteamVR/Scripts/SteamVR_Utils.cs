@@ -460,8 +460,8 @@ public static class SteamVR_Utils
 
 		public void Interpolate(RigidTransform to, float t)
 		{
-			pos = SteamVR_Utils.Lerp(pos, to.pos, t);
-			rot = SteamVR_Utils.Slerp(rot, to.rot, t);
+			pos = Lerp(pos, to.pos, t);
+			rot = Slerp(rot, to.rot, t);
 		}
 	}
 
@@ -672,11 +672,11 @@ public static class SteamVR_Utils
 
 		// Preview
 		previewTexture.Apply();
-		System.IO.File.WriteAllBytes(previewFilename, previewTexture.EncodeToPNG());
+        File.WriteAllBytes(previewFilename, previewTexture.EncodeToPNG());
 
 		// VR
 		texture.Apply();
-		System.IO.File.WriteAllBytes(VRFilename, texture.EncodeToPNG());
+        File.WriteAllBytes(VRFilename, texture.EncodeToPNG());
 
 		// Cleanup.
 		if (camera != tempCamera)

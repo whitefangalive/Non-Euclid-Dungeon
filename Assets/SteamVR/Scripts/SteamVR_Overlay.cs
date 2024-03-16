@@ -48,7 +48,7 @@ namespace Valve.VR
                 }
             }
 
-            SteamVR_Overlay.instance = this;
+            instance = this;
         }
 
         void OnDisable()
@@ -64,7 +64,7 @@ namespace Valve.VR
                 handle = OpenVR.k_ulOverlayHandleInvalid;
             }
 
-            SteamVR_Overlay.instance = null;
+            instance = null;
         }
 
         public void UpdateOverlay()

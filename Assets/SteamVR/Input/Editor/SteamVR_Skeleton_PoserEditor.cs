@@ -109,7 +109,7 @@ namespace Valve.VR
                         return;
                     }
 
-                    preview = GameObject.Instantiate<GameObject>(previewPrefab);
+                    preview = Instantiate(previewPrefab);
                     preview.transform.localScale = Vector3.one * poserScale.floatValue;
                     preview.transform.parent = poser.transform;
                     preview.transform.localPosition = Vector3.zero;
@@ -590,7 +590,7 @@ namespace Valve.VR
 
                             if (string.IsNullOrEmpty(fullPath) == false)
                             {
-                                SteamVR_Skeleton_Pose newPose = ScriptableObject.CreateInstance<SteamVR_Skeleton_Pose>();
+                                SteamVR_Skeleton_Pose newPose = CreateInstance<SteamVR_Skeleton_Pose>();
                                 AssetDatabase.CreateAsset(newPose, fullPath);
                                 AssetDatabase.SaveAssets();
 

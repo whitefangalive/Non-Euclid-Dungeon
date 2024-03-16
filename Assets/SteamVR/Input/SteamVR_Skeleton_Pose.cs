@@ -126,7 +126,7 @@ namespace Valve.VR
             get
             {
                 if (_enumList == null)
-                    _enumList = (SteamVR_Skeleton_FingerExtensionTypes[])System.Enum.GetValues(typeof(SteamVR_Skeleton_FingerExtensionTypes));
+                    _enumList = (SteamVR_Skeleton_FingerExtensionTypes[])Enum.GetValues(typeof(SteamVR_Skeleton_FingerExtensionTypes));
                 return _enumList;
             }
         }

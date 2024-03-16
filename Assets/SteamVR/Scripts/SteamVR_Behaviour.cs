@@ -53,11 +53,11 @@ namespace Valve.VR
                 if (forceUnityVRToOpenVR)
                     forcingInitialization = true;
 
-                SteamVR_Render renderInstance = GameObject.FindObjectOfType<SteamVR_Render>();
+                SteamVR_Render renderInstance = FindObjectOfType<SteamVR_Render>();
                 if (renderInstance != null)
                     steamVRObject = renderInstance.gameObject;
 
-                SteamVR_Behaviour behaviourInstance = GameObject.FindObjectOfType<SteamVR_Behaviour>();
+                SteamVR_Behaviour behaviourInstance = FindObjectOfType<SteamVR_Behaviour>();
                 if (behaviourInstance != null)
                     steamVRObject = behaviourInstance.gameObject;
 
@@ -86,7 +86,7 @@ namespace Valve.VR
                 }
 
                 if (_instance != null && _instance.doNotDestroy)
-                    GameObject.DontDestroyOnLoad(_instance.transform.root.gameObject);
+                    DontDestroyOnLoad(_instance.transform.root.gameObject);
 
                 initializing = false;
             }

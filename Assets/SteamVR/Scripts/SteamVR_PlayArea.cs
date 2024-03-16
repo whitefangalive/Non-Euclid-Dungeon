@@ -167,8 +167,8 @@ namespace Valve.VR
 
             var renderer = GetComponent<MeshRenderer>();
             renderer.material = new Material(Shader.Find("Sprites/Default"));
-            renderer.reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off;
-            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.reflectionProbeUsage = ReflectionProbeUsage.Off;
+            renderer.shadowCastingMode = ShadowCastingMode.Off;
             renderer.receiveShadows = false;
             renderer.lightProbeUsage = LightProbeUsage.Off;
         }

@@ -29,7 +29,7 @@ namespace Valve.VR.Extras
                     toDisable.SetActive(false);
             }
 
-            GameObject.Instantiate(vrCameraPrefab);
+            Instantiate(vrCameraPrefab);
         }
     }
 }

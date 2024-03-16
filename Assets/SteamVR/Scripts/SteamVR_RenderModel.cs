@@ -783,7 +783,7 @@ namespace Valve.VR
                         nameCache.Add(childInstanceID, componentName);
                     }
 
-                    if (childName == SteamVR_RenderModel.k_localTransformName)
+                    if (childName == k_localTransformName)
                         attach = childChild;
                 }
 

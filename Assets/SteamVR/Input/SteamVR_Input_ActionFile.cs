@@ -190,7 +190,7 @@ namespace Valve.VR
         {
             if (File.Exists(newFilePath))
             {
-                string jsonText = System.IO.File.ReadAllText(newFilePath);
+                string jsonText = File.ReadAllText(newFilePath);
 
                 string findString = "\"app_key\"";
                 int stringStart = jsonText.IndexOf(findString);
@@ -221,7 +221,7 @@ namespace Valve.VR
             {
                 string jsonText = File.ReadAllText(path);
 
-                SteamVR_Input_ActionFile actionFile = Valve.Newtonsoft.Json.JsonConvert.DeserializeObject<SteamVR_Input_ActionFile>(jsonText);
+                SteamVR_Input_ActionFile actionFile = JsonConvert.DeserializeObject<SteamVR_Input_ActionFile>(jsonText);
                 actionFile.filePath = path;
                 actionFile.InitializeHelperLists();
 

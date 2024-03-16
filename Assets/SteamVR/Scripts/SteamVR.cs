@@ -389,10 +389,10 @@ namespace Valve.VR
             bool temporarySession = InitializeTemporarySession(false);
 
 
-            Valve.VR.EVRSettingsError bindingFlagError = Valve.VR.EVRSettingsError.None;
-            Valve.VR.OpenVR.Settings.SetBool(Valve.VR.OpenVR.k_pch_SteamVR_Section, Valve.VR.OpenVR.k_pch_SteamVR_DebugInputBinding, true, ref bindingFlagError);
+            Valve.VR.EVRSettingsError bindingFlagError = EVRSettingsError.None;
+            OpenVR.Settings.SetBool(OpenVR.k_pch_SteamVR_Section, OpenVR.k_pch_SteamVR_DebugInputBinding, true, ref bindingFlagError);
 
-            if (bindingFlagError != Valve.VR.EVRSettingsError.None)
+            if (bindingFlagError != EVRSettingsError.None)
                 Debug.LogError("<b>[SteamVR]</b> Error turning on the debug input binding flag in steamvr: " + bindingFlagError.ToString());
 
             if (Application.isPlaying == false)
@@ -506,7 +506,7 @@ namespace Valve.VR
             if (File.Exists(fullPath))
             {
                 string jsonText = File.ReadAllText(fullPath);
-                SteamVR_Input_ManifestFile existingFile = Valve.Newtonsoft.Json.JsonConvert.DeserializeObject<SteamVR_Input_ManifestFile>(jsonText);
+                SteamVR_Input_ManifestFile existingFile = Newtonsoft.Json.JsonConvert.DeserializeObject<SteamVR_Input_ManifestFile>(jsonText);
 
                 if (existingFile != null && existingFile.applications != null && existingFile.applications.Count > 0 &&
                     existingFile.applications[0].app_key != SteamVR_Settings.instance.editorAppKey)
@@ -577,8 +577,8 @@ namespace Valve.VR
                 manifestFile.applications = new System.Collections.Generic.List<SteamVR_Input_ManifestFile_Application>();
                 manifestFile.applications.Add(manifestApplication);
 
-                string json = Valve.Newtonsoft.Json.JsonConvert.SerializeObject(manifestFile, Valve.Newtonsoft.Json.Formatting.Indented,
-                    new Valve.Newtonsoft.Json.JsonSerializerSettings { NullValueHandling = Valve.Newtonsoft.Json.NullValueHandling.Ignore });
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(manifestFile, Newtonsoft.Json.Formatting.Indented,
+                    new Valve.Newtonsoft.Json.JsonSerializerSettings { NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore });
 
                 File.WriteAllText(fullPath, json);
             }

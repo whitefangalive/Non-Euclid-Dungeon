@@ -75,7 +75,7 @@ namespace Valve.VR.InteractionSystem
 
 					Debug.LogFormat("<b>[SteamVR Interaction]</b> ChaperoneInfo initialized. {2} play area {0:0.00}m x {1:0.00}m", px, pz, roomscale ? "Roomscale" : "Standing" );
 
-					ChaperoneInfo.Initialized.Send();
+                    Initialized.Send();
 
 					yield break;
 				}

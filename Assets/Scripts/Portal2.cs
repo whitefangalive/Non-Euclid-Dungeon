@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class Portal2 : MonoBehaviour
 {
     public GameObject Destination;
     [HideInInspector]
@@ -23,7 +23,7 @@ public class Portal : MonoBehaviour
     {
         if (other.transform.name == "HeadCollider" && AbleToTeleport) 
         {
-            Destination.GetComponent<Portal>().AbleToTeleport = false;
+            Destination.GetComponent<Portal2>().AbleToTeleport = false;
 
             Transform player = other.transform.parent.parent;
             if (other.transform.parent.parent.name == "FallbackObjects") 

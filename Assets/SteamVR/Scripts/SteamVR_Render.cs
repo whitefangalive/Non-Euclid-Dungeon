@@ -294,9 +294,9 @@ namespace Valve.VR
                 // Do the stereo panorama screenshot
                 // Figure out where the view is
                 GameObject screenshotPosition = new GameObject("screenshotPosition");
-                screenshotPosition.transform.position = SteamVR_Render.Top().transform.position;
-                screenshotPosition.transform.rotation = SteamVR_Render.Top().transform.rotation;
-                screenshotPosition.transform.localScale = SteamVR_Render.Top().transform.lossyScale;
+                screenshotPosition.transform.position = Top().transform.position;
+                screenshotPosition.transform.rotation = Top().transform.rotation;
+                screenshotPosition.transform.localScale = Top().transform.lossyScale;
                 SteamVR_Utils.TakeStereoScreenshot(screenshotHandle, screenshotPosition, 32, 0.064f, ref previewFilename, ref VRFilename);
 
                 // and submit it

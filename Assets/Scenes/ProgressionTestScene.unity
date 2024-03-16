@@ -184,6 +184,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_ClearFlags
       value: 2
       objectReference: {fileID: 0}
@@ -1263,8 +1267,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.3944951, z: 0.4830284}
-  m_Center: {x: 0, y: 0.3024419, z: 0.065543175}
+  m_Size: {x: 0.5, y: 0.9998895, z: 0.4830284}
+  m_Center: {x: 0, y: 0.36115438, z: 0.065543175}
 --- !u!1 &1968147604
 GameObject:
   m_ObjectHideFlags: 0

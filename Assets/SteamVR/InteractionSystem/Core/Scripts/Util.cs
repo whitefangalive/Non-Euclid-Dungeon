@@ -594,7 +594,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		public static bool HasCommandLineArgument( string argumentName )
 		{
-			string[] args = System.Environment.GetCommandLineArgs();
+			string[] args = Environment.GetCommandLineArgs();
 			for ( int i = 0; i < args.Length; i++ )
 			{
 				if ( args[i].Equals( argumentName ) )
@@ -610,7 +610,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		public static int GetCommandLineArgValue( string argumentName, int nDefaultValue )
 		{
-			string[] args = System.Environment.GetCommandLineArgs();
+			string[] args = Environment.GetCommandLineArgs();
 			for ( int i = 0; i < args.Length; i++ )
 			{
 				if ( args[i].Equals( argumentName ) )
@@ -631,7 +631,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		public static float GetCommandLineArgValue( string argumentName, float flDefaultValue )
 		{
-			string[] args = System.Environment.GetCommandLineArgs();
+			string[] args = Environment.GetCommandLineArgs();
 			for ( int i = 0; i < args.Length; i++ )
 			{
 				if ( args[i].Equals( argumentName ) )

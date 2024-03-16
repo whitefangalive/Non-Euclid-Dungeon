@@ -65,7 +65,7 @@ namespace Valve.VR.InteractionSystem.Sample
                 plantPosition.y = Player.instance.transform.position.y;
             }
 
-            GameObject planting = GameObject.Instantiate<GameObject>(prefabToPlant);
+            GameObject planting = Instantiate(prefabToPlant);
             planting.transform.position = plantPosition;
             planting.transform.rotation = Quaternion.Euler(0, Random.value * 360f, 0);
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7180524555820380800}
   - component: {fileID: 976223435787126623}
   - component: {fileID: 3909050448655431769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Phsyics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 62fff496745433840a3e13b09ec26332, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

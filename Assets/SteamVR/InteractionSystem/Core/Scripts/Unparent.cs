@@ -27,7 +27,7 @@ namespace Valve.VR.InteractionSystem
 		void Update()
 		{
 			if ( oldParent == null )
-				Object.Destroy( gameObject );
+                Destroy( gameObject );
 		}
 
 

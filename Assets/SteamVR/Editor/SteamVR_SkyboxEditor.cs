@@ -99,7 +99,7 @@ namespace Valve.VR
                         RenderTexture.active = null;
 
                         var assetName = string.Format(nameFormat, assetPath, target.name, i);
-                        System.IO.File.WriteAllBytes(assetName, texture.EncodeToPNG());
+                        File.WriteAllBytes(assetName, texture.EncodeToPNG());
                     }
 
                     if (camera != tempCamera)
@@ -111,7 +111,7 @@ namespace Valve.VR
 
                 if (tempCamera != null)
                 {
-                    Object.DestroyImmediate(tempCamera.gameObject);
+                    DestroyImmediate(tempCamera.gameObject);
                 }
 
                 // Now that everything has be written out, reload the associated assets and assign them.

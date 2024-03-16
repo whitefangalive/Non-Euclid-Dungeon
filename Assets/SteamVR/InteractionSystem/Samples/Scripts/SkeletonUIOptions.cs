@@ -16,7 +16,7 @@ namespace Valve.VR.InteractionSystem.Sample
                 Hand hand = Player.instance.hands[handIndex];
                 if (hand != null)
                 {
-                    hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithController);
+                    hand.SetSkeletonRangeOfMotion(EVRSkeletalMotionRange.WithController);
                 }
             }
         }
@@ -28,7 +28,7 @@ namespace Valve.VR.InteractionSystem.Sample
                 Hand hand = Player.instance.hands[handIndex];
                 if (hand != null)
                 {
-                    hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithoutController);
+                    hand.SetSkeletonRangeOfMotion(EVRSkeletalMotionRange.WithoutController);
                 }
             }
         }

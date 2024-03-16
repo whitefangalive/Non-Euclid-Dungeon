@@ -1381,9 +1381,9 @@ namespace Valve.VR
                 else
                 {
                     int numActions = 0;
-                    if (SteamVR_Input.actions != null)
+                    if (actions != null)
                     {
-                        numActions = SteamVR_Input.actions.Length;
+                        numActions = actions.Length;
 
                         if (showLogs)
                             Debug.Log(string.Format("<b>[SteamVR]</b> Successfully loaded {0} actions from action manifest into SteamVR ({1})", numActions, fullPath));
@@ -1413,7 +1413,7 @@ namespace Valve.VR
 
             if (File.Exists(fullPath))
             {
-                jsonText = System.IO.File.ReadAllText(fullPath);
+                jsonText = File.ReadAllText(fullPath);
             }
             else
             {
@@ -1422,7 +1422,7 @@ namespace Valve.VR
 
             string newHashFromFile = SteamVR_Utils.GetBadMD5Hash(jsonText);
 
-            string newJSON = JsonConvert.SerializeObject(SteamVR_Input.actionFile, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            string newJSON = JsonConvert.SerializeObject(actionFile, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
             string newHashFromMemory = SteamVR_Utils.GetBadMD5Hash(newJSON);
 
@@ -1475,7 +1475,7 @@ namespace Valve.VR
 
             if (actionsFileExists)
             {
-                jsonText = System.IO.File.ReadAllText(actionsFilePath);
+                jsonText = File.ReadAllText(actionsFilePath);
             }
             else
             {
@@ -1617,7 +1617,7 @@ namespace Valve.VR
         public static bool IsOpeningSetup() { return openingSetup; }
         private static void CheckSetup()
         {
-            if (checkingSetup == false && openingSetup == false && (SteamVR_Input.actions == null || SteamVR_Input.actions.Length == 0))
+            if (checkingSetup == false && openingSetup == false && (actions == null || actions.Length == 0))
             {
                 checkingSetup = true;
                 Debug.Break();

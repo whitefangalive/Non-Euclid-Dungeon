@@ -13,7 +13,7 @@ namespace Valve.VR
 {
     public static class SteamVR_Input_Source
     {
-        public static int numSources = System.Enum.GetValues(typeof(SteamVR_Input_Sources)).Length;
+        public static int numSources = Enum.GetValues(typeof(SteamVR_Input_Sources)).Length;
 
         private static ulong[] inputSourceHandlesBySource;
         private static Dictionary<ulong, SteamVR_Input_Sources> inputSourceSourcesByHandle = new Dictionary<ulong, SteamVR_Input_Sources>();
@@ -42,7 +42,7 @@ namespace Valve.VR
         public static SteamVR_Input_Sources[] GetAllSources()
         {
             if (allSources == null)
-                allSources = (SteamVR_Input_Sources[])System.Enum.GetValues(typeof(SteamVR_Input_Sources));
+                allSources = (SteamVR_Input_Sources[])Enum.GetValues(typeof(SteamVR_Input_Sources));
 
             return allSources;
         }
@@ -55,7 +55,7 @@ namespace Valve.VR
         public static void Initialize()
         {
             List<SteamVR_Input_Sources> allSourcesList = new List<SteamVR_Input_Sources>();
-            string[] enumNames = System.Enum.GetNames(enumType);
+            string[] enumNames = Enum.GetNames(enumType);
             inputSourceHandlesBySource = new ulong[enumNames.Length];
             inputSourceSourcesByHandle = new Dictionary<ulong, SteamVR_Input_Sources>();
 

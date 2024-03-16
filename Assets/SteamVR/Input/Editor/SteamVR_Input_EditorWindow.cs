@@ -287,7 +287,7 @@ namespace Valve.VR
 
         private bool CopyOrClose()
         {
-            bool copyExamples = UnityEditor.EditorUtility.DisplayDialog("Copy Examples", "It looks like your project is missing an actions.json. Would you like to use the example files?", "Yes", "No");
+            bool copyExamples = EditorUtility.DisplayDialog("Copy Examples", "It looks like your project is missing an actions.json. Would you like to use the example files?", "Yes", "No");
             if (copyExamples)
             {
                 SteamVR_CopyExampleInputFiles.CopyFiles(true);

@@ -104,7 +104,7 @@ namespace Valve.VR
 
                 if (_instance == null)
                 {
-                    _instance = SteamVR_Settings.CreateInstance<SteamVR_Settings>();
+                    _instance = CreateInstance<SteamVR_Settings>();
 
 #if UNITY_EDITOR
                     string localFolderPath = SteamVR.GetSteamVRResourcesFolderPath(true);

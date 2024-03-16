@@ -18,7 +18,7 @@ namespace Valve.VR
         {
             if (File.Exists(newFilePath))
             {
-                string jsonText = System.IO.File.ReadAllText(newFilePath);
+                string jsonText = File.ReadAllText(newFilePath);
 
                 string findString = "\"app_key\" : \"";
                 int stringStart = jsonText.IndexOf(findString);

@@ -70,7 +70,7 @@ namespace Valve.VR
             {
                 EditorPrefs.SetBool(generationNeedsReloadKey, false);
 
-                if (string.IsNullOrEmpty(EditorSceneManager.GetActiveScene().path) == false)
+                if (string.IsNullOrEmpty(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path) == false)
                     EditorApplication.delayCall += ReloadScene;
             }
         }
@@ -80,14 +80,14 @@ namespace Valve.VR
         {
             EditorPrefs.SetBool(generationNeedsReloadKey, false);
 
-            if (string.IsNullOrEmpty(EditorSceneManager.GetActiveScene().path) == false)
+            if (string.IsNullOrEmpty(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path) == false)
             {
-                if (EditorSceneManager.GetActiveScene().isDirty)
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)
                 {
                     EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
                 }
 
-                string previousPath = EditorSceneManager.GetActiveScene().path;
+                string previousPath = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
                 EditorSceneManager.OpenScene(previousPath); //reload open scene to avoid any weird serialization
             }

@@ -1638,7 +1638,7 @@ namespace Valve.VR.InteractionSystem
 
             renderModels.Clear();
 
-            GameObject renderModelInstance = GameObject.Instantiate(renderModelPrefab);
+            GameObject renderModelInstance = Instantiate(renderModelPrefab);
             renderModelInstance.layer = gameObject.layer;
             renderModelInstance.tag = gameObject.tag;
             renderModelInstance.transform.parent = this.transform;

@@ -131,7 +131,7 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( _instance == null )
 				{
-					_instance = GameObject.FindObjectOfType<Teleport>();
+					_instance = FindObjectOfType<Teleport>();
 				}
 
 				return _instance;
@@ -173,7 +173,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		void Start()
         {
-            teleportMarkers = GameObject.FindObjectsOfType<TeleportMarkerBase>();
+            teleportMarkers = FindObjectsOfType<TeleportMarkerBase>();
 
 			HidePointer();
 
@@ -839,7 +839,7 @@ namespace Valve.VR.InteractionSystem
 			if ( teleportPoint != null && teleportPoint.teleportType == TeleportPoint.TeleportPointType.SwitchToNewScene )
 			{
 				currentFadeTime *= 3.0f;
-				Teleport.ChangeScene.Send( currentFadeTime );
+                ChangeScene.Send( currentFadeTime );
 			}
 
 			SteamVR_Fade.Start( Color.clear, 0 );
@@ -858,7 +858,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			teleporting = false;
 
-			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
+            PlayerPre.Send( pointedAtTeleportMarker );
 
 			SteamVR_Fade.Start( Color.clear, currentFadeTime );
 
@@ -906,7 +906,7 @@ namespace Valve.VR.InteractionSystem
 				teleportingToMarker.TeleportPlayer( pointedAtPosition );
 			}
 
-			Teleport.Player.Send( pointedAtTeleportMarker );
+            Player.Send( pointedAtTeleportMarker );
 		}
 
 

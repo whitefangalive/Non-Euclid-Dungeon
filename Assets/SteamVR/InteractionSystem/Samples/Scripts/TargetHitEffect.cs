@@ -43,7 +43,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
                         color *= 15f;
 
-                        GameObject spawned = GameObject.Instantiate(spawnObjectOnCollision);
+                        GameObject spawned = Instantiate(spawnObjectOnCollision);
                         spawned.transform.position = contact.point;
                         spawned.transform.forward = ray.direction;
 

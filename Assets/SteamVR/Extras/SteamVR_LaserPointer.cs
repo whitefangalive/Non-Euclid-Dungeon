@@ -62,7 +62,7 @@ namespace Valve.VR.Extras
             {
                 if (collider)
                 {
-                    Object.Destroy(collider);
+                    Destroy(collider);
                 }
             }
             Material newMaterial = new Material(Shader.Find("Unlit/Color"));

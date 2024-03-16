@@ -21,7 +21,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
         private IEnumerator DoPlant()
         {
-            GameObject planting = GameObject.Instantiate<GameObject>(prefab);
+            GameObject planting = Instantiate(prefab);
             planting.transform.position = this.transform.position;
             planting.transform.rotation = Quaternion.Euler(0, Random.value * 360f, 0);
 

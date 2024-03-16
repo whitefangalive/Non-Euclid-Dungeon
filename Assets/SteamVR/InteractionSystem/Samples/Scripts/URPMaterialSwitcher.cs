@@ -25,10 +25,10 @@ public class URPMaterialSwitcher : MonoBehaviour
 
 		if (renderer.sharedMaterial.name.StartsWith("URP") == false)
 		{
-			string[] mats = UnityEditor.AssetDatabase.FindAssets(string.Format(searchTemplate, renderer.sharedMaterial.name));
+			string[] mats = AssetDatabase.FindAssets(string.Format(searchTemplate, renderer.sharedMaterial.name));
 			if (mats.Length > 0)
 			{
-				string path = UnityEditor.AssetDatabase.GUIDToAssetPath(mats[0]);
+				string path = AssetDatabase.GUIDToAssetPath(mats[0]);
 
 				if (PrefabUtility.IsPartOfPrefabInstance(this))
 				{
@@ -67,11 +67,11 @@ public class URPMaterialSwitcher : MonoBehaviour
 	{ 
 		if (renderer != null && renderer.sharedMaterial.name.StartsWith("URP") == false)
 		{
-			string[] foundMaterials = UnityEditor.AssetDatabase.FindAssets(string.Format(searchTemplate, renderer.sharedMaterial.name));
+			string[] foundMaterials = AssetDatabase.FindAssets(string.Format(searchTemplate, renderer.sharedMaterial.name));
 			if (foundMaterials.Length > 0)
 			{
-				string urpMaterialPath = UnityEditor.AssetDatabase.GUIDToAssetPath(foundMaterials[0]);
-				Material urpMaterial = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(urpMaterialPath);
+				string urpMaterialPath = AssetDatabase.GUIDToAssetPath(foundMaterials[0]);
+				Material urpMaterial = AssetDatabase.LoadAssetAtPath<Material>(urpMaterialPath);
 
 				SerializedObject serializedRenderer = new SerializedObject(renderer);
 				serializedRenderer.Update();

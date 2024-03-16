@@ -24,7 +24,7 @@ namespace Valve.VR.Extras
         {
             if (joint == null && spawn.GetStateDown(trackedObj.inputSource))
             {
-                GameObject go = GameObject.Instantiate(prefab);
+                GameObject go = Instantiate(prefab);
                 go.transform.position = attachPoint.transform.position;
 
                 joint = go.AddComponent<FixedJoint>();
@@ -34,9 +34,9 @@ namespace Valve.VR.Extras
             {
                 GameObject go = joint.gameObject;
                 Rigidbody rigidbody = go.GetComponent<Rigidbody>();
-                Object.DestroyImmediate(joint);
+                DestroyImmediate(joint);
                 joint = null;
-                Object.Destroy(go, 15.0f);
+                Destroy(go, 15.0f);
 
                 // We should probably apply the offset between trackedObj.transform.position
                 // and device.transform.pos to insert into the physics sim at the correct

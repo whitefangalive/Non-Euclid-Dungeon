@@ -212,7 +212,7 @@ namespace Valve.VR
         {
             addingPackageTime.Stop();
             addingPackageTimeTotal.Stop();
-            UnityEditor.EditorUtility.ClearProgressBar();
+            EditorUtility.ClearProgressBar();
             EditorApplication.update -= Update;
         }
 
@@ -243,9 +243,9 @@ namespace Valve.VR
 
             if (EditorPrefs.HasKey(enabledLoaderKey) == false)
             {
-                if (UnityEditor.PlayerSettings.virtualRealitySupported == true)
+                if (PlayerSettings.virtualRealitySupported == true)
                 {
-                    UnityEditor.PlayerSettings.virtualRealitySupported = false;
+                    PlayerSettings.virtualRealitySupported = false;
                     Debug.Log("<b>[SteamVR Setup]</b> Disabled virtual reality support in Player Settings. <b>Because you're using XR Manager. Make sure OpenVR Loader is enabled in XR Manager UI.</b> (you can disable this by unchecking Assets/SteamVR/SteamVR_Settings.autoEnableVR)");
                 }
 

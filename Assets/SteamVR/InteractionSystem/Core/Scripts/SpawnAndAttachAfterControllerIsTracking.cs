@@ -31,7 +31,7 @@ namespace Valve.VR.InteractionSystem
 			{
                 if (hand.isActive && hand.isPoseValid)
                 {
-                    GameObject objectToAttach = GameObject.Instantiate(itemPrefab);
+                    GameObject objectToAttach = Instantiate(itemPrefab);
                     objectToAttach.SetActive(true);
                     hand.AttachObject(objectToAttach, GrabTypes.Scripted);
                     hand.TriggerHapticPulse(800);
