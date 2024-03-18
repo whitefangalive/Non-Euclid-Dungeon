@@ -1,13 +1,13 @@
 ﻿Shader "Portals/PortalMask"
 {
-    Properties
-    {
+	Properties
+	{
 		_MainTex("Main Texture", 2D) = "white" {}
-    }
-    SubShader
-    {
-		Tags 
-		{ 
+	}
+		SubShader
+	{
+		Tags
+		{
 			"RenderType" = "Opaque"
 			"Queue" = "Geometry"
 			"RenderPipeline" = "UniversalPipeline"
@@ -17,8 +17,8 @@
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 		ENDHLSL
 
-        Pass
-        {
+		Pass
+		{
 			Name "Mask"
 
 			Stencil
@@ -34,17 +34,25 @@
 				struct appdata
 				{
 					float4 vertex : POSITION;
+
+					UNITY_VERTEX_INPUT_INSTANCE_ID //Insert
 				};
 
 				struct v2f
 				{
 					float4 vertex : SV_POSITION;
 					float4 screenPos : TEXCOORD0;
+
+					UNITY_VERTEX_OUTPUT_STEREO //Insert
 				};
 
 				v2f vert(appdata v)
 				{
 					v2f o;
+
+					UNITY_SETUP_INSTANCE_ID(v); //Insert
+					UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o); //Insert
+
 					o.vertex = TransformObjectToHClip(v.vertex.xyz);
 					o.screenPos = ComputeScreenPos(o.vertex);
 					return o;
@@ -59,6 +67,6 @@
 					return col;
 				}
 			ENDHLSL
-        }
-    }
+		}
+	}
 }

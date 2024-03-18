@@ -201,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3410774023574625294
 Transform:
   m_ObjectHideFlags: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3200850864615191674}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 620adbcab654c6e49b8f37c1a70dcd6f, type: 3}
   m_Name: 
@@ -541,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2464868112138821284
 Transform:
   m_ObjectHideFlags: 0
@@ -640,6 +640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PortalCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584312024902859614, guid: 5094d0224c2d88947b6f097d414cb11d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067494711385370104, guid: 5094d0224c2d88947b6f097d414cb11d,
         type: 3}
