@@ -1426,6 +1426,11 @@ PrefabInstance:
       propertyPath: testStatus.Array.data[3]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8180545440479842082, guid: b5b45062d6c305d4ca9f3975239bc73f,
+        type: 3}
+      propertyPath: testStatus.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8243964898305255866, guid: b5b45062d6c305d4ca9f3975239bc73f,
         type: 3}
       propertyPath: m_LocalPosition.x
