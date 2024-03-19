@@ -2,7 +2,8 @@
 {
 	Properties
 	{
-		_MainTex("Main Texture", 2D) = "white" {}
+		_LeftEyeTexture("Left Eye Texture", 2D) = "white" {}
+		_RightEyeTexture("Right Eye Texture", 2D) = "white" {}
 	}
 		SubShader
 	{
@@ -31,6 +32,11 @@
 				#pragma vertex vert
 				#pragma fragment frag
 
+				#pragma multi_compile __ STEREO_RENDER
+				#pragma target 3.0
+
+				sampler2D _LeftEyeTexture;
+				sampler2D _RightEyeTexture;
 				struct appdata
 				{
 					float4 vertex : POSITION;
@@ -51,6 +57,7 @@
 					v2f o;
 
 					UNITY_SETUP_INSTANCE_ID(v); //Insert
+					ZERO_INITIALIZE(v2f, o);
 					UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o); //Insert
 
 					o.vertex = TransformObjectToHClip(v.vertex.xyz);
@@ -60,11 +67,17 @@
 
 				uniform sampler2D _MainTex;
 
+
 				float4 frag(v2f i) : SV_Target
 				{
+					UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i); //Insert
 					float2 uv = i.screenPos.xy / i.screenPos.w;
-					float4 col = tex2D(_MainTex, uv);
-					return col;
+					float4 color;
+					if (unity_StereoEyeIndex == 0)
+						color = tex2D(_LeftEyeTexture, uv);
+					else
+						color = tex2D(_RightEyeTexture, uv);
+					return color;
 				}
 			ENDHLSL
 		}
