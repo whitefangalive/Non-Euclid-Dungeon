@@ -21,7 +21,6 @@ public class moveToHand : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.transform.name);
         if (other.transform.name == "Sphere (2)")
         {
             handReaching = true;

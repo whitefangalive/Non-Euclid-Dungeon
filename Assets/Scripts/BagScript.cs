@@ -27,22 +27,31 @@ public class BagScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-            GameObject thing = other.transform.gameObject;
-            rb = thing.GetComponent<Rigidbody>();
+        GameObject thing = other.transform.gameObject;
+        rb = thing.GetComponent<Rigidbody>();
+        it = null;
+        if (thing.transform.parent != null) 
+        {
             it = thing.transform.parent.gameObject.GetComponent<item>();
-            if (it != null && rb != null)
-            {
-                inventory.Add(thing.transform.parent.gameObject);
-            }
+        }
+        
+        if (it != null && rb != null)
+        {
+            inventory.Add(thing.transform.parent.gameObject);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         GameObject thing = other.transform.gameObject;
-        it = thing.transform.parent.gameObject.GetComponent<item>();
-        if (it.handAttached == true) 
+        it = null;
+        if (thing.transform.parent != null)
+        {
+            it = thing.transform.parent.gameObject.GetComponent<item>();
+        }
+        if (it != null && it.handAttached == true) 
         {
             rb = thing.GetComponent<Rigidbody>();
-            if (it != null && rb != null)
+            if (rb != null)
             {
                 inventory.Remove(thing.transform.parent.gameObject);
                 thing.transform.parent.gameObject.GetComponent<item>().bag = null;
