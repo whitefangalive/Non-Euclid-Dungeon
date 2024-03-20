@@ -37,7 +37,7 @@ public class ResetParent : MonoBehaviour
         {
             if (t != null) {
                 float dist = Vector3.Distance(t.transform.position, currentPos);
-                if (dist < minDist)
+                if (dist < minDist && t.transform.gameObject != gameObject)
                 {
                     tMin = t.transform;
                     minDist = dist;
