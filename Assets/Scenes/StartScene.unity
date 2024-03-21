@@ -510,7 +510,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6340,7 +6340,7 @@ Transform:
   m_GameObject: {fileID: 1095358754}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.146, z: 0.206}
+  m_LocalPosition: {x: 0, y: 1.146, z: -0.518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6555,7 +6555,7 @@ Transform:
   m_GameObject: {fileID: 1421204842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.612, z: 0.206}
+  m_LocalPosition: {x: 0, y: 0.612, z: -0.51800007}
   m_LocalScale: {x: 0.4545, y: 1, z: 0.3829}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6967,7 +6967,7 @@ GameObject:
   - component: {fileID: 1746931795}
   - component: {fileID: 1746931794}
   - component: {fileID: 1746931793}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7072,7 +7072,7 @@ GameObject:
   - component: {fileID: 1810469445}
   - component: {fileID: 1810469444}
   - component: {fileID: 1810469443}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7193,7 +7193,7 @@ Transform:
   m_GameObject: {fileID: 1831766771}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.146, z: 0.206}
+  m_LocalPosition: {x: 0, y: 1.146, z: -0.51800007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11083,11 +11083,11 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
-    colliderForce: 0
+    colliderForce: 0.1
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
@@ -11262,7 +11262,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 243
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -12241,7 +12241,7 @@ Transform:
   m_GameObject: {fileID: 1864078119}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 1.481, z: -18}
+  m_LocalPosition: {x: -0, y: 1.433, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
