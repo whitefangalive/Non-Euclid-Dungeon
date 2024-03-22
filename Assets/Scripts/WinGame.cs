@@ -11,8 +11,7 @@ public class WinGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bagScript = GameObject.Find("bag").GetComponent<BagScript>();
-        inventory = bagScript.inventory;
+
     }
 
     // Update is called once per frame
