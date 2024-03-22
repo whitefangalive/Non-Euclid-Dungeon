@@ -40,6 +40,15 @@ public class BagScript : MonoBehaviour
             inventory.Add(thing.transform.parent.gameObject);
         }
     }
+    public int getTotalValue()
+    {
+        int result = 0;
+        foreach (GameObject thing in inventory) 
+        { 
+            result += thing.GetComponent<item>().value;
+        }
+        return result;
+    }
     private void OnTriggerExit(Collider other)
     {
         GameObject thing = other.transform.gameObject;

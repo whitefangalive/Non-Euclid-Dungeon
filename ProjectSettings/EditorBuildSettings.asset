@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 80f5d702ba88d8748bf9ce87f0c3205e
+  - enabled: 1
+    path: Assets/Scenes/ProgressionTestScene.unity
+    guid: 4c38f5fe266d1624d82a650a79ebed6a
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 6f38ee6bbc9cdd64fbc25dd36c328790,
       type: 2}
