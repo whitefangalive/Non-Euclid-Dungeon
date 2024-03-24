@@ -6,7 +6,7 @@ public class FollowHand : MonoBehaviour
 {
     //Player game object and offset
     public GameObject player;
-    private Vector3 offset;
+    public Vector3 offset;
     public float smoothSpeed = 0.125f;
     private Transform forwardOnY;
 
@@ -31,7 +31,6 @@ public class FollowHand : MonoBehaviour
                 {
                     player = GameObject.Find("FallbackObjects");
                 }
-            offset = transform.position - player.transform.position;
             forwardOnY = player.transform;
         }
         // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack

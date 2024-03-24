@@ -11,6 +11,6 @@ public class TryAgain : MonoBehaviour
     {
         Debug.Log("Clicked Try again button");
         Destroy(GameObject.Find("Player"));
-        SteamVR_LoadLevel.Begin(sceneName);
+        GetComponent<SteamVR_LoadLevel>().enabled = true;
     }
 }
