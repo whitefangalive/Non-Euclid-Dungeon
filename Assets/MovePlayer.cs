@@ -16,7 +16,7 @@ public class MovePlayer : MonoBehaviour
 
     private float speed = 0.0f;
     // Update is called once per frame
-    void Update()
+    void update()
     {
         RaycastHit hit;
         if (head.SweepTest(Player.instance.hmdTransform.TransformDirection(Vector3.forward), out hit, playerSize, QueryTriggerInteraction.Ignore))
