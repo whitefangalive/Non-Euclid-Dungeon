@@ -10,6 +10,9 @@ public class VelocityCollide : MonoBehaviour
 
     private AudioSource collisionSound;
     private Vector3 previousVelocity;
+
+    public float DamageMutliplier;
+    public float currentDamage;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,7 +28,8 @@ public class VelocityCollide : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        Debug.Log(previousVelocity.magnitude.ToString());
+        Debug.Log("Damage" + previousVelocity.magnitude.ToString());
+        currentDamage = previousVelocity.magnitude * DamageMutliplier;
         if (previousVelocity.magnitude > audioVelocity) 
         { 
             collisionSound.Play(0);
