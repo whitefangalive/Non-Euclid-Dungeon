@@ -6,21 +6,33 @@ public class FollowHand : MonoBehaviour
 {
     //Player game object and offset
     public GameObject player;
-    private Vector3 offset;
+    public Vector3 offset;
     public float smoothSpeed = 0.125f;
     private Transform forwardOnY;
 
     // Start is called before the first frame update
     void Start()
     {
+
         //Initializes the offset to be equal to camera distance from player
         offset = transform.position - player.transform.position;
         forwardOnY = player.transform;
     }
+    
 
     // Update is called once per frame
     void LateUpdate()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("VRCamera");
+            if (player == null)
+                if (player == null)
+                {
+                    player = GameObject.Find("FallbackObjects");
+                }
+            forwardOnY = player.transform;
+        }
         // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
         float extraDistance = 1;
         if (isInBetweenAngle(player.transform.rotation.x, 50, 130))
