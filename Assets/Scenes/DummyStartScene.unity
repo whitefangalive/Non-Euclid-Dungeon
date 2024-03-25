@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 1644482730}
   - component: {fileID: 1644482729}
   m_Layer: 0
-  m_Name: LevelLoade
+  m_Name: LevelLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +980,7 @@ MonoBehaviour:
   fadeInTime: 0.5
   postLoadSettleTime: 0
   loadingScreenFadeInTime: 1
-  loadingScreenFadeOutTime: 0.25
+  loadingScreenFadeOutTime: 2
   autoTriggerOnEnable: 1
 --- !u!4 &1644482730
 Transform:
@@ -1026,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 1831766771}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.146, z: -0.51800007}
+  m_LocalPosition: {x: 0, y: 1.089, z: -0.449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
