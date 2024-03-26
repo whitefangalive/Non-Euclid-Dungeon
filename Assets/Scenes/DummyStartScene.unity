@@ -253,6 +253,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119108913}
     - targetCorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       insertIndex: -1
@@ -606,6 +610,12 @@ MonoBehaviour:
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
   estimateOnAwake: 0
+--- !u!54 &652246474 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5452286, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 92089200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893512156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -1100,6 +1110,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 92089200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2119108910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 92089200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2119108913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119108910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f7095ddf9cac04fb25778a09639227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveValue:
+    actionPath: /actions/default/in/Moveplayer
+    needsReinit: 0
+  maxSpeed: 4
+  sensitivity: 4
+  head: {fileID: 652246474}
+  playerSize: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
