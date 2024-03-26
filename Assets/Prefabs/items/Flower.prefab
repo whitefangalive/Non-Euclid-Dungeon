@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 4228770271950752920}
   - component: {fileID: 7710302234394747808}
   m_Layer: 0
-  m_Name: Dagger
+  m_Name: Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
