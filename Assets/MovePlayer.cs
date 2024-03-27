@@ -12,20 +12,21 @@ public class MovePlayer : MonoBehaviour
     public float sensitivity;
     public Rigidbody head;
     public float playerSize = 0.5f;
-
+    public LayerMask ignoreLayer;
 
     private float speed = 0.0f;
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (head.SweepTest(Player.instance.hmdTransform.TransformDirection(Vector3.forward), out hit, playerSize, QueryTriggerInteraction.Ignore))
+
+
+        if (BeingBlocked())
         {
 
         }
         else 
         {
-            if (moveValue.axis.y > 0)
+            if (moveValue.axis.y > 0 )
             {
                 Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(0, 0, moveValue.axis.y));
                 speed = moveValue.axis.y * sensitivity;
@@ -34,5 +35,20 @@ public class MovePlayer : MonoBehaviour
             }
         }
 
+    }
+
+    private bool BeingBlocked() 
+    {
+        bool result = false;
+        RaycastHit[] hit;
+        hit = head.SweepTestAll(Player.instance.hmdTransform.TransformDirection(Vector3.forward), playerSize, QueryTriggerInteraction.Ignore);
+        foreach (RaycastHit thing in hit)
+        {
+            if ((ignoreLayer & (1 << thing.transform.gameObject.layer)) == 0)
+            {
+                result = true;
+            }
+        }
+        return result;
     }
 }
