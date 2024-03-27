@@ -18,4 +18,27 @@ public class Weapon : MonoBehaviour
         currentDamage = velocityCollide.previousVelocity.magnitude;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.transform.parent.tag == "Enemy")
+        {
+            EntityData data = collision.collider.transform.parent.gameObject.GetComponent<EntityData>();
+            if (data != null) 
+            {
+                data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.transform.parent.tag == "Enemy")
+        {
+            EntityData data = collision.transform.parent.gameObject.GetComponent<EntityData>();
+            if (data != null)
+            {
+                data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
+            }
+        }
+    }
 }
