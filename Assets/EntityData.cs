@@ -10,6 +10,7 @@ public class EntityData : MonoBehaviour
     public float speed = 1;
     public float attackDamage = 1;
 
+    public GameObject damageParticles;
     public GameObject deathParticles;
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class EntityData : MonoBehaviour
     {
         if (damage > 0)
         {
-            Instantiate(deathParticles, from.position, from.localRotation);
+            Instantiate(damageParticles, from.position, from.localRotation);
             health -= damage;
         }
         
