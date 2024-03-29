@@ -20,9 +20,9 @@ public class Weapon : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.transform.parent.tag == "Enemy")
+        if (collision.collider.transform.tag == "Enemy")
         {
-            EntityData data = collision.collider.transform.parent.gameObject.GetComponent<EntityData>();
+            EntityData data = collision.collider.transform.gameObject.GetComponent<EntityData>();
             if (data != null) 
             {
                 data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
@@ -32,9 +32,9 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.transform.parent.tag == "Enemy")
+        if (collision.transform.tag == "Enemy")
         {
-            EntityData data = collision.transform.parent.gameObject.GetComponent<EntityData>();
+            EntityData data = collision.transform.gameObject.GetComponent<EntityData>();
             if (data != null)
             {
                 data.takeDamage(Mathf.FloorToInt(currentDamage), transform);

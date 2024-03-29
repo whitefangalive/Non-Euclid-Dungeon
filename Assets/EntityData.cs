@@ -6,8 +6,6 @@ public class EntityData : MonoBehaviour
 {
     public int maxHealth = 2;
     public int health = 0;
-
-    public float speed = 1;
     public float attackDamage = 1;
 
     public GameObject damageParticles;
