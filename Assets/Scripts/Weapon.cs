@@ -29,16 +29,4 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if (collision.transform.tag == "Enemy")
-        {
-            EntityData data = collision.transform.gameObject.GetComponent<EntityData>();
-            if (data != null)
-            {
-                data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
-            }
-        }
-    }
 }

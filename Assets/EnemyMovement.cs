@@ -10,27 +10,28 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     public float sweepSize = 0.5f;
     public LayerMask ignoreLayer;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        target = GameObject.Find("HeadCollider");
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Get the current position of the Player
+        Vector3 playerPosition = target.transform.position;
 
-        if (target != null && !BeingBlocked())
+        // Calculate the direction towards the Player
+        Vector3 direction = playerPosition - transform.position;
+        direction.y = 0f; // Ensure the enemy moves only along the X-Z plane
+
+        // Normalize the direction vector to maintain constant speed
+        direction.Normalize();
+        if (target != null && !BeingBlocked(direction))
         {
-            // Get the current position of the Player
-            Vector3 playerPosition = target.transform.position;
-
-            // Calculate the direction towards the Player
-            Vector3 direction = playerPosition - transform.position;
-            direction.y = 0f; // Ensure the enemy moves only along the X-Z plane
-
-            // Normalize the direction vector to maintain constant speed
-            direction.Normalize();
 
             // Calculate the desired position the enemy should move towards
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
@@ -48,13 +49,17 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = targetRotation;
 
         }
+        //Renderer renderer = GetComponent<Renderer>();
+        //bool grounded = Physics.Raycast(transform.position, Vector3.down, sweepSize, ~ignoreLayer);
+        //if (grounded) { rb.useGravity = false; } else { rb.useGravity = true; }
+
     }
 
-    private bool BeingBlocked()
+    private bool BeingBlocked(Vector3 Direction)
     {
         bool result = false;
         RaycastHit[] hit;
-        hit = rb.SweepTestAll(Vector3.forward, sweepSize, QueryTriggerInteraction.Ignore);
+        hit = rb.SweepTestAll(Direction, sweepSize, QueryTriggerInteraction.Ignore);
         foreach (RaycastHit thing in hit)
         {
             if ((ignoreLayer & (1 << thing.transform.gameObject.layer)) == 0)
