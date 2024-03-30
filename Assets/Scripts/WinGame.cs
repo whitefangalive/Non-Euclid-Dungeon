@@ -19,15 +19,15 @@ public class WinGame : MonoBehaviour
     {
         if (winRightNow) 
         {
-            SendToScene();
+            SendToScene(0);
         }
     }
 
-    public void SendToScene()
+    public void SendToScene(int chanceToLoseItems)
     {
         foreach (GameObject thing in inventory)
         {
-            if (thing != null)
+            if (thing != null && Random.Range(0, chanceToLoseItems) == 1)
             {
                 thing.AddComponent<DontDestroyOnLoad>();
             }

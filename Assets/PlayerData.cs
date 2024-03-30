@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityData : MonoBehaviour
+public class PlayerData : MonoBehaviour
 {
     public int maxHealth = 2;
     public int health = 0;
@@ -23,12 +23,12 @@ public class EntityData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0) 
+        if (health <= 0)
         {
             Die();
         }
 
-        if (InvernabilityFrames > 0) 
+        if (InvernabilityFrames > 0)
         {
             InvernabilityFrames -= Time.deltaTime;
         }
@@ -44,9 +44,9 @@ public class EntityData : MonoBehaviour
         }
     }
 
-    private void Die() 
+    private void Die()
     {
         Instantiate(deathParticles, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GameObject.Find("WinManager").GetComponent<WinGame>().SendToScene(1);
     }
 }

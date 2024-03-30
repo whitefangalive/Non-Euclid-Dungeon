@@ -370,6 +370,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 68
+  playerScaleMultiplier: 1.5
 --- !u!114 &5605157591054346489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +390,8 @@ MonoBehaviour:
     type: 3}
   deathParticles: {fileID: 2611743327004854969, guid: 69a0445585f40dd4ea6c251d6f0f99c4,
     type: 3}
+  MaxInvernabilityFrames: 10
+  InvernabilityFrames: 0
 --- !u!65 &4396205838705592429
 BoxCollider:
   m_ObjectHideFlags: 0

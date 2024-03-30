@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     public float sweepSize = 0.5f;
     public LayerMask ignoreLayer;
 
+    public float playerScaleMultiplier = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
         float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
 
-        if (target != null && !BeingBlocked(direction) && horizontalDistance > target.transform.localScale.y)
+        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier))
         {
             // Calculate the desired position the enemy should move towards
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
