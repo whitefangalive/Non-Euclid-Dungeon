@@ -11,6 +11,10 @@ public class EntityData : MonoBehaviour
     public GameObject damageParticles;
     public GameObject deathParticles;
 
+    public float MaxInvernabilityFrames = 10;
+    public float InvernabilityFrames = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +28,20 @@ public class EntityData : MonoBehaviour
         {
             Die();
         }
+
+        if (InvernabilityFrames > 0) 
+        {
+            InvernabilityFrames -= Time.deltaTime;
+        }
     }
 
     public void takeDamage(int damage, Transform from)
     {
-        if (damage > 0)
+        if (damage > 0 && InvernabilityFrames <= 0)
         {
-            Instantiate(damageParticles, from.position, from.localRotation);
+            Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
             health -= damage;
+            InvernabilityFrames = MaxInvernabilityFrames;
         }
         
         
@@ -39,7 +49,7 @@ public class EntityData : MonoBehaviour
 
     private void Die() 
     {
-        Instantiate(deathParticles, transform.position, transform.localRotation);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

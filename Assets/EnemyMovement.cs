@@ -30,23 +30,25 @@ public class EnemyMovement : MonoBehaviour
 
         // Normalize the direction vector to maintain constant speed
         direction.Normalize();
-        if (target != null && !BeingBlocked(direction))
-        {
 
+        // Calculate the rotation needed to face the Player
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        //Correct rotation
+        targetRotation *= Quaternion.Euler(0, 0, 0);
+
+        // Apply the rotation to the enemy
+        transform.rotation = targetRotation;
+
+        float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
+
+        if (target != null && !BeingBlocked(direction) && horizontalDistance > target.transform.localScale.y)
+        {
             // Calculate the desired position the enemy should move towards
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
             // Smoothly move the enemy towards the target position
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-
-            // Calculate the rotation needed to face the Player
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-            //Correct rotation
-            targetRotation *= Quaternion.Euler(0, 0, 0);
-
-            // Apply the rotation to the enemy
-            transform.rotation = targetRotation;
 
         }
         //Renderer renderer = GetComponent<Renderer>();
