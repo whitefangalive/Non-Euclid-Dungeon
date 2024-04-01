@@ -784,10 +784,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3e568b7f3ad51489af4b3f4d47ecb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 5
   health: 0
-  damageParticles: {fileID: 0}
-  deathParticles: {fileID: 0}
+  damageParticles: {fileID: 2611743327004854969, guid: a7cd3d682071b394eaba58ad605f9f71,
+    type: 3}
+  deathParticles: {fileID: 2611743327004854969, guid: 69a0445585f40dd4ea6c251d6f0f99c4,
+    type: 3}
   MaxInvernabilityFrames: 0.1
   InvernabilityFrames: 0
 --- !u!1001 &804869410
