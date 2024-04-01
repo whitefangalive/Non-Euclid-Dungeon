@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class EnemyMovement : MonoBehaviour
+public class EyeballMovement : MonoBehaviour
 {
     public float moveSpeed;
     public GameObject target;
@@ -29,7 +29,6 @@ public class EnemyMovement : MonoBehaviour
 
         // Calculate the direction towards the Player
         Vector3 direction = playerPosition - transform.position;
-        direction.y = 0f; // Ensure the enemy moves only along the X-Z plane
 
         // Normalize the direction vector to maintain constant speed
         direction.Normalize();
