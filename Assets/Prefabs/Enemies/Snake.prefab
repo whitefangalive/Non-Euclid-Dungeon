@@ -370,6 +370,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 68
+  attackDamage: 1
   playerScaleMultiplier: 1.5
 --- !u!114 &5605157591054346489
 MonoBehaviour:
@@ -385,12 +386,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   health: 0
-  attackDamage: 1
   damageParticles: {fileID: 2611743327004854969, guid: a7cd3d682071b394eaba58ad605f9f71,
     type: 3}
   deathParticles: {fileID: 2611743327004854969, guid: 69a0445585f40dd4ea6c251d6f0f99c4,
     type: 3}
-  MaxInvernabilityFrames: 10
+  MaxInvernabilityFrames: 0.1
   InvernabilityFrames: 0
 --- !u!65 &4396205838705592429
 BoxCollider:

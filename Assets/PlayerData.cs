@@ -27,7 +27,10 @@ public class PlayerData : MonoBehaviour
         {
             Die();
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (InvernabilityFrames > 0)
         {
             InvernabilityFrames -= Time.deltaTime;

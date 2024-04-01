@@ -517,18 +517,43 @@ MonoBehaviour:
   blendEditorExpanded: 1
   poseNames:
   - DaggerGrab (MAIN)
+  - DaggerGrabUpsideDown
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
     type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
     type: 3}
   skeletonMainPose: {fileID: 11400000, guid: 770e529424fc10545bac0695ac80e86f, type: 2}
-  skeletonAdditionalPoses: []
+  skeletonAdditionalPoses:
+  - {fileID: 11400000, guid: ef5aeb21cd122f74aa4e82940675c455, type: 2}
   showLeftPreview: 0
   showRightPreview: 0
   previewLeftInstance: {fileID: 0}
   previewRightInstance: {fileID: 0}
   previewPoseSelection: 0
-  blendingBehaviours: []
+  blendingBehaviours:
+  - name: Swap
+    enabled: 1
+    influence: 1
+    pose: 1
+    value: 0
+    action_single:
+      actionPath: /actions/default/in/Squeeze
+      needsReinit: 0
+    action_bool:
+      actionPath: 
+      needsReinit: 0
+    smoothingSpeed: 10
+    type: 1
+    useMask: 0
+    mask:
+      palm: 1
+      thumb: 1
+      index: 1
+      middle: 1
+      ring: 1
+      pinky: 1
+      values: 010101010101
+    previewEnabled: 1
   scale: 1
 --- !u!114 &1952044804012578525
 MonoBehaviour:

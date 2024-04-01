@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     public float sweepSize = 0.5f;
     public LayerMask ignoreLayer;
+    public float attackDamage = 1;
 
     public float playerScaleMultiplier = 1.5f;
 
@@ -53,9 +54,10 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
 
         }
-        //Renderer renderer = GetComponent<Renderer>();
-        //bool grounded = Physics.Raycast(transform.position, Vector3.down, sweepSize, ~ignoreLayer);
-        //if (grounded) { rb.useGravity = false; } else { rb.useGravity = true; }
+        else 
+        {
+            Attack();
+        }
 
     }
 
@@ -72,5 +74,10 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         return result;
+    }
+
+    private void Attack()
+    {
+        
     }
 }

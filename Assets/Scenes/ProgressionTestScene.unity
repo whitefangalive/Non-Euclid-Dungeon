@@ -784,7 +784,7 @@ MonoBehaviour:
   health: 0
   damageParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  MaxInvernabilityFrames: 10
+  MaxInvernabilityFrames: 0.1
   InvernabilityFrames: 0
 --- !u!1001 &804869410
 PrefabInstance:
@@ -876,7 +876,7 @@ PrefabInstance:
     - target: {fileID: 2319864255614170963, guid: c7f5bba8fcc38ba4297f27b0e2c44a60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.10000038
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 2319864255614170963, guid: c7f5bba8fcc38ba4297f27b0e2c44a60,
         type: 3}
@@ -1167,7 +1167,7 @@ PrefabInstance:
     - target: {fileID: 3100259986337605755, guid: 7275e06994ad19e4f8d8dbe5b7234364,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: 0.82499963
       objectReference: {fileID: 0}
     - target: {fileID: 3100259986337605755, guid: 7275e06994ad19e4f8d8dbe5b7234364,
         type: 3}

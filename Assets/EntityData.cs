@@ -27,8 +27,11 @@ public class EntityData : MonoBehaviour
         {
             Die();
         }
+    }
 
-        if (InvernabilityFrames > 0) 
+    private void FixedUpdate()
+    {
+        if (InvernabilityFrames > 0)
         {
             InvernabilityFrames -= Time.deltaTime;
         }
