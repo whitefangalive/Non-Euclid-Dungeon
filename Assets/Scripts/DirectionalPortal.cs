@@ -27,7 +27,7 @@ public class DirectionalPortal : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name == "HeadCollider" && AbleToTeleport) 
+        if (other.transform.name == "HeadCollider" && AbleToTeleport)
         {
             Transform player = other.transform.root;
             Transform playerRotation = other.transform.parent.parent;
@@ -55,8 +55,12 @@ public class DirectionalPortal : MonoBehaviour
                 player.rotation *= rotDiff;
                 player.localScale = Multiply(player.localScale, scaleDiff);
                 player.position = Destination.transform.position + playerDiff;
-                
+
             }
+        }
+        else
+        {
+                
         }
     }
     private void OnTriggerExit(Collider other)
