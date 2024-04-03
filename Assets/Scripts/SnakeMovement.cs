@@ -10,7 +10,7 @@ public class SnakeMovement : MonoBehaviour
     private Rigidbody rb;
     public float sweepSize = 0.5f;
     public LayerMask ignoreLayer;
-    public float attackDamage = 1;
+    public int attackDamage = 1;
 
     public float entityFollowRange = 50.0f;
 
@@ -88,6 +88,17 @@ public class SnakeMovement : MonoBehaviour
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
         {
             animator.SetTrigger("Attack");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.name == "BodyCollider" || other.transform.name == "HeadCollider") 
+        {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeAttack")) 
+            {
+                other.transform.root.GetComponent<PlayerData>().takeDamage(attackDamage, transform);
+            }
         }
     }
 }
