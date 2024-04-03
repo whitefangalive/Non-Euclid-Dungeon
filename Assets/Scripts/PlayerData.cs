@@ -49,6 +49,7 @@ public class PlayerData : MonoBehaviour
 
     private void Die()
     {
+        health = maxHealth;
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         GameObject.Find("WinManager").GetComponent<WinGame>().SendToScene(1);
     }
