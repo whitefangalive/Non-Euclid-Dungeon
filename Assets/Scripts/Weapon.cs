@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        currentDamage = velocityCollide.previousVelocity.magnitude;
+        currentDamage = velocityCollide.previousVelocity.magnitude * DamageMutliplier;
     }
 
     private void OnCollisionStay(Collision collision)

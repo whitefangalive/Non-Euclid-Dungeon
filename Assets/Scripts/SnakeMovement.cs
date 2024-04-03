@@ -83,6 +83,9 @@ public class SnakeMovement : MonoBehaviour
 
     private void Attack()
     {
-        
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 }

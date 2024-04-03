@@ -27,9 +27,9 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		void FixedUpdate()
 		{
-			float distanceFromFloor = Vector3.Dot( head.localPosition, Vector3.up );
+			float distanceFromFloor = 2.0f;
 			capsuleCollider.height = Mathf.Max( capsuleCollider.radius, distanceFromFloor );
-			transform.localPosition = head.localPosition - 0.5f * distanceFromFloor * Vector3.up;
+			transform.position = head.position - ((distanceFromFloor) * Vector3.up);
 		}
 	}
 }
