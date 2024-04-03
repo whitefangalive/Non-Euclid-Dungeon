@@ -12,6 +12,8 @@ public class SnakeMovement : MonoBehaviour
     public LayerMask ignoreLayer;
     public float attackDamage = 1;
 
+    public float entityFollowRange = 50.0f;
+
     public float playerScaleMultiplier = 1.5f;
 
     public Animator animator;
@@ -48,7 +50,7 @@ public class SnakeMovement : MonoBehaviour
 
         float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
 
-        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier))
+        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier) && horizontalDistance < entityFollowRange)
         {
             // Calculate the desired position the enemy should move towards
             Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
