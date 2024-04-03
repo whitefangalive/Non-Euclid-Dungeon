@@ -14,11 +14,14 @@ public class SnakeMovement : MonoBehaviour
 
     public float playerScaleMultiplier = 1.5f;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.Find("HeadCollider");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,10 +55,12 @@ public class SnakeMovement : MonoBehaviour
 
             // Smoothly move the enemy towards the target position
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+            animator.SetBool("IsMoving", true);
 
         }
         else 
         {
+            animator.SetBool("IsMoving", false);
             Attack();
         }
 
