@@ -1304,6 +1304,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 68
   attackDamage: 1
+  entityFollowRange: 50
   playerScaleMultiplier: 1.5
   animator: {fileID: 0}
 --- !u!114 &5605157591054346489
@@ -1318,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52685107c4f991d489ee2ea0e18c1424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 10
   health: 0
   damageParticles: {fileID: 2611743327004854969, guid: a7cd3d682071b394eaba58ad605f9f71,
     type: 3}
