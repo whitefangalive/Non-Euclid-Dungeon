@@ -123,6 +123,7 @@ public class DirectionalPortal : MonoBehaviour
                     }
 
                 }
+                inventory.Clear();
             }
         }
     }
