@@ -15,6 +15,11 @@ public class DirectionalPortal : MonoBehaviour
     [Range(-360, 360)]
     public float NeededEulerRotationYMax = 0;
     public float rotation;
+
+    private HashSet<Transform> inventory = new HashSet<Transform>();
+
+    private Rigidbody rb;
+    private item it;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,38 @@ public class DirectionalPortal : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.name != "HeadCollider" && other.transform.name != "BodyCollider" && (other.transform.name != "TorchItem"))
+        {
+            GameObject thing = other.transform.gameObject;
+            rb = thing.GetComponent<Rigidbody>();
+            it = null;
+            if (thing.transform.parent != null)
+            {
+                it = thing.transform.parent.gameObject.GetComponent<item>();
+            }
+
+            if (it != null && rb != null)
+            {
+                inventory.Add(thing.transform.parent);
+            }
+        }
+
+        if (other.transform.name == "TorchItem" && other.transform.gameObject.GetComponent<Rigidbody>() != null
+            && other.transform.gameObject.GetComponent<Rigidbody>().useGravity == true) 
+        {
+            GameObject thing = other.transform.gameObject;
+            rb = thing.GetComponent<Rigidbody>();
+            it = null;
+            if (thing.transform.parent != null)
+            {
+                it = thing.transform.parent.gameObject.GetComponent<item>();
+            }
+
+            if (it != null && rb != null)
+            {
+                inventory.Add(thing.transform.parent);
+            }
+        }
         if (other.transform.name == "HeadCollider" && AbleToTeleport)
         {
             Transform player = other.transform.root;
@@ -56,11 +93,37 @@ public class DirectionalPortal : MonoBehaviour
                 player.localScale = Multiply(player.localScale, scaleDiff);
                 player.position = Destination.transform.position + playerDiff;
 
+                foreach (Transform itemMoving in inventory)
+                {
+                    Transform ItemRotation = itemMoving.transform;
+                    rotation = ItemRotation.rotation.eulerAngles.y;
+
+                    float ItemAngle = ItemRotation.rotation.eulerAngles.y;
+                    minAngle = NeededEulerRotationYMin;
+                    maxAngle = NeededEulerRotationYMax;
+
+                    // Adjust angles to be in the range [0, 360)
+                    ItemAngle = (ItemAngle + 360) % 360;
+                    minAngle = (minAngle + 360) % 360;
+                    maxAngle = (maxAngle + 360) % 360;
+
+                    // Check if playerAngle is between minAngle and maxAngle
+                    if ((minAngle <= maxAngle && ItemAngle >= minAngle && ItemAngle <= maxAngle) ||
+                        (minAngle > maxAngle && (ItemAngle >= minAngle || ItemAngle <= maxAngle)))
+                    {
+                        Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
+                        playerDiff = itemMoving.position - gameObject.transform.position;
+
+                        playerDiff = RotateVector(playerDiff, rotDiff);
+
+
+                        itemMoving.rotation *= rotDiff;
+                        itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
+                        itemMoving.position = Destination.transform.position + playerDiff;
+                    }
+
+                }
             }
-        }
-        else
-        {
-                
         }
     }
     private void OnTriggerExit(Collider other)
