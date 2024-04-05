@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
 
     public float MaxInvernabilityFrames = 10;
     public float InvernabilityFrames = 0;
+    public AudioSource damageTakeSound;
 
 
     // Start is called before the first frame update
@@ -41,7 +42,8 @@ public class PlayerData : MonoBehaviour
     {
         if (damage > 0 && InvernabilityFrames <= 0)
         {
-            Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
+            //Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
+            damageTakeSound.Play(0);
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
         }

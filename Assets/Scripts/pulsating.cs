@@ -37,7 +37,7 @@ public class pulsating : MonoBehaviour
         {
             if (!hasBeatIn)
             {
-                beatIn.volume = maxIntensity + 0.35f;
+                beatIn.volume = Mathf.Pow(frequency, 2) * 0.111f;
                 beatIn.Play();
                 hasBeatIn = true;
             }
@@ -46,7 +46,7 @@ public class pulsating : MonoBehaviour
         {
             if (!hasBeatOut)
             {
-                beatOut.volume = maxIntensity + 0.35f;
+                beatOut.volume = Mathf.Pow(frequency, 2) * 0.111f;
                 beatOut.Play();
                 hasBeatOut = true;
             }
