@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BagScript : MonoBehaviour
 {
@@ -39,6 +40,17 @@ public class BagScript : MonoBehaviour
         {
             inventory.Add(thing.transform.parent.gameObject);
         }
+
+        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
+    }
+    public int getTotalValue()
+    {
+        int result = 0;
+        foreach (GameObject thing in inventory) 
+        { 
+            result += thing.GetComponent<item>().value;
+        }
+        return result;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -57,6 +69,7 @@ public class BagScript : MonoBehaviour
                 thing.transform.parent.gameObject.GetComponent<item>().bag = null;
             }
         }
+        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
     }
 
 }

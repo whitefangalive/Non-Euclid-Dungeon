@@ -470,6 +470,7 @@ MonoBehaviour:
   possibleNodes:
   - {fileID: 23565704959500471, guid: a144c8f2044b7334f9e7e1d91a5e4b77, type: 3}
   - {fileID: 23565704959500471, guid: a144c8f2044b7334f9e7e1d91a5e4b77, type: 3}
+  - {fileID: 23565704959500471, guid: 9b99e5b2034f15a4e93edc1f437ffdf0, type: 3}
   specialNodes:
   - {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90, type: 3}
   maxNodes: 0
@@ -904,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5a5532e3ea271384b98bb22edc9d3257,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

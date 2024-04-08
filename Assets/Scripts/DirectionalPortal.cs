@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 public class DirectionalPortal : MonoBehaviour
 {
     public GameObject Destination;
@@ -15,6 +16,12 @@ public class DirectionalPortal : MonoBehaviour
     [Range(-360, 360)]
     public float NeededEulerRotationYMax = 0;
     public float rotation;
+    public LayerMask maskForWhenItemsTeleport;
+
+    private HashSet<Transform> inventory = new HashSet<Transform>();
+
+    private Rigidbody rb;
+    private item it;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,39 @@ public class DirectionalPortal : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name == "HeadCollider" && AbleToTeleport) 
+        if (other.transform.name != "HeadCollider" && other.transform.name != "BodyCollider" && (other.transform.name != "TorchItem"))
+        {
+            GameObject thing = other.transform.gameObject;
+            rb = thing.GetComponent<Rigidbody>();
+            it = null;
+            if (thing.transform.parent != null)
+            {
+                it = thing.transform.parent.gameObject.GetComponent<item>();
+            }
+
+            if (it != null && rb != null)
+            {
+                inventory.Add(thing.transform.parent);
+            }
+        }
+
+        if (other.transform.name == "TorchItem" && other.transform.gameObject.GetComponent<Rigidbody>() != null
+            && other.transform.gameObject.GetComponent<Rigidbody>().useGravity == true) 
+        {
+            GameObject thing = other.transform.gameObject;
+            rb = thing.GetComponent<Rigidbody>();
+            it = null;
+            if (thing.transform.parent != null)
+            {
+                it = thing.transform.parent.gameObject.GetComponent<item>();
+            }
+
+            if (it != null && rb != null)
+            {
+                inventory.Add(thing.transform.parent);
+            }
+        }
+        if (other.transform.name == "HeadCollider" && AbleToTeleport)
         {
             Transform player = other.transform.root;
             Transform playerRotation = other.transform.parent.parent;
@@ -55,7 +94,42 @@ public class DirectionalPortal : MonoBehaviour
                 player.rotation *= rotDiff;
                 player.localScale = Multiply(player.localScale, scaleDiff);
                 player.position = Destination.transform.position + playerDiff;
-                
+
+                foreach (Transform itemMoving in inventory)
+                {
+                    //LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
+                    //itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
+                    bool followHandTrans = false;
+                    Interactable interactable = itemMoving.GetComponent<Interactable>();
+                    if (interactable != null) 
+                    {
+                        followHandTrans = interactable.handFollowTransform;
+                        interactable.handFollowTransform = false;
+                    }
+                    Transform ItemRotation = itemMoving.transform;
+                    rotation = ItemRotation.rotation.eulerAngles.y;
+
+                    // Check if playerAngle is between minAngle and maxAngle
+                    if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
+                        (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
+                    {
+                        Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
+                        playerDiff = itemMoving.position - gameObject.transform.position;
+
+                        playerDiff = RotateVector(playerDiff, rotDiff);
+
+
+                        itemMoving.rotation *= rotDiff;
+                        itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
+                        itemMoving.position = Destination.transform.position + playerDiff;
+                        if (interactable != null)
+                        {
+                            interactable.handFollowTransform = followHandTrans;
+                        }
+                        //itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
+                    }
+                }
+                inventory.Clear();
             }
         }
     }

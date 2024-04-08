@@ -14,6 +14,8 @@ public class item : MonoBehaviour
     private new Collider collider;
     public bool handAttached;
     public int value = 50;
+
+    public bool inbag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,6 @@ public class item : MonoBehaviour
         collider = gameObject.transform.GetChild(0).GetComponent<Collider>();
         originalUseGrav = rb.useGravity;
     }
-
     // Update is called once per frame
     void LateUpdate()
     {
