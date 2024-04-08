@@ -98,18 +98,9 @@ public class DirectionalPortal : MonoBehaviour
                     Transform ItemRotation = itemMoving.transform;
                     rotation = ItemRotation.rotation.eulerAngles.y;
 
-                    float ItemAngle = ItemRotation.rotation.eulerAngles.y;
-                    minAngle = NeededEulerRotationYMin;
-                    maxAngle = NeededEulerRotationYMax;
-
-                    // Adjust angles to be in the range [0, 360)
-                    ItemAngle = (ItemAngle + 360) % 360;
-                    minAngle = (minAngle + 360) % 360;
-                    maxAngle = (maxAngle + 360) % 360;
-
                     // Check if playerAngle is between minAngle and maxAngle
-                    if ((minAngle <= maxAngle && ItemAngle >= minAngle && ItemAngle <= maxAngle) ||
-                        (minAngle > maxAngle && (ItemAngle >= minAngle || ItemAngle <= maxAngle)))
+                    if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
+                        (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
                     {
                         Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
                         playerDiff = itemMoving.position - gameObject.transform.position;
@@ -121,7 +112,6 @@ public class DirectionalPortal : MonoBehaviour
                         itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
                         itemMoving.position = Destination.transform.position + playerDiff;
                     }
-
                 }
                 inventory.Clear();
             }
