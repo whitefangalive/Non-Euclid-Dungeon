@@ -213,6 +213,7 @@ MonoBehaviour:
   attackDamage: 1
   entityFollowRange: 50
   playerScaleMultiplier: 0.5
+  animator: {fileID: 0}
 --- !u!65 &2834472113185040356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -244,10 +245,10 @@ Animator:
   m_GameObject: {fileID: 6379395144214262966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed173c65321fb2b4f8e29d9e6fd7b77c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

@@ -13,18 +13,29 @@ public class Potion : MonoBehaviour
         velocityCollide = GetComponent<VelocityCollide>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void explode() 
     {
-        if (velocityCollide.previousVelocity.magnitude >= explodeMagnitude) 
+        
+        Destroy(gameObject);
+        Instantiate(exploded, transform.position, transform.rotation);
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (velocityCollide.previousVelocity.magnitude > explodeMagnitude)
         {
             explode();
         }
-    }
+        VelocityCollide otherColl = collision.transform.gameObject.GetComponent<VelocityCollide>();
+        if (collision.rigidbody != null && otherColl != null)
+        {
 
-    public void explode() 
-    {
-        Destroy(gameObject);
-        Instantiate(exploded, transform);
+            if (otherColl.previousVelocity.magnitude - velocityCollide.previousVelocity.magnitude > explodeMagnitude)
+            {
+                explode();
+            }
+        }
+
     }
 }

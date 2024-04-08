@@ -97,8 +97,8 @@ public class DirectionalPortal : MonoBehaviour
 
                 foreach (Transform itemMoving in inventory)
                 {
-                    LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
-                    itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
+                    //LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
+                    //itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
                     bool followHandTrans = false;
                     Interactable interactable = itemMoving.GetComponent<Interactable>();
                     if (interactable != null) 
@@ -126,7 +126,7 @@ public class DirectionalPortal : MonoBehaviour
                         {
                             interactable.handFollowTransform = followHandTrans;
                         }
-                        itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
+                        //itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
                     }
                 }
                 inventory.Clear();

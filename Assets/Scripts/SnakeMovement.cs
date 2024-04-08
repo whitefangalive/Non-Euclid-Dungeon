@@ -75,7 +75,7 @@ public class SnakeMovement : MonoBehaviour
         hit = rb.SweepTestAll(Direction, sweepSize, QueryTriggerInteraction.Ignore);
         foreach (RaycastHit thing in hit)
         {
-            if ((ignoreLayer & (1 << thing.transform.gameObject.layer)) == 0)
+            if ((ignoreLayer & (1 << thing.transform.gameObject.layer)) == 0 && (thing.transform.name == "BodyCollider" || thing.transform.name == "HeadCollider"))
             {
                 result = true;
             }

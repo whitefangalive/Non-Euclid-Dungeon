@@ -10,17 +10,20 @@ public class EyeballMovement : MonoBehaviour
     private Rigidbody rb;
     public float sweepSize = 0.5f;
     public LayerMask ignoreLayer;
-    public float attackDamage = 1;
+    public int attackDamage = 1;
 
     public float entityFollowRange = 50.0f;
 
     public float playerScaleMultiplier = 1.5f;
+
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.Find("HeadCollider");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,10 +56,11 @@ public class EyeballMovement : MonoBehaviour
 
             // Smoothly move the enemy towards the target position
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-
+            animator.SetBool("IsMoving", true);
         }
         else 
         {
+            animator.SetBool("IsMoving", false);
             Attack();
         }
 
@@ -79,6 +83,20 @@ public class EyeballMovement : MonoBehaviour
 
     private void Attack()
     {
-        
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("EyeIdle"))
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.name == "BodyCollider" || other.transform.name == "HeadCollider")
+        {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("EyeAttack"))
+            {
+                other.transform.root.GetComponent<PlayerData>().takeDamage(attackDamage, transform);
+            }
+        }
     }
 }
