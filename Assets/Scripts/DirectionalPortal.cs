@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 public class DirectionalPortal : MonoBehaviour
 {
     public GameObject Destination;
@@ -15,6 +16,7 @@ public class DirectionalPortal : MonoBehaviour
     [Range(-360, 360)]
     public float NeededEulerRotationYMax = 0;
     public float rotation;
+    public LayerMask maskForWhenItemsTeleport;
 
     private HashSet<Transform> inventory = new HashSet<Transform>();
 
@@ -95,6 +97,15 @@ public class DirectionalPortal : MonoBehaviour
 
                 foreach (Transform itemMoving in inventory)
                 {
+                    LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
+                    itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
+                    bool followHandTrans = false;
+                    Interactable interactable = itemMoving.GetComponent<Interactable>();
+                    if (interactable != null) 
+                    {
+                        followHandTrans = interactable.handFollowTransform;
+                        interactable.handFollowTransform = false;
+                    }
                     Transform ItemRotation = itemMoving.transform;
                     rotation = ItemRotation.rotation.eulerAngles.y;
 
@@ -111,6 +122,11 @@ public class DirectionalPortal : MonoBehaviour
                         itemMoving.rotation *= rotDiff;
                         itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
                         itemMoving.position = Destination.transform.position + playerDiff;
+                        if (interactable != null)
+                        {
+                            interactable.handFollowTransform = followHandTrans;
+                        }
+                        itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
                     }
                 }
                 inventory.Clear();

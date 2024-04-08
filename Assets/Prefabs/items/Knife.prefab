@@ -1,113 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &814653597398636201
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8769703527356317099}
-  - component: {fileID: 6097434163309370957}
-  m_Layer: 6
-  m_Name: BladeCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8769703527356317099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814653597398636201}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1677934664603988207}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6097434163309370957
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814653597398636201}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 145729267672404299, guid: 0360671123ef7804b89749db4baeed2e, type: 3}
---- !u!1 &4632009268469689331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7670803864508034465}
-  - component: {fileID: 54154133241811950}
-  m_Layer: 6
-  m_Name: hiltCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7670803864508034465
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4632009268469689331}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1677934664603988207}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &54154133241811950
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4632009268469689331}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3762184784916634537, guid: 0360671123ef7804b89749db4baeed2e, type: 3}
 --- !u!1 &8934170708909775145
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3100259986337605755}
   - component: {fileID: 4228770271950752920}
-  - component: {fileID: 7710302234394747808}
+  - component: {fileID: 6609914094247051359}
   m_Layer: 8
   m_Name: Knife
   m_TagString: Untagged
@@ -135,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8934170708909775145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0022878, y: -0.0027, z: -0.039502}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4134972, y: 1.4134972, z: 1.4134972}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,7 +49,8 @@ MonoBehaviour:
   bag: {fileID: 0}
   handAttached: 0
   value: 0
---- !u!65 &7710302234394747808
+  inbag: 0
+--- !u!65 &6609914094247051359
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11178756, y: 0.11313525, z: 0.19595361}
-  m_Center: {x: -0.005532315, y: 0.06466788, z: 0.09552513}
+  m_Size: {x: 0.01547659, y: 0.30078155, z: 0.113660894}
+  m_Center: {x: 0, y: -0.033130907, z: 0.00000011920928}
 --- !u!1001 &1207951866268587780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,15 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: acd2f66b6c5276d42a09d339efcf678c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7670803864508034465}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: acd2f66b6c5276d42a09d339efcf678c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8769703527356317099}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: acd2f66b6c5276d42a09d339efcf678c,
         type: 3}
@@ -373,7 +258,7 @@ MonoBehaviour:
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
-  useHandObjectAttachmentPoint: 1
+  useHandObjectAttachmentPoint: 0
   attachEaseIn: 0
   snapAttachEaseInCurve:
     serializedVersion: 2
@@ -403,7 +288,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 0
+  highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
 --- !u!114 &6428516899047378441
@@ -698,4 +583,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -130760069196865814, guid: 0360671123ef7804b89749db4baeed2e, type: 3}
+  m_Mesh: {fileID: -5829020448511087073, guid: acd2f66b6c5276d42a09d339efcf678c, type: 3}
