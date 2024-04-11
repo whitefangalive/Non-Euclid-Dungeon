@@ -353,6 +353,7 @@ MonoBehaviour:
   bag: {fileID: 0}
   handAttached: 0
   value: 5
+  inbag: 0
 --- !u!1001 &7873442423379193420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -455,7 +456,7 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[5]
       value: 
-      objectReference: {fileID: 8934170708909775145, guid: 7e29744b5ae29944683271f96ac15caa,
+      objectReference: {fileID: 8934170708909775145, guid: 56b10c0e23d2bb84a9818abad78077ca,
         type: 3}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
