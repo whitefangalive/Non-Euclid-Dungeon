@@ -169,7 +169,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
+  handFollowTransform: 0
   highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
@@ -287,7 +287,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4518745500496161335, guid: 62d220ac387989e4c8e0a730156b99dc, type: 3}
+  m_Mesh: {fileID: -2889835017156348399, guid: 62257e3b628043346b386385b6d941b1, type: 3}
 --- !u!82 &3086336537570561697
 AudioSource:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5254008095047323949
 Transform:
   m_ObjectHideFlags: 0
@@ -544,6 +544,7 @@ MonoBehaviour:
   bag: {fileID: 0}
   handAttached: 0
   value: 0
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -581,7 +582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9176866707452286750
 Transform:
   m_ObjectHideFlags: 0
