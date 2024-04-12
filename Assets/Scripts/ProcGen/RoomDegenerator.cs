@@ -11,7 +11,7 @@ public class RoomDegenerator : MonoBehaviour
 
     public int chanceToDespawn;
     public int randomNumber;
-  
+    public bool visible;
 
     private ProgressionScript progression;
     // Start is called before the first frame update
@@ -25,8 +25,9 @@ public class RoomDegenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        visible = generationManager.IsVisibleToCamera(gameObject);
         if (!progression.DisableDegeneration) {
-            if (Parent == null)
+            if (Parent == null && !visible)
             {
                 Destroy(gameObject.transform.parent.gameObject);
                 generationManager.AmountOfRooms++;

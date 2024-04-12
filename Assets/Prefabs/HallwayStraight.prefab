@@ -351,6 +351,17 @@ MonoBehaviour:
   - {fileID: 23565704959500471, guid: 079937b6b6228a948a9419996f5c2f41, type: 3}
   - {fileID: 23565704959500471, guid: 45821d2d135f9354da8a8d4ab8a84918, type: 3}
   - {fileID: 23565704959500471, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
+  - {fileID: 23565704959500471, guid: 8dabad87b3f152047ae5b2fa28fab1b1, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
+  - {fileID: 23565704959500471, guid: 17b5b685021f1be459a278a14080f27f, type: 3}
   specialNodes:
   - {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90, type: 3}
   maxNodes: 0
@@ -389,6 +400,7 @@ MonoBehaviour:
   Parent: {fileID: 0}
   chanceToDespawn: 10
   randomNumber: 0
+  visible: 0
 --- !u!1 &1843027814627131927
 GameObject:
   m_ObjectHideFlags: 0

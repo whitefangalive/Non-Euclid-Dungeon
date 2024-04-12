@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1993680107}
-  m_IndirectSpecularColor: {r: 0.25451842, g: 0.15943211, b: 0.044970326, a: 1}
+  m_IndirectSpecularColor: {r: 0.2546078, g: 0.15952155, b: 0.045059595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5666,7 +5666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd77124d8a854942b456128616e46d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FarClipPlane: 1000
+  FarClipPlane: 1100
   flags: 1
   BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &493026525

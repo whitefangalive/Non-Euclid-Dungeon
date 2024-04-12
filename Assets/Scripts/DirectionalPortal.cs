@@ -68,6 +68,7 @@ public class DirectionalPortal : MonoBehaviour
         }
         if (other.transform.name == "HeadCollider" && AbleToTeleport)
         {
+            Rigidbody playerRigidbody = other.transform.root.GetComponent<Rigidbody>();
             Transform player = other.transform.root;
             Transform playerRotation = other.transform.parent.parent;
             rotation = playerRotation.rotation.eulerAngles.y;
@@ -90,10 +91,11 @@ public class DirectionalPortal : MonoBehaviour
 
                 playerDiff = RotateVector(playerDiff, rotDiff);
 
-
+                playerRigidbody.useGravity = false;
                 player.rotation *= rotDiff;
                 player.localScale = Multiply(player.localScale, scaleDiff);
                 player.position = Destination.transform.position + playerDiff;
+                playerRigidbody.useGravity = true;
 
                 foreach (Transform itemMoving in inventory)
                 {
@@ -101,7 +103,7 @@ public class DirectionalPortal : MonoBehaviour
                     //itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
                     bool followHandTrans = false;
                     Interactable interactable = itemMoving.GetComponent<Interactable>();
-                    if (interactable != null) 
+                    if (interactable != null)
                     {
                         followHandTrans = interactable.handFollowTransform;
                         interactable.handFollowTransform = false;
@@ -130,6 +132,10 @@ public class DirectionalPortal : MonoBehaviour
                     }
                 }
                 inventory.Clear();
+            }
+            else 
+            {
+                AbleToTeleport = true;
             }
         }
     }
