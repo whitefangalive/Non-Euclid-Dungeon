@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 149802594480194369}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.577, y: 0.2483482, z: 0.00045593173}
+  m_LocalPosition: {x: 0.865, y: 0.2483482, z: 0.00045593173}
   m_LocalScale: {x: 0.17563522, y: 0.17563522, z: 0.17563522}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3448,7 +3448,7 @@ Transform:
   m_GameObject: {fileID: 2940615516024376522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.847, y: 12.118, z: 0.59}
+  m_LocalPosition: {x: -15.4, y: 0, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5072,7 +5072,7 @@ Transform:
   m_GameObject: {fileID: 4589310995967134063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.574, y: 0.2483482, z: 0.0016853729}
+  m_LocalPosition: {x: -0.874, y: 0.2483482, z: 0.0016853729}
   m_LocalScale: {x: 0.17563522, y: 0.17563522, z: 0.17563522}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11072,6 +11072,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3417123223826220700}
     m_Modifications:
+    - target: {fileID: 35995249319046754, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
     - target: {fileID: 39452508931209013, guid: 826777e05504db446883d66bfe24f2c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11127,6 +11132,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chandelier
       objectReference: {fileID: 0}
+    - target: {fileID: 1168032030529377230, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
+    - target: {fileID: 2463129285969873806, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
+    - target: {fileID: 2479623344739726447, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
+    - target: {fileID: 3080000950202331604, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
+    - target: {fileID: 3430969121951914252, guid: 826777e05504db446883d66bfe24f2c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37741812b1009ea4d97979f694ceab1f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
