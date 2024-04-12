@@ -32,7 +32,7 @@ public class RoomDegenerator : MonoBehaviour
                 Destroy(gameObject.transform.parent.gameObject);
                 generationManager.AmountOfRooms++;
             }
-            if (!generationManager.IsVisibleToCamera(gameObject))
+            if (!visible)
             {
                 if (once == false)
                 {

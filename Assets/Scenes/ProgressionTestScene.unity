@@ -2164,7 +2164,7 @@ MonoBehaviour:
   - {fileID: 23565704959500471, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
   hallways: []
   generationDistance: 50
-  ChanceToDespawn: 1000
+  ChanceToDespawn: 10
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1

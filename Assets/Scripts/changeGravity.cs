@@ -18,5 +18,6 @@ public class changeGravity : MonoBehaviour
     public void GravityOn() 
     {
         rb.constraints = RigidbodyConstraints.None;
+        rb.useGravity = true;
     }
 }
