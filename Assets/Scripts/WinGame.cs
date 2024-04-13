@@ -31,7 +31,7 @@ public class WinGame : MonoBehaviour
     {
         foreach (GameObject thing in inventory)
         {
-            if (thing != null && Random.Range(0, chanceToLoseItems) == 1)
+            if (thing != null && Random.Range(0, chanceToLoseItems) == 0)
             {
                 thing.AddComponent<DontDestroyOnLoad>();
             }
