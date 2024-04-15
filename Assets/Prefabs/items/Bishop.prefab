@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
   handAttached: 0
-  value: 10000
+  value: 1000
   inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:

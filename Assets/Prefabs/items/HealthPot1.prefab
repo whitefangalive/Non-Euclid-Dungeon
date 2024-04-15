@@ -340,6 +340,8 @@ MonoBehaviour:
   explodeMagnitude: 0.8
   exploded: {fileID: 4443780781785082684, guid: cd364f98addfe6a45bffb5a202ce5b06,
     type: 3}
+  explodedParticles: {fileID: 1974319073004612, guid: 4fad053d6ff9ef742ae1f144a674382a,
+    type: 3}
 --- !u!64 &8099875744814852973
 MeshCollider:
   m_ObjectHideFlags: 0

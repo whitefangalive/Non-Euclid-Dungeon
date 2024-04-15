@@ -1,24 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Potion : MonoBehaviour
 {
+    public float maxIntensity = 0.6f;
     private VelocityCollide velocityCollide;
     public float explodeMagnitude = 5;
     public GameObject exploded;
+    public GameObject explodedParticles;
+    public int healthToAdd;
+
+    private GameObject healPostEffectObject;
     // Start is called before the first frame update
     void Start()
     {
         velocityCollide = GetComponent<VelocityCollide>();
+
+        healPostEffectObject = GameObject.Find("PostEffectsControllerHeal");
     }
 
     public void explode() 
     {
-        
         Destroy(gameObject);
         Instantiate(exploded, transform.position, transform.rotation);
-
+        Instantiate(explodedParticles, transform.position, Quaternion.identity);
+        GameObject.Find("Player").GetComponent<PlayerData>().health += healthToAdd;
     }
 
     void OnCollisionEnter(Collision collision)

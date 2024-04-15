@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProgressionScript : MonoBehaviour
 {
     public int roomsExplored = 0;
+    public HashSet<GameObject> RoomObjectsExplored = new HashSet<GameObject>();
     public float height;
     private Transform player;
     public bool TimeToProgress = false;
@@ -21,7 +22,7 @@ public class ProgressionScript : MonoBehaviour
 
     public int previousLevel = 0;
 
-    public GameObject LightTimer;
+    //public GameObject LightTimer;
     private void Start()
     {
         player = GameObject.Find("FollowHead").transform;

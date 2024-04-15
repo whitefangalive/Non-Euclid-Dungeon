@@ -313,8 +313,8 @@ Transform:
   m_LocalScale: {x: 60, y: 60, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5641680375658577142}
   - {fileID: 1309969000715047571}
+  - {fileID: 5641680375658577142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4228770271950752920
@@ -331,7 +331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
   handAttached: 0
-  value: 60000
+  value: 5000
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0

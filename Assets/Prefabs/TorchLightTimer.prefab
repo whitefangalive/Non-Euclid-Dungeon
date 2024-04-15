@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torch: {fileID: 0}
-  torchDelay: 1
-  playerDistanceMultiplier: 1
+  torchDelay: 0.1
+  playerDistanceMultiplier: 0.15

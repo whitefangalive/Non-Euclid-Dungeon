@@ -9,7 +9,7 @@ public class SellItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Player").GetComponent<PlayerData>();
+        playerData = GameObject.Find("Player").GetComponent<PlayerData>();
     }
     private void OnTriggerStay(Collider other)
     {
@@ -34,6 +34,7 @@ public class SellItem : MonoBehaviour
     private void sell(GameObject obj, int price) 
     {
         Destroy(obj);
+        playerData.money += price;
     }
 
 }

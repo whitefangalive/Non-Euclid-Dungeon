@@ -50,15 +50,17 @@ public class SnakeMovement : MonoBehaviour
 
         float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
 
-        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier) && horizontalDistance < entityFollowRange)
+        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier))
         {
-            // Calculate the desired position the enemy should move towards
-            Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
+            if (horizontalDistance < entityFollowRange) 
+            {
+                // Calculate the desired position the enemy should move towards
+                Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
-            // Smoothly move the enemy towards the target position
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-            animator.SetBool("IsMoving", true);
-
+                // Smoothly move the enemy towards the target position
+                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+                animator.SetBool("IsMoving", true);
+            }
         }
         else 
         {
