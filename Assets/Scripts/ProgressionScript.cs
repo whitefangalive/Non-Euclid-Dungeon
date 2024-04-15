@@ -20,6 +20,8 @@ public class ProgressionScript : MonoBehaviour
     public int HeightLevelAchieved = 0;
 
     public int previousLevel = 0;
+
+    public GameObject LightTimer;
     private void Start()
     {
         player = GameObject.Find("FollowHead").transform;
@@ -34,16 +36,13 @@ public class ProgressionScript : MonoBehaviour
         
         
         level = Mathf.RoundToInt(height / difference);
-        if (level > HeightLevelAchieved) 
-        {
-            HeightLevelAchieved = level;
-        }
 
         if (roomsExplored == AmountOfRoomsLevelOne)
         {
             TimeToProgress = true;
             DisableDegeneration = true;
             roomsExplored = 0;
+            HeightLevelAchieved++;
         }
     }
 

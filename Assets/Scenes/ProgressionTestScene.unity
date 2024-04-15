@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &8731376 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+    type: 3}
+  m_PrefabInstance: {fileID: 7477868641853157441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &173892493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1299,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 592423657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &852003495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6263797460133447556, guid: b5b45062d6c305d4ca9f3975239bc73f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1843491992145500435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &852003496 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 289294139901470166, guid: b5b45062d6c305d4ca9f3975239bc73f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1843491992145500435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &958170051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1916,6 +1934,8 @@ MonoBehaviour:
   AmountOfRoomsLevelOne: 15
   HeightLevelAchieved: 0
   previousLevel: 0
+  LightTimer: {fileID: 7424500279154739512, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+    type: 3}
 --- !u!4 &1968147606
 Transform:
   m_ObjectHideFlags: 0
@@ -2298,8 +2318,85 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1543889207}
+    - targetCorrespondingSourceObject: {fileID: 289294139901470166, guid: b5b45062d6c305d4ca9f3975239bc73f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8731376}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
+--- !u!1001 &7477868641853157441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 852003496}
+    m_Modifications:
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275840193316057490, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608106500455236093, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: torch
+      value: 
+      objectReference: {fileID: 852003495}
+    - target: {fileID: 7424500279154739512, guid: cd8461f4176a8db4cbbde489b8ffcd96,
+        type: 3}
+      propertyPath: m_Name
+      value: TorchLightTimer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd8461f4176a8db4cbbde489b8ffcd96, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

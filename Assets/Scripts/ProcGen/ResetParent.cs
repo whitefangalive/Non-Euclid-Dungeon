@@ -6,6 +6,16 @@ public class ResetParent : MonoBehaviour
 {
     private GameObject previousParent;
     private ProgressionScript progressionScript;
+    private GameObject LightTimer;
+    private ProgressionScript progression;
+
+    private void Start()
+    {
+        progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
+        LightTimer = progression.LightTimer;
+    }
+
+    private HashSet<GameObject> Lights = new HashSet<GameObject>();
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "HeadCollider") {
@@ -14,9 +24,22 @@ public class ResetParent : MonoBehaviour
             progressionScript = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
             if (progressionScript.onCurrentLevel()) 
             {
-                progressionScript.roomsExplored++;
+                bool newLevel = false;
+                foreach (GameObject lightObject in Lights) 
+                {
+                    Light lightSource = lightObject.GetComponentInChildren<Light>();
+                    if (!lightSource.enabled) 
+                    {
+                        newLevel = true;
+                        GameObject lightTimerObject = Instantiate(LightTimer, lightObject.transform, lightObject.transform.gameObject);
+                        lightTimerObject.GetComponent<TorchLightTimerScript>().torch = lightObject;
+                    }
+                }
+                if (newLevel)
+                {
+                    progressionScript.roomsExplored++;
+                }
             }
-            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -24,6 +47,17 @@ public class ResetParent : MonoBehaviour
         if (other.gameObject.name == "HeadCollider")
         {
             gameObject.GetComponentInChildren<RoomDegenerator>().Parent = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>().gameObject;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        Light lightSource = other.transform.gameObject.GetComponentInChildren<Light>();
+
+        Rigidbody rb = other.transform.gameObject.GetComponent<Rigidbody>();
+        if (lightSource != null && !Lights.Contains(other.transform.gameObject) && ((rb != null && rb.useGravity == false) || rb == null)) 
+        {
+            Lights.Add(other.transform.gameObject);
+            lightSource.enabled = false;
         }
     }
 
