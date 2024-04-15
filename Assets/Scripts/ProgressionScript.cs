@@ -20,6 +20,8 @@ public class ProgressionScript : MonoBehaviour
     public int HeightLevelAchieved = 0;
 
     public int previousLevel = 0;
+
+    public GameObject LightTimer;
     private void Start()
     {
         player = GameObject.Find("FollowHead").transform;

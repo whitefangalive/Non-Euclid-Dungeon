@@ -6,8 +6,14 @@ public class ResetParent : MonoBehaviour
 {
     private GameObject previousParent;
     private ProgressionScript progressionScript;
-    public float torchDelay = 1.0f;
-    public float playerDistanceMultiplier = 1.0f;
+    private GameObject LightTimer;
+    private ProgressionScript progression;
+
+    private void Start()
+    {
+        progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
+        LightTimer = progression.LightTimer;
+    }
 
     private HashSet<GameObject> Lights = new HashSet<GameObject>();
     private void OnTriggerEnter(Collider other)
@@ -25,13 +31,8 @@ public class ResetParent : MonoBehaviour
                     if (!lightSource.enabled) 
                     {
                         newLevel = true;
-                        float then = Time.timeSinceLevelLoad;
-
-                        Debug.Log((Time.timeSinceLevelLoad - then > (torchDelay * (Vector3.Distance(other.transform.position, lightObject.transform.position) * playerDistanceMultiplier))) + " " + (Time.timeSinceLevelLoad - then) + " " + Vector3.Distance(other.transform.position, lightObject.transform.position));
-                        if (Time.timeSinceLevelLoad - then > (torchDelay * (Vector3.Distance(other.transform.position, lightObject.transform.position) * playerDistanceMultiplier)))
-                        {
-                            lightSource.enabled = true;
-                        }
+                        GameObject lightTimerObject = Instantiate(LightTimer, lightObject.transform, lightObject.transform.gameObject);
+                        lightTimerObject.GetComponent<TorchLightTimerScript>().torch = lightObject;
                     }
                 }
                 if (newLevel)
