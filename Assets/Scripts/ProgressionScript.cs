@@ -34,16 +34,13 @@ public class ProgressionScript : MonoBehaviour
         
         
         level = Mathf.RoundToInt(height / difference);
-        if (level > HeightLevelAchieved) 
-        {
-            HeightLevelAchieved = level;
-        }
 
         if (roomsExplored == AmountOfRoomsLevelOne)
         {
             TimeToProgress = true;
             DisableDegeneration = true;
             roomsExplored = 0;
+            HeightLevelAchieved++;
         }
     }
 

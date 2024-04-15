@@ -6,6 +6,10 @@ public class ResetParent : MonoBehaviour
 {
     private GameObject previousParent;
     private ProgressionScript progressionScript;
+    public float torchDelay = 1.0f;
+    public float playerDistanceMultiplier = 1.0f;
+
+    private HashSet<GameObject> Lights = new HashSet<GameObject>();
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "HeadCollider") {
@@ -14,9 +18,26 @@ public class ResetParent : MonoBehaviour
             progressionScript = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
             if (progressionScript.onCurrentLevel()) 
             {
-                progressionScript.roomsExplored++;
+                bool newLevel = false;
+                foreach (GameObject lightObject in Lights) 
+                {
+                    Light lightSource = lightObject.GetComponentInChildren<Light>();
+                    if (!lightSource.enabled) 
+                    {
+                        newLevel = true;
+                        float then = Time.timeSinceLevelLoad;
+
+                        if (Time.timeSinceLevelLoad - then > (torchDelay * (Vector3.Distance(other.transform.position, lightObject.transform.position) * playerDistanceMultiplier)))
+                        {
+                            lightSource.enabled = true;
+                        }
+                    }
+                }
+                if (newLevel)
+                {
+                    progressionScript.roomsExplored++;
+                }
             }
-            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -24,6 +45,15 @@ public class ResetParent : MonoBehaviour
         if (other.gameObject.name == "HeadCollider")
         {
             gameObject.GetComponentInChildren<RoomDegenerator>().Parent = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>().gameObject;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        Light lightSource = other.transform.gameObject.GetComponentInChildren<Light>();
+        if (lightSource != null) 
+        {
+            Lights.Add(other.transform.gameObject);
+            lightSource.enabled = false;
         }
     }
 
