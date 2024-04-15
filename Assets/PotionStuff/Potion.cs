@@ -11,15 +11,11 @@ public class Potion : MonoBehaviour
     public float explodeMagnitude = 5;
     public GameObject exploded;
     public GameObject explodedParticles;
-    public int healthToAdd;
-
-    private GameObject healPostEffectObject;
+    public int healthToAdd = 1;
     // Start is called before the first frame update
     void Start()
     {
         velocityCollide = GetComponent<VelocityCollide>();
-
-        healPostEffectObject = GameObject.Find("PostEffectsControllerHeal");
     }
 
     public void explode() 

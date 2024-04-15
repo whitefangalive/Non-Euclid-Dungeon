@@ -33,6 +33,10 @@ public class ShopPassable : MonoBehaviour
         {
             collider.enabled = false;
         }
+        else if (!sold)
+        {
+            collider.enabled = true;
+        }
     }
 
     public void GrabItem() 

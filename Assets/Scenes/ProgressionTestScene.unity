@@ -1816,9 +1816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
-  weight: 1
+  weight: 0.879
   sharedProfile: {fileID: 11400000, guid: 3e889dc8eb8bcee48865313a4dcf9058, type: 2}
 --- !u!4 &1710474826
 Transform:
