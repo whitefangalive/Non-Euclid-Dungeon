@@ -27,6 +27,7 @@ public class ResetParent : MonoBehaviour
                         newLevel = true;
                         float then = Time.timeSinceLevelLoad;
 
+                        Debug.Log((Time.timeSinceLevelLoad - then > (torchDelay * (Vector3.Distance(other.transform.position, lightObject.transform.position) * playerDistanceMultiplier))) + " " + (Time.timeSinceLevelLoad - then) + " " + Vector3.Distance(other.transform.position, lightObject.transform.position));
                         if (Time.timeSinceLevelLoad - then > (torchDelay * (Vector3.Distance(other.transform.position, lightObject.transform.position) * playerDistanceMultiplier)))
                         {
                             lightSource.enabled = true;
@@ -50,7 +51,9 @@ public class ResetParent : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Light lightSource = other.transform.gameObject.GetComponentInChildren<Light>();
-        if (lightSource != null) 
+
+        Rigidbody rb = other.transform.gameObject.GetComponent<Rigidbody>();
+        if (lightSource != null && !Lights.Contains(other.transform.gameObject) && ((rb != null && rb.useGravity == false) || rb == null)) 
         {
             Lights.Add(other.transform.gameObject);
             lightSource.enabled = false;
