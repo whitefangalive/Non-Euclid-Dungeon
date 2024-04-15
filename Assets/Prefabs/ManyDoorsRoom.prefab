@@ -145,15 +145,15 @@ Transform:
   - {fileID: 6433085444974894123}
   - {fileID: 8175951318199104722}
   - {fileID: 8796854435626812894}
-  - {fileID: 5586791741650896053}
   - {fileID: 2656424515030617918}
   - {fileID: 8115779474880121468}
+  - {fileID: 5586791741650896053}
   - {fileID: 1702027909104692679}
   - {fileID: 3746277848041211714}
   - {fileID: 8327349855903937121}
+  - {fileID: 4217261580776863486}
   - {fileID: 6322774668197817761}
   - {fileID: 6244725363953210351}
-  - {fileID: 4217261580776863486}
   - {fileID: 3736541265294487709}
   - {fileID: 7866291736453720677}
   - {fileID: 1390403179588544483}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 7170298337608990367}
   - component: {fileID: 5489903050775479143}
   m_Layer: 0
-  m_Name: Left Wall
+  m_Name: Left Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,14 +373,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6803124355828764592}
-  - {fileID: 4235551728242297071}
-  - {fileID: 617354319000959287}
-  - {fileID: 5108081183977270040}
   - {fileID: 4329717058412083419}
+  - {fileID: 4235551728242297071}
   - {fileID: 2196810492220322132}
+  - {fileID: 6803124355828764592}
   - {fileID: 4111130409345690103}
+  - {fileID: 617354319000959287}
   - {fileID: 2162531392134339580}
+  - {fileID: 5108081183977270040}
   m_Father: {fileID: 8243964898305255866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &395925365511534461
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 5464508461038518469}
   - component: {fileID: 2352167268703964872}
   m_Layer: 0
-  m_Name: Left Door
+  m_Name: Left Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,8 +1070,8 @@ MonoBehaviour:
   - {fileID: 6668008063078822708}
   - {fileID: 8130795696421090347}
   - {fileID: 6429189619557639706}
-  - {fileID: 4976337134180036138}
   - {fileID: 409879387640476392}
+  - {fileID: 4976337134180036138}
   - {fileID: 2747545048484312572}
   - {fileID: 395925365511534461}
   walls:
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   - {fileID: 787516224863962853}
   - {fileID: 121276480561237397}
   - {fileID: 4791215926087050909}
-  - {fileID: 6348303438261389403}
   - {fileID: 22557236021511439}
+  - {fileID: 6348303438261389403}
   testStatus: 0000010000000000
 --- !u!114 &6959831298813869465
 MonoBehaviour:
@@ -1099,6 +1099,7 @@ MonoBehaviour:
   Parent: {fileID: 23565704959500471}
   chanceToDespawn: 10
   randomNumber: 0
+  visible: 0
 --- !u!1 &1636096068645386998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1654,7 @@ GameObject:
   - component: {fileID: 2614662489283881585}
   - component: {fileID: 6805128151333860405}
   m_Layer: 0
-  m_Name: Right Wall
+  m_Name: Right Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1758,7 +1759,7 @@ GameObject:
   - component: {fileID: 8633745740313628130}
   - component: {fileID: 7673401636245406587}
   m_Layer: 0
-  m_Name: Right Door
+  m_Name: Right Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
