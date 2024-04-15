@@ -13,6 +13,7 @@ public class PlayerData : MonoBehaviour
     public float MaxInvernabilityFrames = 10;
     public float InvernabilityFrames = 0;
     public AudioSource damageTakeSound;
+    public int money = 0;
 
 
     // Start is called before the first frame update
