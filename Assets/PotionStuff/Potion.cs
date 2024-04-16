@@ -12,10 +12,13 @@ public class Potion : MonoBehaviour
     public GameObject exploded;
     public GameObject explodedParticles;
     public int healthToAdd = 1;
+    private float range = 3.0f;
+    private AudioSource healSound;
     // Start is called before the first frame update
     void Start()
     {
         velocityCollide = GetComponent<VelocityCollide>();
+        healSound = GameObject.Find("HealSoundObject").GetComponent<AudioSource>();
     }
 
     public void explode() 
@@ -23,7 +26,14 @@ public class Potion : MonoBehaviour
         Destroy(gameObject);
         Instantiate(exploded, transform.position, transform.rotation);
         Instantiate(explodedParticles, transform.position, Quaternion.identity);
-        GameObject.Find("Player").GetComponent<PlayerData>().health += healthToAdd;
+        GameObject player = GameObject.Find("Player");
+        if (Vector3.Distance(transform.position, player.transform.position) <= range) {
+
+            player.GetComponent<PlayerData>().health = Mathf.Clamp(player.GetComponent<PlayerData>().health + healthToAdd, 0, player.GetComponent<PlayerData>().maxHealth);
+            //Magic spell heal bright bell brid reverb.wav by ryusa -- https://freesound.org/s/531082/ -- License: Attribution 4.0
+            healSound.Play();
+        }
+        
     }
 
     void OnCollisionEnter(Collision collision)
