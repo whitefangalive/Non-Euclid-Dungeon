@@ -17,6 +17,7 @@ public class DirectionalPortal : MonoBehaviour
     public float NeededEulerRotationYMax = 0;
     public float rotation;
     public LayerMask maskForWhenItemsTeleport;
+    public bool RotationAllowsPassage = false;
 
     private HashSet<Transform> inventory = new HashSet<Transform>();
 
@@ -138,7 +139,10 @@ public class DirectionalPortal : MonoBehaviour
             }
             else 
             {
-                AbleToTeleport = true;
+                if (!RotationAllowsPassage) 
+                {
+                    AbleToTeleport = true;
+                }
             }
         }
     }

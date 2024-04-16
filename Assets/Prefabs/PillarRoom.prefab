@@ -1053,6 +1053,7 @@ MonoBehaviour:
   Parent: {fileID: 23565704959500471}
   chanceToDespawn: 10
   randomNumber: 0
+  visible: 0
 --- !u!1 &1680494748442567462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,6 +3186,7 @@ MonoBehaviour:
   maskForWhenItemsTeleport:
     serializedVersion: 2
     m_Bits: 0
+  RotationAllowsPassage: 1
 --- !u!1 &7410706453432975697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,12 +3720,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destination: {fileID: 7219447328805296675}
   AbleToTeleport: 1
-  NeededEulerRotationYMin: -180
-  NeededEulerRotationYMax: 90
+  NeededEulerRotationYMin: -90
+  NeededEulerRotationYMax: 180
   rotation: 0
   maskForWhenItemsTeleport:
     serializedVersion: 2
     m_Bits: 0
+  RotationAllowsPassage: 1
 --- !u!1 &8052112012629719243
 GameObject:
   m_ObjectHideFlags: 0

@@ -518,6 +518,7 @@ MonoBehaviour:
   Parent: {fileID: 23565704959500471}
   chanceToDespawn: 10
   randomNumber: 0
+  visible: 0
 --- !u!1 &3997124287327046524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +1922,7 @@ PrefabInstance:
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -1946,6 +1947,12 @@ PrefabInstance:
       propertyPath: possibleNodes.Array.data[3]
       value: 
       objectReference: {fileID: 8934170708909775145, guid: 8e4a7fdf79bb3f34f89fe25ec1464ddc,
+        type: 3}
+    - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
+        type: 3}
+      propertyPath: possibleNodes.Array.data[4]
+      value: 
+      objectReference: {fileID: 8934170708909775145, guid: 5aa30fb4baa6d684b92f03638ae4cd11,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

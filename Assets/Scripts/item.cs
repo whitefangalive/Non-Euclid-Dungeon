@@ -5,7 +5,7 @@ using UnityEngine;
 public class item : MonoBehaviour
 {
     public GameObject bag = null;
-    private Vector3 offsetPos;
+    public Vector3 offsetPos;
     private Quaternion offsetRot;
     private Rigidbody rb;
     private bool once = true;
@@ -14,6 +14,7 @@ public class item : MonoBehaviour
     private new Collider collider;
     public bool handAttached;
     public int value = 50;
+    public Vector3 postionWanted;
 
     public bool inbag = false;
     // Start is called before the first frame update
@@ -38,7 +39,8 @@ public class item : MonoBehaviour
                 once = false;
             }
 
-            transform.position = bag.transform.position + offsetPos;
+            postionWanted = bag.transform.position + offsetPos;
+            transform.position = postionWanted;
             transform.rotation = bag.transform.rotation * offsetRot;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;

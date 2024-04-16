@@ -26,7 +26,7 @@ public class BagScript : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         GameObject thing = other.transform.gameObject;
         rb = thing.GetComponent<Rigidbody>();
@@ -60,7 +60,13 @@ public class BagScript : MonoBehaviour
         {
             it = thing.transform.parent.gameObject.GetComponent<item>();
         }
-        if (it != null && it.handAttached == true) 
+        if (thing.transform.parent.position != it.postionWanted) {
+            Debug.Log("Pos is not right");
+        }
+        Debug.Log(it.offsetPos);
+
+        Vector3 positionToGoTo = transform.position + it.offsetPos;
+        if (it != null && thing.transform.parent.position == positionToGoTo) 
         {
             rb = thing.GetComponent<Rigidbody>();
             if (rb != null)
