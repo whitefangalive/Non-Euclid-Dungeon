@@ -213,7 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 68
   attackDamage: 1
-  entityFollowRange: 50
+  entityFollowRange: 20
   playerScaleMultiplier: 0.3
   animator: {fileID: 0}
 --- !u!65 &2834472113185040356
