@@ -17,7 +17,7 @@ public class SnakeMovement : MonoBehaviour
     public float playerScaleMultiplier = 1.5f;
 
     public Animator animator;
-
+    public AudioSource SnakeHiss;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +89,7 @@ public class SnakeMovement : MonoBehaviour
     {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
         {
+            SnakeHiss.Play();
             animator.SetTrigger("Attack");
         }
     }

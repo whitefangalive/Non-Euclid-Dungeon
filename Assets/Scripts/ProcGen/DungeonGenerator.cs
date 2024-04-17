@@ -32,7 +32,15 @@ public class DungeonGenerator : MonoBehaviour
 
         if (progression.TimeToProgress) 
         {
-            node = specialNodes[0];
+
+            if (progression.HeightLevelAchieved >= 2)
+            {
+                node = specialNodes[1];
+            }
+            else 
+            {
+                node = specialNodes[0];
+            }
         }
 
         if (currentPlacedNodes < maxNodes && generationManager.IsVisibleToCamera(gameObject) && (generationManager.AmountOfRooms > 0 ||

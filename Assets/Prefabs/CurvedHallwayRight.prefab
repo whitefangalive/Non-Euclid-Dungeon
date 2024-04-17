@@ -378,8 +378,8 @@ Transform:
   m_LocalScale: {x: 2.2021163, y: 1, z: 2.1204956}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6860781604475188226}
   - {fileID: 2640931150378218335}
+  - {fileID: 6860781604475188226}
   - {fileID: 3310240233715175452}
   m_Father: {fileID: 8243964898305255866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -474,6 +474,7 @@ MonoBehaviour:
   - {fileID: 23565704959500471, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
   specialNodes:
   - {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90, type: 3}
+  - {fileID: 23565704959500471, guid: 56e313386809aab46ab21ce4a6515dc5, type: 3}
   maxNodes: 0
   currentPlacedNodes: 0
 --- !u!114 &8180545440479842082
@@ -510,6 +511,7 @@ MonoBehaviour:
   Parent: {fileID: 23565704959500471}
   chanceToDespawn: 10
   randomNumber: 0
+  visible: 0
 --- !u!1 &6429189619557639706
 GameObject:
   m_ObjectHideFlags: 0

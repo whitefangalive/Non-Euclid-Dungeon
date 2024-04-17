@@ -1441,6 +1441,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   RotationAllowsPassage: 0
+  exitedPortal: 1
 --- !u!1 &1060287581810191689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,9 +1962,9 @@ Transform:
   m_LocalScale: {x: 0.95581, y: 0.95581, z: 0.95581}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2032315819098590349}
   - {fileID: 6860781604475188226}
   - {fileID: 3310240233715175452}
-  - {fileID: 2032315819098590349}
   - {fileID: 6601639845080522682}
   - {fileID: 1883118678574389275}
   - {fileID: 2593220856704066413}
@@ -7408,6 +7409,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   RotationAllowsPassage: 0
+  exitedPortal: 1
 --- !u!1 &7228975720923896554
 GameObject:
   m_ObjectHideFlags: 0
@@ -7806,6 +7808,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   RotationAllowsPassage: 0
+  exitedPortal: 1
 --- !u!1 &7438317369805644823
 GameObject:
   m_ObjectHideFlags: 0
@@ -8442,6 +8445,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   RotationAllowsPassage: 0
+  exitedPortal: 1
 --- !u!1 &8052112012629719243
 GameObject:
   m_ObjectHideFlags: 0

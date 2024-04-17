@@ -27,7 +27,7 @@ public class RoomDegenerator : MonoBehaviour
     {
         visible = generationManager.IsVisibleToCamera(gameObject);
         if (!progression.DisableDegeneration) {
-            if (Parent == null && !visible)
+            if (Parent == null && (!visible || generationManager.playerPastGenerationDistance(transform.position)))
             {
                 Destroy(gameObject.transform.parent.gameObject);
                 generationManager.AmountOfRooms++;
@@ -38,6 +38,10 @@ public class RoomDegenerator : MonoBehaviour
                 {
                     {
                         randomNumber = Random.Range(1, chanceToDespawn);
+                        if (generationManager.playerPastGenerationDistance(transform.position)) 
+                        {
+                            randomNumber = Random.Range(1, chanceToDespawn / 5);
+                        }
                         once = true;
                         if (randomNumber == 1 && Parent != transform.parent.gameObject)
                         {

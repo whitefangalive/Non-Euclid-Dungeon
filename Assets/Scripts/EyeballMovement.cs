@@ -93,7 +93,7 @@ public class EyeballMovement : MonoBehaviour
     {
         if (other.transform.name == "BodyCollider" || other.transform.name == "HeadCollider")
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("EyeAttack"))
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("EyeballAttack"))
             {
                 other.transform.root.GetComponent<PlayerData>().takeDamage(attackDamage, transform);
             }

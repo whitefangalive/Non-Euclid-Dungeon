@@ -71,6 +71,11 @@ public class GenerationManager : MonoBehaviour
 
     public bool IsVisibleToCamera(GameObject obj)
     {
-        return obj.GetComponent<Renderer>().isVisible || obj.GetComponentInChildren<Renderer>().isVisible;
+        return obj.GetComponent<Renderer>().isVisible || obj.transform.GetChild(0).GetComponent<MeshRenderer>().isVisible;
+    }
+
+    public bool playerPastGenerationDistance(Vector3 pos) 
+    {
+        return Vector3.Distance(GameObject.Find("Player").transform.position, pos) > generationDistance;
     }
 }
