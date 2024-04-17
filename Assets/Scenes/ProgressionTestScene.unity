@@ -1036,6 +1036,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538984830032095647, guid: be91f55c3cbe401419a03ce25e781229,
+        type: 3}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1864995895867152685, guid: be91f55c3cbe401419a03ce25e781229,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1138,9 +1143,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7717a2bf7f6ba844c9e170b702f1ffc2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.818
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1502,6 +1507,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538984830032095647, guid: be91f55c3cbe401419a03ce25e781229,
+        type: 3}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1864995895867152685, guid: be91f55c3cbe401419a03ce25e781229,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,6 +1580,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538984830032095647, guid: be91f55c3cbe401419a03ce25e781229,
+        type: 3}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1864995895867152685, guid: be91f55c3cbe401419a03ce25e781229,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2202,6 +2217,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538984830032095647, guid: be91f55c3cbe401419a03ce25e781229,
+        type: 3}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1864995895867152685, guid: be91f55c3cbe401419a03ce25e781229,
         type: 3}
       propertyPath: m_LocalPosition.x

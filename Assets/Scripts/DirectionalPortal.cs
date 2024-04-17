@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 public class DirectionalPortal : MonoBehaviour
 {
     public GameObject Destination;
-    [HideInInspector]
+
     public bool AbleToTeleport = true;
     private Vector3 playerDiff;
     private Quaternion rotDiff;
@@ -18,6 +18,7 @@ public class DirectionalPortal : MonoBehaviour
     public float rotation;
     public LayerMask maskForWhenItemsTeleport;
     public bool RotationAllowsPassage = false;
+    public bool exitedPortal = true;
 
     private HashSet<Transform> inventory = new HashSet<Transform>();
 
@@ -32,6 +33,14 @@ public class DirectionalPortal : MonoBehaviour
         scaleDiff = Divide(objD.localScale, objF.localScale);
         NeededEulerRotationYMin = NeededEulerRotationYMin + transform.root.rotation.eulerAngles.y;
         NeededEulerRotationYMax = NeededEulerRotationYMax + transform.root.rotation.eulerAngles.y;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.name == "HeadCollider")
+        {
+            exitedPortal = false;
+            Destination.GetComponent<DirectionalPortal>().exitedPortal = false;
+        }
     }
     private void OnTriggerStay(Collider other)
     {
@@ -87,7 +96,7 @@ public class DirectionalPortal : MonoBehaviour
             if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
                 (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
             {
-                if (AbleToTeleport)
+                if (AbleToTeleport && exitedPortal == false)
                 {
                     Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
                     playerDiff = player.position - gameObject.transform.position;
@@ -148,7 +157,11 @@ public class DirectionalPortal : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        AbleToTeleport = true;
+        if (other.transform.name == "HeadCollider")
+        {
+            exitedPortal = true;
+            AbleToTeleport = true;
+        }
     }
     Vector3 RotateVector(Vector3 vector, Quaternion rotation)
     {

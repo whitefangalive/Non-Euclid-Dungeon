@@ -26,7 +26,7 @@ public class BagScript : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         GameObject thing = other.transform.gameObject;
         rb = thing.GetComponent<Rigidbody>();
