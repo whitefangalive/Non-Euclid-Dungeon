@@ -37,7 +37,7 @@ public class FollowHand : MonoBehaviour
         float extraDistance = 1;
         if (isInBetweenAngle(player.transform.rotation.x, 50, 130))
         {
-            extraDistance = 1.5f;
+            extraDistance = 3.5f;
         }
         //Updates camera position to be position of the player plus the initial offset.
         forwardOnY.rotation = new Quaternion(0, player.transform.rotation.y, 0, player.transform.rotation.w);

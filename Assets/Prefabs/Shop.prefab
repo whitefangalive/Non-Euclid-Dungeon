@@ -44,7 +44,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1048710071887503275}
-  - component: {fileID: 3049748522077523015}
   - component: {fileID: 70760017307071407}
   - component: {fileID: 7069561069375250022}
   - component: {fileID: 8769841599012062954}
@@ -74,14 +73,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.5542606}
   m_SizeDelta: {x: 500, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3049748522077523015
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253696035928600405}
-  m_CullTransparentMesh: 1
 --- !u!114 &70760017307071407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +268,7 @@ ReflectionProbe:
   m_Mode: 1
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 128
+  m_Resolution: 256
   m_UpdateFrequency: 0
   m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
@@ -306,7 +297,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627344832788119598}
-  - component: {fileID: 8731375461805103933}
   - component: {fileID: 8948801916321779318}
   - component: {fileID: 151344938331763046}
   - component: {fileID: 2280657069917944441}
@@ -336,14 +326,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.52797}
   m_SizeDelta: {x: 500, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8731375461805103933
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509035188899962823}
-  m_CullTransparentMesh: 1
 --- !u!114 &8948801916321779318
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,10 +60,6 @@ public class BagScript : MonoBehaviour
         {
             it = thing.transform.parent.gameObject.GetComponent<item>();
         }
-        if (thing.transform.parent.position != it.postionWanted) {
-            Debug.Log("Pos is not right");
-        }
-        Debug.Log(it.offsetPos);
 
         Vector3 positionToGoTo = transform.position + it.offsetPos;
         if (it != null && thing.transform.parent.position == positionToGoTo) 

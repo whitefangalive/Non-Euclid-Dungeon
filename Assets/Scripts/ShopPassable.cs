@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR.Extras;
 using TMPro;
 using System.Data.SqlTypes;
+using Valve.VR.InteractionSystem;
 
 public class ShopPassable : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class ShopPassable : MonoBehaviour
     private TMP_Text moneyText;
     private bool sold = false;
     private new Collider collider;
+    private GameObject item;
+    private item itemScript;
+    private Throwable throwable;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,9 @@ public class ShopPassable : MonoBehaviour
         GameObject.Find("Cost").GetComponent<TMP_Text>().text = ("$" + cost);
         moneyText = GameObject.Find("Money").GetComponent<TMP_Text>();
         collider = GetComponent<Collider>();
+        itemScript = transform.parent.GetComponentInChildren<item>();
+        item = itemScript.gameObject;
+        throwable = item.GetComponentInChildren<Throwable>();
     }
 
     // Update is called once per frame
@@ -32,10 +39,15 @@ public class ShopPassable : MonoBehaviour
         if (money >= cost)
         {
             collider.enabled = false;
+            
+            throwable.enabled = true;
         }
         else if (!sold)
         {
             collider.enabled = true;
+            itemScript.enabled = false;
+            throwable.enabled = false;
+
         }
     }
 
@@ -45,6 +57,7 @@ public class ShopPassable : MonoBehaviour
         {
             playerData.money -= cost;
             sold = true;
+            itemScript.enabled = true;
         }
     }
 }
