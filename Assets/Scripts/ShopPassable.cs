@@ -17,7 +17,7 @@ public class ShopPassable : MonoBehaviour
     private new Collider collider;
     private GameObject item;
     private item itemScript;
-    private Throwable throwable;
+    private Collider Collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class ShopPassable : MonoBehaviour
         collider = GetComponent<Collider>();
         itemScript = transform.parent.GetComponentInChildren<item>();
         item = itemScript.gameObject;
-        throwable = item.GetComponentInChildren<Throwable>();
+        Collider = item.GetComponentInChildren<Collider>();
     }
 
     // Update is called once per frame
@@ -40,13 +40,13 @@ public class ShopPassable : MonoBehaviour
         {
             collider.enabled = false;
             
-            throwable.enabled = true;
+            Collider.enabled = true;
         }
         else if (!sold)
         {
             collider.enabled = true;
             itemScript.enabled = false;
-            throwable.enabled = false;
+            Collider.enabled = false;
 
         }
     }

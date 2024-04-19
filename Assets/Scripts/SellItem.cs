@@ -5,7 +5,10 @@ using UnityEngine;
 public class SellItem : MonoBehaviour
 {
 
-    public PlayerData playerData;
+    private PlayerData playerData;
+    public AudioSource burnNoise;
+    public AudioSource MoneyNoise;
+    public GameObject BurnParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +36,11 @@ public class SellItem : MonoBehaviour
 
     private void sell(GameObject obj, int price) 
     {
+        Instantiate(BurnParticles, obj.transform.position, transform.rotation);
         Destroy(obj);
+        burnNoise.Play();
         playerData.money += price;
+        MoneyNoise.Play();
     }
 
 }
