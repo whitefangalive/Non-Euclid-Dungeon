@@ -12,12 +12,6 @@ public class RoomBehavior : MonoBehaviour
     {
         UpdateRoom(testStatus);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void UpdateRoom(bool[] status)
     {
         for (int i = 0; i < status.Length; i++)

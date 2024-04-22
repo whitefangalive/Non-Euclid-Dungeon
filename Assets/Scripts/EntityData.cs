@@ -20,17 +20,13 @@ public class EntityData : MonoBehaviour
         health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (health <= 0) 
-        {
-            Die();
-        }
-    }
 
     private void FixedUpdate()
     {
+        if (health <= 0)
+        {
+            Die();
+        }
         if (InvernabilityFrames > 0)
         {
             InvernabilityFrames -= Time.deltaTime;

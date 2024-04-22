@@ -6,14 +6,12 @@ public class ResetParent : MonoBehaviour
 {
     private GameObject previousParent;
     private ProgressionScript progressionScript;
-    //private GameObject LightTimer;
     private ProgressionScript progression;
 
 
     private void Start()
     {
         progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
-        //LightTimer = progression.LightTimer;
     }
 
     private HashSet<GameObject> Lights = new HashSet<GameObject>();
@@ -30,16 +28,6 @@ public class ResetParent : MonoBehaviour
                     progression.RoomObjectsExplored.Add(gameObject);
                     progressionScript.roomsExplored++;
                 }
-                //foreach (GameObject lightObject in Lights) 
-                //{
-                //    Light lightSource = lightObject.GetComponentInChildren<Light>();
-                //    if (!lightSource.enabled) 
-                //    {
-                //        newLevel = true;
-                //        GameObject lightTimerObject = Instantiate(LightTimer, lightObject.transform, lightObject.transform.gameObject);
-                //        lightTimerObject.GetComponent<TorchLightTimerScript>().torch = lightObject;
-                //    }
-                //}
             }
         }
     }
@@ -50,18 +38,6 @@ public class ResetParent : MonoBehaviour
             gameObject.GetComponentInChildren<RoomDegenerator>().Parent = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>().gameObject;
         }
     }
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    Light lightSource = other.transform.gameObject.GetComponentInChildren<Light>();
-
-    //    Rigidbody rb = other.transform.gameObject.GetComponent<Rigidbody>();
-    //    if (lightSource != null && !Lights.Contains(other.transform.gameObject) && ((rb != null && rb.useGravity == false) || rb == null)) 
-    //    {
-    //        Lights.Add(other.transform.gameObject);
-    //        lightSource.enabled = false;
-    //    }
-    //}
-
     Transform GetClosestRoom()
     {
         GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
