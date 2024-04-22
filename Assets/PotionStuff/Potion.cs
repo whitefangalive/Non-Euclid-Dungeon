@@ -12,7 +12,7 @@ public class Potion : MonoBehaviour
     public GameObject exploded;
     public GameObject explodedParticles;
     public int healthToAdd = 1;
-    private float range = 3.0f;
+    public float range = 3.0f;
     private AudioSource healSound;
     // Start is called before the first frame update
     void Start()
