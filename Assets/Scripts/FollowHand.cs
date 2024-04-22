@@ -17,6 +17,8 @@ public class FollowHand : MonoBehaviour
         //Initializes the offset to be equal to camera distance from player
         offset = transform.position - player.transform.position;
         forwardOnY = player.transform;
+
+        Debug.Log(isInBetweenAngle(61.28f, 50, 130));
     }
     
 
@@ -33,11 +35,11 @@ public class FollowHand : MonoBehaviour
                 }
             forwardOnY = player.transform;
         }
-        // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
         float extraDistance = 1;
-        if (isInBetweenAngle(player.transform.rotation.x, 50, 130))
+        // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
+        if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 60, 130))
         {
-            extraDistance = 3.5f;
+            extraDistance = 1.5f;
         }
         //Updates camera position to be position of the player plus the initial offset.
         forwardOnY.rotation = new Quaternion(0, player.transform.rotation.y, 0, player.transform.rotation.w);

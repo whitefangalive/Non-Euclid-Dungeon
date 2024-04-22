@@ -853,7 +853,7 @@ MonoBehaviour:
   playerSize: 0.5
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 68
+    m_Bits: 1092
 --- !u!114 &592423645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1856
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

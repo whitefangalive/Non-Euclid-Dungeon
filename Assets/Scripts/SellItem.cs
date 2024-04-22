@@ -36,7 +36,7 @@ public class SellItem : MonoBehaviour
 
     private void sell(GameObject obj, int price) 
     {
-        Instantiate(BurnParticles, obj.transform.position, transform.rotation);
+        Instantiate(BurnParticles, obj.GetComponentInChildren<Rigidbody>().transform.position, transform.rotation);
         Destroy(obj);
         burnNoise.Play();
         playerData.money += price;

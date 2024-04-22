@@ -12,7 +12,8 @@ public class ShopPassable : MonoBehaviour
     public int money;
     private GameObject player;
     private PlayerData playerData;
-    private TMP_Text moneyText;
+    public TMP_Text moneyText;
+    public TMP_Text costText;
     private bool sold = false;
     private new Collider collider;
     private GameObject item;
@@ -23,8 +24,8 @@ public class ShopPassable : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerData = player.GetComponent<PlayerData>();
-        GameObject.Find("Cost").GetComponent<TMP_Text>().text = ("$" + cost);
-        moneyText = GameObject.Find("Money").GetComponent<TMP_Text>();
+        costText.GetComponent<TMP_Text>().text = ("$" + cost);
+        moneyText = moneyText.GetComponent<TMP_Text>();
         collider = GetComponent<Collider>();
         itemScript = transform.parent.GetComponentInChildren<item>();
         item = itemScript.gameObject;

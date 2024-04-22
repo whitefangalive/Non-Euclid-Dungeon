@@ -576,6 +576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   money: 0
+  moneyText: {fileID: 2280657069917944441}
+  costText: {fileID: 8769841599012062954}
 --- !u!64 &5947999711182763615
 MeshCollider:
   m_ObjectHideFlags: 0

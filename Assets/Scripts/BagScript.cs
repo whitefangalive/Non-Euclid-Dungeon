@@ -62,7 +62,7 @@ public class BagScript : MonoBehaviour
         }
 
         Vector3 positionToGoTo = transform.position + it.offsetPos;
-        if (it != null && thing.transform.parent.position == positionToGoTo) 
+        if (it != null && (thing.transform.parent.position == positionToGoTo || it.handAttached == true)) 
         {
             rb = thing.GetComponent<Rigidbody>();
             if (rb != null)
