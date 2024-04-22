@@ -5,7 +5,7 @@ using TMPro;
 
 public class DisplayItems : MonoBehaviour
 {
-    public HashSet<GameObject> inventory = new HashSet<GameObject>();
+    public HashSet<item> inventory = new HashSet<item>();
     public BagScript bagScript;
     public TMP_Text moneyTextMesh;
     // Start is called before the first frame update

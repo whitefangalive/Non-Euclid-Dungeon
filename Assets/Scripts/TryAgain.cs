@@ -8,7 +8,7 @@ using Valve.VR.InteractionSystem;
 public class TryAgain : MonoBehaviour
 {
     public string sceneName;
-    public HashSet<GameObject> inventory = new HashSet<GameObject>();
+    public HashSet<item> inventory = new HashSet<item>();
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +23,11 @@ public class TryAgain : MonoBehaviour
         Debug.Log("Clicked Try again button");
         Destroy(GameObject.Find("Player"));
 
-        foreach (GameObject thing in inventory)
+        foreach (item thing in inventory)
         {
             if (thing != null && Random.Range(0, 0) == 0)
             {
-                thing.AddComponent<DontDestroyOnLoad>();
+                thing.gameObject.AddComponent<DontDestroyOnLoad>();
             }
         }
         GetComponent<SteamVR_LoadLevel>().enabled = true;
