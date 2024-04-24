@@ -64,6 +64,8 @@ public class item : MonoBehaviour
     {
         handAttached = true;
         gameObject.transform.parent = null;
+
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
     public void unattached()
     {
