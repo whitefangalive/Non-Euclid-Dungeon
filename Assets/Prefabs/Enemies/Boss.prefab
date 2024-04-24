@@ -1866,8 +1866,13 @@ MonoBehaviour:
     type: 3}
   MaxInvernabilityFrames: 0.1
   InvernabilityFrames: 0
+<<<<<<< HEAD
+  dieSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+=======
   dieSound: {fileID: 4549738650151712621}
   hurtSound: {fileID: 3931205206661790252}
+>>>>>>> 2bb8e501d25eb239b23cec89930fe858d013cffc
 --- !u!65 &4396205838705592429
 BoxCollider:
   m_ObjectHideFlags: 0
