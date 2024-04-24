@@ -17,7 +17,7 @@ public class BossMovement : MonoBehaviour
     public float playerScaleMultiplier = 1.5f;
 
     public Animator animator;
-    public AudioSource SnakeHiss;
+    public AudioSource AttackSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +89,7 @@ public class BossMovement : MonoBehaviour
     {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
         {
-            SnakeHiss.Play();
+            AttackSound.Play();
             animator.SetTrigger("Attack");
         }
     }
