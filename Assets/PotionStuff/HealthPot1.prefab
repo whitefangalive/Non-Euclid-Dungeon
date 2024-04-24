@@ -169,7 +169,7 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2390330860975854392}
         m_TargetAssemblyTypeName: item, Assembly-CSharp
         m_MethodName: attached
         m_Mode: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2390330860975854392}
         m_TargetAssemblyTypeName: item, Assembly-CSharp
         m_MethodName: unattached
         m_Mode: 1
