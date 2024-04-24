@@ -13,6 +13,9 @@ public class EntityData : MonoBehaviour
     public float MaxInvernabilityFrames = 10;
     public float InvernabilityFrames = 0;
 
+    public AudioSource dieSound;
+    public AudioSource hurtSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,7 @@ public class EntityData : MonoBehaviour
     {
         if (damage > 0 && InvernabilityFrames <= 0)
         {
+            hurtSound.Play();
             Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
@@ -45,6 +49,7 @@ public class EntityData : MonoBehaviour
 
     private void Die() 
     {
+        dieSound.Play();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
