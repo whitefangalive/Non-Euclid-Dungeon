@@ -24,7 +24,7 @@ public class pulsating : MonoBehaviour
         {
             m_Vignette = tmp;
         }
-        m_Vignette.intensity.Override(1f);
+        //m_Vignette.intensity.Override(1f);
         // Use the QuickVolume method to create a volume with a priority of 100, and assign the vignette to this volume
 
     }
@@ -32,7 +32,7 @@ public class pulsating : MonoBehaviour
     {
         float x = Time.realtimeSinceStartup * frequency;
         intensityReal = (Mathf.Max(Mathf.Sin((x - 3.4f) / inbetweenFreq), Mathf.Cos((x - 3.4f) / inbetweenFreq)) * maxIntensity);
-        m_Vignette.intensity.value = Mathf.Clamp(intensityReal, minIntensity, maxIntensity);
+        //m_Vignette.intensity.value = Mathf.Clamp(intensityReal, minIntensity, maxIntensity);
         if (Mathf.Cos((x - 3.4f) / inbetweenFreq) >= 0.9f)
         {
             if (!hasBeatIn)

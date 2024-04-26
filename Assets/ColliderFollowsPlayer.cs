@@ -16,6 +16,6 @@ public class ColliderFollowsPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collider.center = new Vector3(player.localPosition.x, 0.1f, player.localPosition.z);
+        collider.center = new Vector3(player.localPosition.x, collider.center.y, player.localPosition.z);
     }
 }

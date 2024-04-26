@@ -33,7 +33,10 @@ public class ProgressionScript : MonoBehaviour
     private void LateUpdate()
     {
         checkForChangeInLevel();
-        height = player.position.y;
+        if (player != null) {
+            height = player.position.y;
+        }
+        
         
         
         level = Mathf.RoundToInt(height / difference);

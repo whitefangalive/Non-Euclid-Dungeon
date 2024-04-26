@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntityData : MonoBehaviour
 {
@@ -16,11 +17,14 @@ public class EntityData : MonoBehaviour
     public AudioSource dieSound;
     public AudioSource hurtSound;
 
+    public UnityEvent onDeath;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        rb = GetComponent<Rigidbody>();
     }
 
 
@@ -44,12 +48,14 @@ public class EntityData : MonoBehaviour
             Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
+            rb.AddForce(from.position.normalized * 10, ForceMode.Force);
         }
     }
 
     private void Die() 
     {
         dieSound.Play();
+        onDeath.Invoke();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

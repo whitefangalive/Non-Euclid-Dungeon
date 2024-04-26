@@ -14,11 +14,15 @@ public class Potion : MonoBehaviour
     public int healthToAdd = 1;
     public float range = 3.0f;
     private AudioSource healSound;
+    private item itemScript;
     // Start is called before the first frame update
     void Start()
     {
         velocityCollide = GetComponent<VelocityCollide>();
         healSound = GameObject.Find("HealSoundObject").GetComponent<AudioSource>();
+        itemScript = transform.parent.GetComponent<item>();
+
+
     }
 
     public void explode() 
@@ -38,7 +42,8 @@ public class Potion : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (velocityCollide.previousVelocity.magnitude > explodeMagnitude)
+        GameObject bag = itemScript.bag;
+        if (velocityCollide.previousVelocity.magnitude > explodeMagnitude && bag == null)
         {
             explode();
         }
@@ -46,7 +51,7 @@ public class Potion : MonoBehaviour
         if (collision.rigidbody != null && otherColl != null)
         {
 
-            if (otherColl.previousVelocity.magnitude - velocityCollide.previousVelocity.magnitude > explodeMagnitude)
+            if (otherColl.previousVelocity.magnitude - velocityCollide.previousVelocity.magnitude > explodeMagnitude && bag == null)
             {
                 explode();
             }

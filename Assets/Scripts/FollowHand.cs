@@ -28,13 +28,8 @@ public class FollowHand : MonoBehaviour
         if (player == null)
         {
             player = GameObject.Find("VRCamera");
-            if (player == null)
-                if (player == null)
-                {
-                    player = GameObject.Find("FallbackObjects");
-                }
-            forwardOnY = player.transform;
         }
+        forwardOnY = player.transform;
         float extraDistance = 1;
         // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
         if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 60, 130))

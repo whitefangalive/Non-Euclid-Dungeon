@@ -58,8 +58,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 38, y: 7.4089665, z: 23.088892}
-  m_Center: {x: 0, y: 2.158048, z: 12.044446}
+  m_Size: {x: 38, y: 7.4089665, z: 22.744915}
+  m_Center: {x: 0, y: 2.158048, z: 12.2164345}
 --- !u!114 &8036973204114082957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ Transform:
   m_GameObject: {fileID: 8130795696421090347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0.038}
   m_LocalScale: {x: 1.4426771, y: 1, z: 1.0540695}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,6 +913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a5532e3ea271384b98bb22edc9d3257,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

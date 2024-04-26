@@ -17,7 +17,13 @@ public class BossMovement : MonoBehaviour
     public float playerScaleMultiplier = 1.5f;
 
     public Animator animator;
-    public AudioSource AttackSound;
+    public AudioSource Attack1Sound;
+    public AudioSource AttackLongSound;
+
+    public bool isAttacking = false;
+
+    private float timerNow;
+    public float attackInterval = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +33,7 @@ public class BossMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Get the current position of the Player
         Vector3 playerPosition = target.transform.position;
@@ -44,9 +50,12 @@ public class BossMovement : MonoBehaviour
 
         //Correct rotation
         targetRotation *= Quaternion.Euler(0, 0, 0);
-
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("VomitAttack")) 
+        {
+            transform.rotation = targetRotation;
+        }
         // Apply the rotation to the enemy
-        transform.rotation = targetRotation;
+        
 
         float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
 
@@ -58,16 +67,46 @@ public class BossMovement : MonoBehaviour
                 Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
                 // Smoothly move the enemy towards the target position
-                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-                animator.SetBool("IsMoving", true);
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("VomitAttack"))
+                {
+                    transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+                }
+                    animator.SetBool("IsMoving", true);
             }
         }
         else 
         {
             animator.SetBool("IsMoving", false);
-            Attack();
-        }
 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("MonsterIdle") && isAttacking)
+            {
+                timerNow = Time.timeSinceLevelLoad;
+                isAttacking = false;
+                Debug.Log("Boss radom attack chosen ");
+            }
+
+            if (!isAttacking && (Time.timeSinceLevelLoad - timerNow >= attackInterval))
+            {
+                int rand = Random.Range(0, 3);
+                
+                isAttacking = true;
+                switch (rand)
+                {
+                    case 0:
+                        AttackLong();
+                        break;
+                    case 1:
+                        Attack1();
+                        break;
+                    case 2:
+                        AttackVomit();
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+        }
     }
 
     private bool BeingBlocked(Vector3 Direction)
@@ -85,22 +124,36 @@ public class BossMovement : MonoBehaviour
         return result;
     }
 
-    private void Attack()
+    private void Attack1()
     {
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
-        {
-            AttackSound.Play();
-            animator.SetTrigger("Attack");
-        }
+
+        Attack1Sound.Play();
+        animator.SetTrigger("Attack1");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void AttackLong()
     {
-        if (other.transform.name == "BodyCollider" || other.transform.name == "HeadCollider") 
+
+        AttackLongSound.Play();
+        animator.SetTrigger("AttackLong");
+
+    }
+    private void AttackVomit()
+    {
+
+        // sound is hanndled during animation
+        animator.SetTrigger("AttackVomit");
+
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name == "BodyCollider" || collision.transform.name == "HeadCollider")
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeAttack")) 
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("MonsterAttack1") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("MonsterLongAttack") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("VomitAttack"))
             {
-                other.transform.root.GetComponent<PlayerData>().takeDamage(attackDamage, transform);
+                collision.transform.root.GetComponent<PlayerData>().takeDamage(attackDamage, transform);
             }
         }
     }
