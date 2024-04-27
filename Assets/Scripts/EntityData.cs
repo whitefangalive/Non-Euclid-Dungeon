@@ -48,7 +48,8 @@ public class EntityData : MonoBehaviour
             Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
-            rb.AddForce(from.position.normalized * 10, ForceMode.Force);
+            Debug.Log(new Vector3(from.position.x, 0, from.position.z).normalized.ToString());
+            rb.AddForce(new Vector3(from.position.x, 0, from.position.z).normalized * -3, ForceMode.VelocityChange);
         }
     }
 

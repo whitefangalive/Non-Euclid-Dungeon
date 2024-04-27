@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c77d27784d39934f9b5f6b95cc5da96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 60
+  moveSpeed: 0.5
   target: {fileID: 0}
   sweepSize: 0.5
   ignoreLayer:

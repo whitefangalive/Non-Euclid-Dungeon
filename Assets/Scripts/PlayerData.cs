@@ -14,12 +14,13 @@ public class PlayerData : MonoBehaviour
     public float InvernabilityFrames = 0;
     public AudioSource damageTakeSound;
     public int money = 0;
-
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class PlayerData : MonoBehaviour
             damageTakeSound.Play(0);
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
+            rb.AddForce(new Vector3(from.position.x, 0, from.position.z).normalized * -3, ForceMode.VelocityChange);
         }
     }
 

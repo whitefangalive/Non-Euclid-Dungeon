@@ -2627,7 +2627,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6181014204027762637}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2664,7 +2664,7 @@ MonoBehaviour:
     type: 3}
   deathParticles: {fileID: 2611743327004854969, guid: 69a0445585f40dd4ea6c251d6f0f99c4,
     type: 3}
-  MaxInvernabilityFrames: 0.1
+  MaxInvernabilityFrames: 0.3
   InvernabilityFrames: 0
   dieSound: {fileID: 4549738650151712621}
   hurtSound: {fileID: 3931205206661790252}
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5219b63501d4614c9504c3b8ad584d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 0.5416667
   target: {fileID: 0}
   sweepSize: 1
   ignoreLayer:

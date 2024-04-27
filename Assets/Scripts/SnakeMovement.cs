@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class SnakeMovement : MonoBehaviour
 {
     public float moveSpeed;
+    private float speed = 0.0f;
     public GameObject target;
 
     private Rigidbody rb;
@@ -58,7 +59,9 @@ public class SnakeMovement : MonoBehaviour
                 Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
                 // Smoothly move the enemy towards the target position
-                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+                speed = 1.0f;
+                speed = Mathf.Clamp(speed, -moveSpeed, moveSpeed) * transform.lossyScale.y;
+                transform.position += speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
                 animator.SetBool("IsMoving", true);
             }
         }

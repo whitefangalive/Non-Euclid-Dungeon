@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
         {
             EntityData data = collision.collider.transform.gameObject.GetComponent<EntityData>();
             Transform current = collision.collider.transform;
-            while (data == null) 
+            while (data == null && current.parent != null) 
                 {
                     current = current.parent;
                     data = current.gameObject.GetComponent<EntityData>();
