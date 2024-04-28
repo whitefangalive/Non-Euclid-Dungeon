@@ -19,12 +19,22 @@ public class EntityData : MonoBehaviour
 
     public UnityEvent onDeath;
     private Rigidbody rb;
+    private bool justPushedEntity = false;
+
+    public float ThrowBackSpeed = 1;
+    private float speed = 0.0f;
+    private Animator animator;
+    private Vector3 direction;
+    
+    private float timerNow;
+    private float throwbackMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -38,6 +48,21 @@ public class EntityData : MonoBehaviour
         {
             InvernabilityFrames -= Time.deltaTime;
         }
+
+        if (justPushedEntity) 
+        {
+            if (Time.timeSinceLevelLoad - timerNow < 1)
+            {
+                speed = 1 - (Time.timeSinceLevelLoad - timerNow);
+                speed = Mathf.Clamp(speed, -ThrowBackSpeed, ThrowBackSpeed) * transform.lossyScale.y;
+                transform.position += speed * (throwbackMultiplier * -1) * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
+                
+            }
+            else 
+            {
+                justPushedEntity = false;
+            }
+        }
     }
 
     public void takeDamage(int damage, Transform from)
@@ -48,8 +73,15 @@ public class EntityData : MonoBehaviour
             Instantiate(damageParticles, from.position, Quaternion.Inverse(from.localRotation));
             health -= damage;
             InvernabilityFrames = MaxInvernabilityFrames;
-            Debug.Log(new Vector3(from.position.x, 0, from.position.z).normalized.ToString());
-            rb.AddForce(new Vector3(from.position.x, 0, from.position.z).normalized * -3, ForceMode.VelocityChange);
+
+            timerNow = Time.timeSinceLevelLoad;
+            justPushedEntity = true;
+            direction = from.position - transform.position;
+            direction.y = 0f;
+            direction.Normalize();
+            throwbackMultiplier = damage;
+
+
         }
     }
 

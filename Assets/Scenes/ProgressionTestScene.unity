@@ -1139,7 +1139,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1966193937}
     m_Modifications:
     - target: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
         type: 3}
@@ -1164,17 +1164,17 @@ PrefabInstance:
     - target: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
         type: 3}
@@ -1225,6 +1225,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 563594ff0ce943b4188120c65330f411, type: 3}
+--- !u!4 &675416270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3100259986337605755, guid: 563594ff0ce943b4188120c65330f411,
+    type: 3}
+  m_PrefabInstance: {fileID: 675416269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &727871876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,6 +2621,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1064821014}
+    - targetCorrespondingSourceObject: {fileID: 8243964898305255866, guid: b5b45062d6c305d4ca9f3975239bc73f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 675416270}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b45062d6c305d4ca9f3975239bc73f, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -2633,5 +2643,4 @@ SceneRoots:
   - {fileID: 1990359251}
   - {fileID: 1710474826}
   - {fileID: 592423638}
-  - {fileID: 675416269}
   - {fileID: 142952488}

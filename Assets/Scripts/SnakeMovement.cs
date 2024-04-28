@@ -63,6 +63,7 @@ public class SnakeMovement : MonoBehaviour
                 speed = Mathf.Clamp(speed, -moveSpeed, moveSpeed) * transform.lossyScale.y;
                 transform.position += speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
                 animator.SetBool("IsMoving", true);
+                
             }
         }
         else 

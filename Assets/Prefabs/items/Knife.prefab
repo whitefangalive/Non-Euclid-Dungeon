@@ -201,6 +201,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2532689555810335854}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: acd2f66b6c5276d42a09d339efcf678c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2311054632785152163}
   m_SourcePrefab: {fileID: 100100000, guid: acd2f66b6c5276d42a09d339efcf678c, type: 3}
 --- !u!4 &1677934664603988207 stripped
 Transform:
@@ -358,6 +362,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4228770271950752920}
         m_TargetAssemblyTypeName: item, Assembly-CSharp
         m_MethodName: unattached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2311054632785152163}
+        m_TargetAssemblyTypeName: HandPassable, Assembly-CSharp
+        m_MethodName: PassThrowHand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -586,3 +602,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5829020448511087073, guid: acd2f66b6c5276d42a09d339efcf678c, type: 3}
+--- !u!114 &2311054632785152163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018430684254218837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6c3a251eb575542a05b2ee92df96c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passThroughHandMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  passableInterval: 1
