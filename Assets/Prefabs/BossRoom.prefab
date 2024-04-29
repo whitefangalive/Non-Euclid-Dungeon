@@ -9667,6 +9667,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1114233153292768894}
+    - targetCorrespondingSourceObject: {fileID: 7986195996577877638, guid: 33507bc9ec72a714a8fba006af477337,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1496650414456744143}
   m_SourcePrefab: {fileID: 100100000, guid: 33507bc9ec72a714a8fba006af477337, type: 3}
 --- !u!1 &2345145143796567983 stripped
 GameObject:
@@ -9744,7 +9748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
@@ -9887,6 +9891,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5d47ee6eade5b43b18dcfa487033b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1496650414456744143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011658665972855847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783750eec4c41da428b7651515146d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityAverageFrames: 5
+  angularVelocityAverageFrames: 11
+  estimateOnAwake: 0
 --- !u!1001 &4737493086996938835
 PrefabInstance:
   m_ObjectHideFlags: 0

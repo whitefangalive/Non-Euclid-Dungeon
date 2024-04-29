@@ -30,6 +30,10 @@ public class PlayerData : MonoBehaviour
         {
             Die();
         }
+        if (transform.position.y < -50) 
+        {
+            takeDamage(health, transform);
+        }
     }
 
     private void FixedUpdate()
