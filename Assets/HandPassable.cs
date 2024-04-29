@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandPassable : MonoBehaviour
 {
     private float timerNow = 0.0f;
-    private new Collider collider;
+    private Collider collider;
     public LayerMask passThroughHandMask;
     private LayerMask defaultLayerMask;
     public float passableInterval = 5;

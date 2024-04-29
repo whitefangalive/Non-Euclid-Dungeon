@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderFollowsPlayer : MonoBehaviour
 {
-    private new CapsuleCollider collider;
+    private CapsuleCollider collider;
     private Transform player;
     // Start is called before the first frame update
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TorchSyncFireWIthLight : MonoBehaviour
 {
-    private new Light light;
+    private Light light;
     private ParticleSystem particles;
     // Start is called before the first frame update
     void Start()

@@ -15,7 +15,7 @@ public class ShopPassable : MonoBehaviour
     public TMP_Text moneyText;
     public TMP_Text costText;
     private bool sold = false;
-    private new Collider collider;
+    private Collider collider;
     private GameObject item;
     private item itemScript;
     private Collider Collider;

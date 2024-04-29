@@ -11,7 +11,7 @@ public class item : MonoBehaviour
     private bool once = true;
     private bool once2 = true;
     private bool originalUseGrav;
-    private new Collider collider;
+    private Collider collider;
     public bool handAttached;
     public int value = 50;
     public Vector3 postionWanted;
