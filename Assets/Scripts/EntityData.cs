@@ -22,6 +22,7 @@ public class EntityData : MonoBehaviour
     private bool justPushedEntity = false;
 
     public float ThrowBackSpeed = 1;
+    public float maxThrowBackSpeed = 1.5f;
     private float speed = 0.0f;
     private Animator animator;
     private Vector3 direction;
@@ -55,6 +56,8 @@ public class EntityData : MonoBehaviour
             {
                 speed = 1 - (Time.timeSinceLevelLoad - timerNow);
                 speed = Mathf.Clamp(speed, -ThrowBackSpeed, ThrowBackSpeed) * transform.lossyScale.y;
+                float massMultiplier = (rb.mass * 0.05f);
+                throwbackMultiplier = Mathf.Clamp(throwbackMultiplier, -maxThrowBackSpeed * massMultiplier, maxThrowBackSpeed * massMultiplier);
                 transform.position += speed * (throwbackMultiplier * -1) * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
                 
             }

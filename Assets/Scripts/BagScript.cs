@@ -43,7 +43,7 @@ public class BagScript : MonoBehaviour
             inventory.Add(thing.transform.parent.gameObject.GetComponent<item>());
         }
 
-        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
+        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "<size=60%>in Bag \r\n<size=100%>$" + getTotalValue();
     }
     public int getTotalValue()
     {

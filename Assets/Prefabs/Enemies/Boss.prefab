@@ -2627,8 +2627,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6181014204027762637}
   serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 0
+  m_Mass: 100
+  m_Drag: 3
   m_AngularDrag: 0.25
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5219b63501d4614c9504c3b8ad584d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5416667
+  moveSpeed: 0.6770834
   target: {fileID: 0}
   sweepSize: 1
   ignoreLayer:

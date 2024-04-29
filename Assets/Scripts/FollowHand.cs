@@ -32,7 +32,7 @@ public class FollowHand : MonoBehaviour
         forwardOnY = player.transform;
         float extraDistance = 1;
         // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
-        if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 60, 130))
+        if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 80, 130))
         {
             extraDistance = 1.5f;
         }
