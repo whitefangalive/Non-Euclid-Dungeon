@@ -5670,10 +5670,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<size=125%>''Monster Name''
+  m_text: '<size=125%>The Skrimel
 
-    <size=70%>Defeat this creature in the
-    depths below
+    <size=70%>Defeat this monster in the depths
+    below
 
     For victory upon you we will bestow
 
