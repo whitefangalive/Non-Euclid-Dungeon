@@ -2672,6 +2672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ThrowBackSpeed: 1
+  maxThrowBackSpeed: 1.5
 --- !u!65 &4396205838705592429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3118,14 +3119,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6981890702249474990}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00030892342, y: -0.19606197, z: 0.36163414}
+  m_LocalRotation: {x: 0.06567958, y: 0.15941513, z: -0.37523335, w: 0.910754}
+  m_LocalPosition: {x: -0.00030892342, y: -0.196062, z: 0.3616341}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4133722457369724472}
   m_Father: {fileID: 8262592899596712940}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.844, y: 14.377, z: -43.029}
 --- !u!1 &7694490813774112115
 GameObject:
   m_ObjectHideFlags: 0

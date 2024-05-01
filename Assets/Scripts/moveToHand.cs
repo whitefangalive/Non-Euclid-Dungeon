@@ -69,7 +69,7 @@ public class moveToHand : MonoBehaviour
 
             float extraDistance = 0;
             // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
-            if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 80, 130))
+            if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 75, 130))
             {
                 extraDistance = -0.5f;
             }
