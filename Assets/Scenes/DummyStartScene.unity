@@ -2395,6 +2395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onBack: 0
   handReaching: 0
+  player: {fileID: 0}
 --- !u!114 &1831766774
 MonoBehaviour:
   m_ObjectHideFlags: 0
