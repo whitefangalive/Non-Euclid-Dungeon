@@ -7,11 +7,13 @@ public class ResetParent : MonoBehaviour
     private GameObject previousParent;
     private ProgressionScript progressionScript;
     private ProgressionScript progression;
+    private GameObject player;
 
 
     private void Start()
     {
         progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
+        player = GameObject.Find("HeadCollider");
     }
 
     private HashSet<GameObject> Lights = new HashSet<GameObject>();
@@ -43,7 +45,7 @@ public class ResetParent : MonoBehaviour
         GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
         Transform tMin = null;
         float minDist = Mathf.Infinity;
-        Vector3 currentPos = GameObject.Find("HeadCollider").transform.position;
+        Vector3 currentPos = player.transform.position;
         foreach (GameObject t in rooms)
         {
             if (t != null) {

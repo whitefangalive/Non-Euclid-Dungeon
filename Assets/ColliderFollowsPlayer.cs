@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ColliderFollowsPlayer : MonoBehaviour
 {
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     private CapsuleCollider collider;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     private Transform player;
     // Start is called before the first frame update
     void Start()
