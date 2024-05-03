@@ -8,7 +8,9 @@ public class MusicManager : MonoBehaviour
 {
     private GameObject player;
     private string CurrentSceneName;
+    [SerializeField]
     private AudioSource CurrentPlayingMusic;
+    private AudioSource PreviouslyPlayingMusic;
 
     public float bossDistanceRequired = 25f;
     public float normalEnemyDistanceRequired = 10f;
@@ -17,11 +19,22 @@ public class MusicManager : MonoBehaviour
     public AudioSource GameplayNormalMusic;
     public AudioSource GameplayCombatMusic;
     public AudioSource BossMusic;
+
+    private enum State {
+        START,
+        BOSS,
+        COMBAT,
+        NORMAL,
+        NONE
+    }
+    private State currentState = State.NONE;
+    private State previousState;
+
+    public float maxMusicVolume = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("HeadCollider");
-        CurrentSceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -30,23 +43,43 @@ public class MusicManager : MonoBehaviour
         if (player == null) 
         {
             player = GameObject.Find("HeadCollider");
-            CurrentSceneName = SceneManager.GetActiveScene().name;
+            
         }
+        CurrentSceneName = SceneManager.GetSceneByBuildIndex(1).name;
+        Debug.Log(CurrentSceneName);
+        previousState = currentState;
         if (CurrentSceneName == "StartScene")
         {
-            switchMusic(StartMusic, 1);
+            currentState = State.START;
         }
         else if (GetClosestGameObjectOfName(true) < bossDistanceRequired)
         {
-            switchMusic(BossMusic, 1);
+            currentState = State.BOSS;
         }
         else if (GetClosestGameObjectOfName(false) < normalEnemyDistanceRequired)
         {
-            switchMusic(GameplayCombatMusic, 0.5f);
+            currentState = State.COMBAT;
         }
         else 
         {
-            switchMusic(GameplayNormalMusic, 1.5f);
+            currentState = State.NORMAL;
+        }
+
+
+        switch (currentState)
+        {
+            case State.START:
+                switchMusic(StartMusic, 5);
+                break;
+            case State.BOSS:
+                switchMusic(BossMusic, 6);
+                break;
+            case State.COMBAT:
+                switchMusic(GameplayCombatMusic, 6);
+                break;
+            case State.NORMAL:
+                switchMusic(GameplayNormalMusic, 6);
+                break;
         }
     }
 
@@ -58,10 +91,6 @@ public class MusicManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-            if (start <= 0) 
-            {
-                audioSource.Stop();
-            }
             yield return null;
         }
         yield break;
@@ -69,20 +98,29 @@ public class MusicManager : MonoBehaviour
 
     private void switchMusic(AudioSource to, float fadeTime)
     {
-        if (CurrentPlayingMusic != null) 
+        if (previousState != currentState)
         {
-            StartCoroutine(StartFade(CurrentPlayingMusic, fadeTime, 0));
-            if (CurrentPlayingMusic.volume <= 0)
+            PreviouslyPlayingMusic = CurrentPlayingMusic;
+            if (!to.isPlaying) 
+            { 
+                to.Play();
+            }
+            
+            to.volume = 0.01f;
+        }
+        else
+        {
+            if (PreviouslyPlayingMusic != null && PreviouslyPlayingMusic.isPlaying)
             {
-                CurrentPlayingMusic.Stop();
+                StartCoroutine(StartFade(PreviouslyPlayingMusic, fadeTime, 0));
+            }
+            if (to.isPlaying)
+            {
+                StartCoroutine(StartFade(to, fadeTime, maxMusicVolume));
+                CurrentPlayingMusic = to;
             }
         }
         
-        to.Play();
-        to.volume = 0;
-        StartCoroutine(StartFade(to, fadeTime, 1));
-
-        CurrentPlayingMusic = to;
     }
     private float GetClosestGameObjectOfName(bool boss)
     {

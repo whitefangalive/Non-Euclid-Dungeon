@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26892928}
   - component: {fileID: 26892927}
+  - component: {fileID: 26892929}
   m_Layer: 0
   m_Name: LabyrinthOfDispair
   m_TagString: Untagged
@@ -253,6 +254,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064639897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26892929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26892926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c07a6449b0ca439ee6fac5f6f7d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &92089200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1336,6 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619000179}
   - component: {fileID: 619000178}
+  - component: {fileID: 619000180}
   m_Layer: 0
   m_Name: ForgottenLand
   m_TagString: Untagged
@@ -1454,6 +1468,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064639897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619000180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619000177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c07a6449b0ca439ee6fac5f6f7d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &652246474 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5452286, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -2228,6 +2254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785233216}
   - component: {fileID: 1785233215}
+  - component: {fileID: 1785233217}
   m_Layer: 0
   m_Name: MedievalSands
   m_TagString: Untagged
@@ -2346,6 +2373,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064639897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1785233217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785233214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c07a6449b0ca439ee6fac5f6f7d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1831766771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,6 +2493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1967124487}
   - component: {fileID: 1967124486}
+  - component: {fileID: 1967124488}
   m_Layer: 0
   m_Name: MagicTavern
   m_TagString: Untagged
@@ -2572,6 +2612,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2064639897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967124488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967124485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c07a6449b0ca439ee6fac5f6f7d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1981784591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471722, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -2608,12 +2660,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c60c683ffb504d4689de1fc7cbb1e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentPlayingMusic: {fileID: 0}
   bossDistanceRequired: 25
   normalEnemyDistanceRequired: 10
   StartMusic: {fileID: 1967124486}
   GameplayNormalMusic: {fileID: 1785233215}
   GameplayCombatMusic: {fileID: 26892927}
   BossMusic: {fileID: 619000178}
+  maxMusicVolume: 0.15
 --- !u!114 &2064639896
 MonoBehaviour:
   m_ObjectHideFlags: 0

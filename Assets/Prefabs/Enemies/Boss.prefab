@@ -2628,8 +2628,8 @@ Rigidbody:
   m_GameObject: {fileID: 6181014204027762637}
   serializedVersion: 4
   m_Mass: 100
-  m_Drag: 3
-  m_AngularDrag: 0.25
+  m_Drag: 5
+  m_AngularDrag: 0.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2672,7 +2672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ThrowBackSpeed: 1
-  maxThrowBackSpeed: 1.5
+  maxThrowBackSpeed: 0.5
 --- !u!65 &4396205838705592429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2758,7 +2758,7 @@ MonoBehaviour:
     m_Bits: 68
   attackDamage: 1
   entityFollowRange: 15
-  playerScaleMultiplier: 0.45
+  playerScaleMultiplier: 0.4
   animator: {fileID: 0}
   Attack1Sound: {fileID: 5459445675902582388}
   AttackLongSound: {fileID: 4640198114914886391}

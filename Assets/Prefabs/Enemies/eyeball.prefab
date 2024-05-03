@@ -490,7 +490,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ThrowBackSpeed: 1
-  maxThrowBackSpeed: 1
+  maxThrowBackSpeed: 0.05
 --- !u!114 &5934254008538605482
 MonoBehaviour:
   m_ObjectHideFlags: 0
