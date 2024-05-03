@@ -2667,7 +2667,7 @@ MonoBehaviour:
   GameplayNormalMusic: {fileID: 1785233215}
   GameplayCombatMusic: {fileID: 26892927}
   BossMusic: {fileID: 619000178}
-  maxMusicVolume: 0.15
+  maxMusicVolume: 0.05
 --- !u!114 &2064639896
 MonoBehaviour:
   m_ObjectHideFlags: 0

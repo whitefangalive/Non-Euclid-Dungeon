@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
@@ -69,31 +70,18 @@ public class MusicManager : MonoBehaviour
         switch (currentState)
         {
             case State.START:
-                switchMusic(StartMusic, 5);
+                switchMusic(StartMusic, 4);
                 break;
             case State.BOSS:
-                switchMusic(BossMusic, 6);
+                switchMusic(BossMusic, 3);
                 break;
             case State.COMBAT:
-                switchMusic(GameplayCombatMusic, 6);
+                switchMusic(GameplayCombatMusic, 3);
                 break;
             case State.NORMAL:
-                switchMusic(GameplayNormalMusic, 6);
+                switchMusic(GameplayNormalMusic, 4);
                 break;
         }
-    }
-
-    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
-    {
-        float currentTime = 0;
-        float start = audioSource.volume;
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-            yield return null;
-        }
-        yield break;
     }
 
     private void switchMusic(AudioSource to, float fadeTime)
@@ -112,11 +100,23 @@ public class MusicManager : MonoBehaviour
         {
             if (PreviouslyPlayingMusic != null && PreviouslyPlayingMusic.isPlaying)
             {
-                StartCoroutine(StartFade(PreviouslyPlayingMusic, fadeTime, 0));
+                float currentTime = 0;
+                float start = PreviouslyPlayingMusic.volume;
+                if (currentTime < fadeTime)
+                {
+                    currentTime += Time.deltaTime;
+                    PreviouslyPlayingMusic.volume = Mathf.Lerp(start, 0, currentTime / fadeTime);
+                }
             }
             if (to.isPlaying)
             {
-                StartCoroutine(StartFade(to, fadeTime, maxMusicVolume));
+                float currentTime = 0;
+                float start = to.volume;
+                if (currentTime < fadeTime) 
+                {
+                    currentTime += Time.deltaTime;
+                    to.volume = Mathf.Lerp(start, maxMusicVolume, currentTime / fadeTime);
+                }
                 CurrentPlayingMusic = to;
             }
         }

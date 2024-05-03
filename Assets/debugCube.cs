@@ -6,15 +6,17 @@ using System.Text;
 
 public class debugCube : MonoBehaviour
 {
-    private TMP_Text progressBar;
-    private GameObject compass;
+    public TMP_Text progressBar;
+    public GameObject compass;
     private ProgressionScript progression;
     private int previousExplored = 0;
+    public AudioSource levelIncreased;
+    public AudioSource compassReady;
+
+    private bool compassReadyOnce = true;
     // Start is called before the first frame update
     void Start()
     {
-        progressBar = GameObject.Find("ProgressBar").GetComponent<TMP_Text>();
-        compass = GameObject.Find("Compass");
         progression = GameObject.Find("ProgressionManager").GetComponent<ProgressionScript>();
     }
 
@@ -25,6 +27,7 @@ public class debugCube : MonoBehaviour
         int explored = progression.roomsExplored;
         if (explored != previousExplored)
         {
+            levelIncreased.Play();
             previousExplored = explored;
             string black = "<color=#000000>";
             string green = "<color=#29ff62>";
@@ -53,9 +56,18 @@ public class debugCube : MonoBehaviour
         }
         
         GameObject stairs = GameObject.Find("LocationOfStairs");
-        if (stairs != null && progression.DisableDegeneration == true) 
+        if (stairs != null && progression.DisableDegeneration == true)
         {
             compass.transform.LookAt(stairs.transform.position);
+            if (compassReadyOnce)
+            {
+                compassReady.Play();
+                compassReadyOnce = false;
+            }
+        }
+        else 
+        {
+            compassReadyOnce = true;
         }
     }
 }
