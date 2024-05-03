@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxIntensity: 0.6
-  explodeMagnitude: 0.8
+  explodeMagnitude: 1.3
   exploded: {fileID: 4443780781785082684, guid: 5e797e3c9ff15564c8edfe9d7c5d707c,
     type: 3}
   explodedParticles: {fileID: 1974319073004612, guid: 4fad053d6ff9ef742ae1f144a674382a,

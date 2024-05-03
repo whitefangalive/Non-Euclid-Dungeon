@@ -15,17 +15,20 @@ public class MusicManager : MonoBehaviour
 
     public float bossDistanceRequired = 25f;
     public float normalEnemyDistanceRequired = 10f;
+    public bool bossDead = false;
 
     public AudioSource StartMusic;
     public AudioSource GameplayNormalMusic;
     public AudioSource GameplayCombatMusic;
     public AudioSource BossMusic;
+    public AudioSource VictoryMusic;
 
     private enum State {
         START,
         BOSS,
         COMBAT,
         NORMAL,
+        VICTORY,
         NONE
     }
     private State currentState = State.NONE;
@@ -47,7 +50,6 @@ public class MusicManager : MonoBehaviour
             
         }
         CurrentSceneName = SceneManager.GetSceneByBuildIndex(1).name;
-        Debug.Log(CurrentSceneName);
         previousState = currentState;
         if (CurrentSceneName == "StartScene")
         {
@@ -61,7 +63,11 @@ public class MusicManager : MonoBehaviour
         {
             currentState = State.COMBAT;
         }
-        else 
+        else if (bossDead) 
+        {
+            currentState = State.VICTORY;
+        }
+        else
         {
             currentState = State.NORMAL;
         }
@@ -70,16 +76,19 @@ public class MusicManager : MonoBehaviour
         switch (currentState)
         {
             case State.START:
-                switchMusic(StartMusic, 4);
+                switchMusic(StartMusic, 2);
                 break;
             case State.BOSS:
                 switchMusic(BossMusic, 3);
                 break;
             case State.COMBAT:
-                switchMusic(GameplayCombatMusic, 3);
+                switchMusic(GameplayCombatMusic, 2);
                 break;
             case State.NORMAL:
-                switchMusic(GameplayNormalMusic, 4);
+                switchMusic(GameplayNormalMusic, 2);
+                break;
+            case State.VICTORY:
+                switchMusic(VictoryMusic, 1);
                 break;
         }
     }

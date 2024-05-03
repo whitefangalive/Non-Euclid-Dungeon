@@ -29,5 +29,6 @@ public class BossKilledChecked : MonoBehaviour
     { 
         killed = true;
         doorOpenSound.Play();
+        GameObject.Find("MusicManager").GetComponent<MusicManager>().bossDead = true;
     }
 }
