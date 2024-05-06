@@ -14,7 +14,7 @@ public class EntityData : MonoBehaviour
     public float MaxInvernabilityFrames = 10;
     public float InvernabilityFrames = 0;
 
-    public AudioSource dieSound;
+    public GameObject dieSound;
     public AudioSource hurtSound;
 
     public UnityEvent onDeath;
@@ -90,7 +90,8 @@ public class EntityData : MonoBehaviour
 
     private void Die() 
     {
-        dieSound.Play();
+        GameObject entity = Instantiate(dieSound);
+        entity.transform.position = transform.position;
         onDeath.Invoke();
         Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);

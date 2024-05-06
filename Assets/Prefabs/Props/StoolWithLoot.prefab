@@ -351,8 +351,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 5
+  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!1001 &7873442423379193420
 PrefabInstance:
@@ -420,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
       propertyPath: possibleNodes.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
         type: 3}
@@ -468,7 +470,13 @@ PrefabInstance:
         type: 3}
       propertyPath: possibleNodes.Array.data[7]
       value: 
-      objectReference: {fileID: 8934170708909775145, guid: 7e29744b5ae29944683271f96ac15caa,
+      objectReference: {fileID: 8934170708909775145, guid: d02398650fa585f47a5596f63aea753f,
+        type: 3}
+    - target: {fileID: 7127281806632512999, guid: 50a3a142390fc6e4688dd9d2830efb02,
+        type: 3}
+      propertyPath: possibleNodes.Array.data[8]
+      value: 
+      objectReference: {fileID: 8934170708909775145, guid: 72f53ca963079f14183ce40e3a53b65e,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

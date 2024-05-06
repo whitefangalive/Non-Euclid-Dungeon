@@ -19,6 +19,7 @@ public class GenerationManager : MonoBehaviour
     RaycastHit hit;
     Vector3 forward;
     public LayerMask m_LayerMask;
+    public LayerMask nonemask;
 
     public bool CanPlaceRoom(GameObject door, GameObject node, QueryTriggerInteraction collide)
     {
@@ -60,8 +61,7 @@ public class GenerationManager : MonoBehaviour
     {
         bool result = true;
         RaycastHit hit;
-
-        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength, m_LayerMask, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength, nonemask, QueryTriggerInteraction.Collide))
         {
             result = false;
         }
