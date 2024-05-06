@@ -50,7 +50,7 @@ public class DungeonGenerator : MonoBehaviour
             GameObject randomWall = roomBehavior.doors[rand];
             if (generationManager.CanPlaceRoom(randomWall, node, QueryTriggerInteraction.Collide))
             {
-                 generateRoom(randomWall, node);
+                 generateRoom(randomWall, node, rand);
             }
             else
             {
@@ -58,22 +58,21 @@ public class DungeonGenerator : MonoBehaviour
                 randomWall = roomBehavior.doors[rand];
                 if (generationManager.CanPlaceRoom(randomWall, node, QueryTriggerInteraction.Collide))
                 {
-                    generateRoom(randomWall, node);
+                    generateRoom(randomWall, node, rand);
                 }
             }
         }
     }
-    private void generateRoom(GameObject randomWall, GameObject node)
+    private void generateRoom(GameObject randomWall, GameObject node, int wallNumber)
     {
-        roomBehavior.UpdateRoomWall(true, rand);
         generationManager.AmountOfRooms -= 1;
         currentPlacedNodes++;
         GameObject nextRoom = Instantiate(node, randomWall.transform.position, Quaternion.Euler(0,
         randomWall.transform.rotation.eulerAngles.y, 0));
         nextRoom.name = name + generationManager.AmountOfRooms.ToString();
         nextRoom.GetComponentInChildren<RoomDegenerator>().Parent = gameObject;
+        roomBehavior.UpdateRoomWall(true, wallNumber);
         progression.TimeToProgress = false;
-
     }
 
     private int randomNumberThatIsnt(int number, int min, int max)
@@ -91,7 +90,7 @@ public class DungeonGenerator : MonoBehaviour
         for (int i = 0; i < roomBehavior.doors.Length; i++)
         {
             GameObject wall = roomBehavior.doors[i];
-            if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 1.0f))
+            if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 0.5f))
             {
                 roomBehavior.UpdateRoomWall(false, i);
             }

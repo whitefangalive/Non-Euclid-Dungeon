@@ -61,7 +61,7 @@ public class GenerationManager : MonoBehaviour
         bool result = true;
         RaycastHit hit;
 
-        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength))
+        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength, m_LayerMask, QueryTriggerInteraction.Collide))
         {
             result = false;
         }

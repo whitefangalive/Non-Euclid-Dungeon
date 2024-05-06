@@ -54,6 +54,7 @@ public class MusicManager : MonoBehaviour
         if (CurrentSceneName == "StartScene")
         {
             currentState = State.START;
+            bossDead = false;
         }
         else if (GetClosestGameObjectOfName(true) < bossDistanceRequired)
         {

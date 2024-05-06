@@ -61,7 +61,7 @@ public class DirectionalPortal : MonoBehaviour
         }
 
         if (other.transform.name == "TorchItem" && other.transform.gameObject.GetComponent<Rigidbody>() != null
-            && other.transform.gameObject.GetComponent<Rigidbody>().useGravity == true) 
+            && other.transform.gameObject.GetComponent<Rigidbody>().constraints == RigidbodyConstraints.None) 
         {
             GameObject thing = other.transform.gameObject;
             rb = thing.GetComponent<Rigidbody>();

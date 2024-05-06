@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
                 }
             if (data != null) 
             {
-                Vector3 globalPositionOfContact = collision.contacts[0].point;
+                Vector3 globalPositionOfContact = collision.contacts[1].point;
                 Transform fullpos = transform;
                 fullpos.position = globalPositionOfContact;
                 data.takeDamage(Mathf.FloorToInt(currentDamage), fullpos);
