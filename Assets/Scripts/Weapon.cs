@@ -31,7 +31,10 @@ public class Weapon : MonoBehaviour
                 }
             if (data != null) 
             {
-                data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
+                Vector3 globalPositionOfContact = collision.contacts[0].point;
+                Transform fullpos = transform;
+                fullpos.position = globalPositionOfContact;
+                data.takeDamage(Mathf.FloorToInt(currentDamage), fullpos);
             }
         }
     }

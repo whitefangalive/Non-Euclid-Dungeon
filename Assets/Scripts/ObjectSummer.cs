@@ -15,7 +15,7 @@ public class ObjectSummer : MonoBehaviour
         int randomNode = Random.Range(0, possibleNodes.Length);
         if (possibleNodes.Length > 0 && generationManager.CanPlaceRoom(gameObject, possibleNodes[randomNode], QueryTriggerInteraction.Ignore))
         {
-            GameObject summoned = Instantiate(possibleNodes[randomNode], transform.position, Quaternion.Euler(0, transform.localRotation.y, 0), gameObject.transform);
+            GameObject summoned = Instantiate(possibleNodes[randomNode], transform.position, Quaternion.Euler(0, transform.rotation.y, 0), gameObject.transform);
         }
     }
 }
