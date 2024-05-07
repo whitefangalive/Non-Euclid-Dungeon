@@ -2144,7 +2144,7 @@ MonoBehaviour:
   StairAsset: {fileID: 23565704959500471, guid: f2d0099e820215845aa2c42054337d90,
     type: 3}
   level: 0
-  AmountOfRoomsLevelOne: 5
+  AmountOfRoomsLevelOne: 10
   HeightLevelAchieved: 0
   previousLevel: 0
 --- !u!4 &1968147606

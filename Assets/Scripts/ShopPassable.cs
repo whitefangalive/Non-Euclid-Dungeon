@@ -18,7 +18,9 @@ public class ShopPassable : MonoBehaviour
     private Collider collider;
     private GameObject item;
     private item itemScript;
-    private Collider Collider;
+    private Collider itemCollider;
+    public GameObject mirrorParticles;
+    public AudioSource mirrorSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class ShopPassable : MonoBehaviour
         collider = GetComponent<Collider>();
         itemScript = transform.parent.GetComponentInChildren<item>();
         item = itemScript.gameObject;
-        Collider = item.GetComponentInChildren<Collider>();
+        itemCollider = item.GetComponentInChildren<Collider>();
     }
 
     // Update is called once per frame
@@ -39,15 +41,16 @@ public class ShopPassable : MonoBehaviour
         money = playerData.money;
         if (money >= cost)
         {
-            collider.enabled = false;
+            collider.isTrigger = true;
             
-            Collider.enabled = true;
+            
+            itemCollider.enabled = true;
         }
         else if (!sold)
         {
-            collider.enabled = true;
+            collider.isTrigger = false;
             itemScript.enabled = false;
-            Collider.enabled = false;
+            itemCollider.enabled = false;
 
         }
     }
@@ -60,5 +63,21 @@ public class ShopPassable : MonoBehaviour
             sold = true;
             itemScript.enabled = true;
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) < 25) 
+        {
+            Instantiate(mirrorParticles, other.transform.position, other.transform.rotation);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        mirrorSound.gameObject.transform.position = other.transform.position;
+        mirrorSound.Play();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        mirrorSound.Stop();
     }
 }
