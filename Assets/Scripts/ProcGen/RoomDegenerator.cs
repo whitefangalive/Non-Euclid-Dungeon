@@ -6,6 +6,7 @@ public class RoomDegenerator : MonoBehaviour
 {
     private GenerationManager generationManager;
     public GameObject Parent;
+    public int sideFromInParent;
 
     private bool once = false;
 
@@ -46,7 +47,7 @@ public class RoomDegenerator : MonoBehaviour
                         if (randomNumber == 1 && Parent != transform.parent.gameObject)
                         {
                             DungeonGenerator dungGen = Parent.GetComponent<DungeonGenerator>();
-                            dungGen.ResetAllWalls();
+                            dungGen.roomBehavior.UpdateRoomWall(false, sideFromInParent);
                             dungGen.currentPlacedNodes--;
                             generationManager.AmountOfRooms++;
                             Destroy(gameObject.transform.parent.gameObject);

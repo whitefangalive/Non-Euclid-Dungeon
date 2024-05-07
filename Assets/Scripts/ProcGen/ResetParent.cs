@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ResetParent : MonoBehaviour
@@ -37,7 +38,9 @@ public class ResetParent : MonoBehaviour
     {
         if (other.gameObject.name == "HeadCollider")
         {
-            gameObject.GetComponentInChildren<RoomDegenerator>().Parent = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>().gameObject;
+            DungeonGenerator dungGen = GetClosestRoom().gameObject.GetComponentInChildren<DungeonGenerator>();
+            gameObject.GetComponentInChildren<RoomDegenerator>().Parent = dungGen.gameObject;
+            gameObject.GetComponentInChildren<RoomDegenerator>().sideFromInParent = getSide(dungGen);
         }
     }
     Transform GetClosestRoom()
@@ -58,5 +61,29 @@ public class ResetParent : MonoBehaviour
             }
         }
         return tMin;
+    }
+
+    int getSide(DungeonGenerator room)
+    {
+        int result = 0;
+        GameObject[] doors = room.roomBehavior.doors;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = player.transform.position;
+        int i = 0;
+        foreach (GameObject t in doors)
+        {
+            
+            if (t != null)
+            {
+                float dist = Vector3.Distance(t.transform.position, currentPos);
+                if (dist < minDist)
+                {
+                    result = i;
+                    minDist = dist;
+                }
+            }
+            i++;
+        }
+        return result;
     }
 }

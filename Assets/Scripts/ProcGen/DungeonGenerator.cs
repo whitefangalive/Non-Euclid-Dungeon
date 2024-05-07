@@ -7,7 +7,9 @@ public class DungeonGenerator : MonoBehaviour
 {
 
     private GenerationManager generationManager;
-    private RoomBehavior roomBehavior;
+    [HideInInspector]
+    public RoomBehavior roomBehavior;
+
     public GameObject[] possibleNodes;
     public GameObject[] specialNodes;
     public int maxNodes;
@@ -71,6 +73,7 @@ public class DungeonGenerator : MonoBehaviour
         randomWall.transform.rotation.eulerAngles.y, 0));
         nextRoom.name = name + generationManager.AmountOfRooms.ToString();
         nextRoom.GetComponentInChildren<RoomDegenerator>().Parent = gameObject;
+        nextRoom.GetComponentInChildren<RoomDegenerator>().sideFromInParent = wallNumber;
         roomBehavior.UpdateRoomWall(true, wallNumber);
         progression.TimeToProgress = false;
     }
@@ -85,20 +88,20 @@ public class DungeonGenerator : MonoBehaviour
         return result;
     }
 
-    public void ResetAllWalls() 
-    {
-        for (int i = 0; i < roomBehavior.doors.Length; i++)
-        {
-            GameObject wall = roomBehavior.doors[i];
-            if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 0.5f))
-            {
-                roomBehavior.UpdateRoomWall(false, i);
-            }
-            else 
-            {
-                roomBehavior.UpdateRoomWall(true, i);
-            }
-        }
-    }
+    //public void ResetAllWalls() 
+    //{
+    //    for (int i = 0; i < roomBehavior.doors.Length; i++)
+    //    {
+    //        GameObject wall = roomBehavior.doors[i];
+    //        if (generationManager.CanPlaceRoomRayCast(wall.transform, wall.transform.forward, 0.5f))
+    //        {
+    //            roomBehavior.UpdateRoomWall(false, i);
+    //        }
+    //        else 
+    //        {
+    //            roomBehavior.UpdateRoomWall(true, i);
+    //        }
+    //    }
+    //}
 }
 
