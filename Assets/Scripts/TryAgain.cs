@@ -20,8 +20,6 @@ public class TryAgain : MonoBehaviour
     }
     public void SendToScene()
     {
-        Debug.Log("Clicked Try again button");
-        Destroy(GameObject.Find("Player"));
 
         foreach (item thing in inventory)
         {

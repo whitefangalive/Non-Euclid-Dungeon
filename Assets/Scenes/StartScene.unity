@@ -19152,6 +19152,74 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &1755302958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -628
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100259986337605755, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934170708909775145, guid: 2034bd0c0279fa7449d3b1778ee2434d,
+        type: 3}
+      propertyPath: m_Name
+      value: HiddenSword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2034bd0c0279fa7449d3b1778ee2434d, type: 3}
 --- !u!1 &1756533248
 GameObject:
   m_ObjectHideFlags: 0
@@ -32177,3 +32245,4 @@ SceneRoots:
   - {fileID: 1053966639}
   - {fileID: 1829763144}
   - {fileID: 1080673179}
+  - {fileID: 1755302958}

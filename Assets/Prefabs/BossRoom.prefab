@@ -9446,13 +9446,42 @@ PrefabInstance:
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.24574986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24962853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.29774365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.076057255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0802907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.11384967
+      objectReference: {fileID: 0}
     - target: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       propertyPath: m_Name
       value: Chalice1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -9788,6 +9817,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5768029525085102091}
     - targetCorrespondingSourceObject: {fileID: 182075670451601587, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       insertIndex: -1
@@ -9817,6 +9850,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5d47ee6eade5b43b18dcfa487033b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6782944894624160594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2728425584569549435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5768029525085102091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782944894624160594}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24574986, y: 0.24962853, z: 0.29774365}
+  m_Center: {x: 0.076057255, y: 0.0802907, z: -0.11384967}
 --- !u!1001 &2855532895816085443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10110,13 +10170,42 @@ PrefabInstance:
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.24574986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24962853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.29774365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.076057255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0802907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.11384967
+      objectReference: {fileID: 0}
     - target: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       propertyPath: m_Name
       value: Ring
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -10294,13 +10383,42 @@ PrefabInstance:
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.24574986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24962853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.29774365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.076057255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0802907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.11384967
+      objectReference: {fileID: 0}
     - target: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       propertyPath: m_Name
       value: Ring (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -11244,6 +11362,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2016846615543076401, guid: 3a0b464a9f5cec945940653b8da91d35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2085123170073435758, guid: 3a0b464a9f5cec945940653b8da91d35,
         type: 3}
       propertyPath: m_Name
@@ -11637,13 +11760,42 @@ PrefabInstance:
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.24574986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24962853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.29774365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.076057255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0802907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.11384967
+      objectReference: {fileID: 0}
     - target: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       propertyPath: m_Name
       value: plate
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -12152,13 +12304,42 @@ PrefabInstance:
       propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.24574986
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24962853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.29774365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.076057255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0802907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.11384967
+      objectReference: {fileID: 0}
     - target: {fileID: 8934170708909775145, guid: 2a5e88031b705dd4683d7b8c602a74f5,
         type: 3}
       propertyPath: m_Name
       value: Necklace
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7710302234394747808, guid: 2a5e88031b705dd4683d7b8c602a74f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -12253,6 +12434,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: treasure
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545381779375054969, guid: 1290d744c61485649980c9bf636761d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683093155021534361, guid: 1290d744c61485649980c9bf636761d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
