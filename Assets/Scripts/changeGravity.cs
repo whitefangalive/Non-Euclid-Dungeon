@@ -9,14 +9,15 @@ public class changeGravity : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
     public void GravityOff() 
     {
-        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
     public void GravityOn() 
     {
+        rb.constraints = RigidbodyConstraints.None;
         rb.useGravity = true;
-        Debug.Log(rb.transform.gameObject.name);
     }
 }

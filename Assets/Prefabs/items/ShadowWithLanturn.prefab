@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7180524555820380800}
   - component: {fileID: 976223435787126623}
   - component: {fileID: 3909050448655431769}
+  - component: {fileID: 9042719949259466000}
   m_Layer: 6
   m_Name: Phsyics
   m_TagString: Untagged
@@ -282,6 +283,35 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: -7002162003080826244, guid: 98445d175d3a15849aefebe6a398e0e3, type: 3}
+--- !u!114 &9042719949259466000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182075670451601587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poseEditorExpanded: 1
+  blendEditorExpanded: 1
+  poseNames:
+  - FrogHoldPose (MAIN)
+  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
+    type: 3}
+  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
+    type: 3}
+  skeletonMainPose: {fileID: 11400000, guid: 68d1ea79c3039fa4cbba1c53f3f5779f, type: 2}
+  skeletonAdditionalPoses: []
+  showLeftPreview: 0
+  showRightPreview: 0
+  previewLeftInstance: {fileID: 0}
+  previewRightInstance: {fileID: 0}
+  previewPoseSelection: 0
+  blendingBehaviours: []
+  scale: 1
 --- !u!1 &8934170708909775145
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +343,8 @@ Transform:
   m_LocalScale: {x: 60, y: 60, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5641680375658577142}
   - {fileID: 1309969000715047571}
+  - {fileID: 5641680375658577142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4228770271950752920
@@ -331,7 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
   handAttached: 0
-  value: 60000
+  value: 5000
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0

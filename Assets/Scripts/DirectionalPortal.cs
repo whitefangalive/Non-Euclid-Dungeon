@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 public class DirectionalPortal : MonoBehaviour
 {
     public GameObject Destination;
-    [HideInInspector]
+
     public bool AbleToTeleport = true;
     private Vector3 playerDiff;
     private Quaternion rotDiff;
@@ -17,6 +17,8 @@ public class DirectionalPortal : MonoBehaviour
     public float NeededEulerRotationYMax = 0;
     public float rotation;
     public LayerMask maskForWhenItemsTeleport;
+    public bool RotationAllowsPassage = false;
+    public bool exitedPortal = true;
 
     private HashSet<Transform> inventory = new HashSet<Transform>();
 
@@ -33,6 +35,14 @@ public class DirectionalPortal : MonoBehaviour
         NeededEulerRotationYMax = NeededEulerRotationYMax + transform.root.rotation.eulerAngles.y;
     }
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.name == "HeadCollider")
+        {
+            exitedPortal = false;
+            Destination.GetComponent<DirectionalPortal>().exitedPortal = false;
+        }
+    }
+    private void OnTriggerStay(Collider other)
     {
         if (other.transform.name != "HeadCollider" && other.transform.name != "BodyCollider" && (other.transform.name != "TorchItem"))
         {
@@ -51,7 +61,7 @@ public class DirectionalPortal : MonoBehaviour
         }
 
         if (other.transform.name == "TorchItem" && other.transform.gameObject.GetComponent<Rigidbody>() != null
-            && other.transform.gameObject.GetComponent<Rigidbody>().useGravity == true) 
+            && other.transform.gameObject.GetComponent<Rigidbody>().constraints == RigidbodyConstraints.None) 
         {
             GameObject thing = other.transform.gameObject;
             rb = thing.GetComponent<Rigidbody>();
@@ -66,8 +76,9 @@ public class DirectionalPortal : MonoBehaviour
                 inventory.Add(thing.transform.parent);
             }
         }
-        if (other.transform.name == "HeadCollider" && AbleToTeleport)
+        if (other.transform.name == "HeadCollider")
         {
+            Rigidbody playerRigidbody = other.transform.root.GetComponent<Rigidbody>();
             Transform player = other.transform.root;
             Transform playerRotation = other.transform.parent.parent;
             rotation = playerRotation.rotation.eulerAngles.y;
@@ -85,57 +96,72 @@ public class DirectionalPortal : MonoBehaviour
             if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
                 (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
             {
-                Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
-                playerDiff = player.position - gameObject.transform.position;
-
-                playerDiff = RotateVector(playerDiff, rotDiff);
-
-
-                player.rotation *= rotDiff;
-                player.localScale = Multiply(player.localScale, scaleDiff);
-                player.position = Destination.transform.position + playerDiff;
-
-                foreach (Transform itemMoving in inventory)
+                if (AbleToTeleport && exitedPortal == false)
                 {
-                    //LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
-                    //itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
-                    bool followHandTrans = false;
-                    Interactable interactable = itemMoving.GetComponent<Interactable>();
-                    if (interactable != null) 
+                    Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
+                    playerDiff = player.position - gameObject.transform.position;
+
+                    playerDiff = RotateVector(playerDiff, rotDiff);
+
+                    playerRigidbody.useGravity = false;
+                    player.rotation *= rotDiff;
+                    player.localScale = Multiply(player.localScale, scaleDiff);
+                    player.position = Destination.transform.position + playerDiff;
+                    playerRigidbody.useGravity = true;
+
+                    foreach (Transform itemMoving in inventory)
                     {
-                        followHandTrans = interactable.handFollowTransform;
-                        interactable.handFollowTransform = false;
-                    }
-                    Transform ItemRotation = itemMoving.transform;
-                    rotation = ItemRotation.rotation.eulerAngles.y;
-
-                    // Check if playerAngle is between minAngle and maxAngle
-                    if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
-                        (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
-                    {
-                        Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
-                        playerDiff = itemMoving.position - gameObject.transform.position;
-
-                        playerDiff = RotateVector(playerDiff, rotDiff);
-
-
-                        itemMoving.rotation *= rotDiff;
-                        itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
-                        itemMoving.position = Destination.transform.position + playerDiff;
+                        //LayerMask oldmask = itemMoving.GetComponent<MeshCollider>().excludeLayers;
+                        //itemMoving.GetComponent<MeshCollider>().excludeLayers = maskForWhenItemsTeleport;
+                        bool followHandTrans = false;
+                        Interactable interactable = itemMoving.GetComponent<Interactable>();
                         if (interactable != null)
                         {
-                            interactable.handFollowTransform = followHandTrans;
+                            followHandTrans = interactable.handFollowTransform;
+                            interactable.handFollowTransform = false;
                         }
-                        //itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
+                        Transform ItemRotation = itemMoving.transform;
+                        rotation = ItemRotation.rotation.eulerAngles.y;
+
+                        // Check if playerAngle is between minAngle and maxAngle
+                        if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
+                            (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
+                        {
+                            Destination.GetComponent<DirectionalPortal>().AbleToTeleport = false;
+                            playerDiff = itemMoving.position - gameObject.transform.position;
+
+                            playerDiff = RotateVector(playerDiff, rotDiff);
+
+
+                            itemMoving.rotation *= rotDiff;
+                            itemMoving.localScale = Multiply(itemMoving.localScale, scaleDiff);
+                            itemMoving.position = Destination.transform.position + playerDiff;
+                            if (interactable != null)
+                            {
+                                interactable.handFollowTransform = followHandTrans;
+                            }
+                            //itemMoving.GetComponent<MeshCollider>().excludeLayers = oldmask;
+                        }
                     }
+                    inventory.Clear();
                 }
-                inventory.Clear();
+            }
+            else 
+            {
+                if (!RotationAllowsPassage) 
+                {
+                    AbleToTeleport = true;
+                }
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        AbleToTeleport = true;
+        if (other.transform.name == "HeadCollider")
+        {
+            exitedPortal = true;
+            AbleToTeleport = true;
+        }
     }
     Vector3 RotateVector(Vector3 vector, Quaternion rotation)
     {

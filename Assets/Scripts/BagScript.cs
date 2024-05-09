@@ -5,10 +5,12 @@ using TMPro;
 
 public class BagScript : MonoBehaviour
 {
-    public HashSet<GameObject> inventory = new HashSet<GameObject>();
+    public HashSet<item> inventory = new HashSet<item>();
     private Rigidbody rb;
     private item it;
     public LayerMask ExludeLayers;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +20,11 @@ public class BagScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (GameObject thing in inventory) 
+        foreach (item thing in inventory) 
         {
-            if (thing.GetComponent<item>().bag != gameObject) 
+            if (thing.bag != gameObject) 
             {
-                thing.GetComponent<item>().bag = gameObject;
+                thing.bag = gameObject;
             }
         }
     }
@@ -38,17 +40,17 @@ public class BagScript : MonoBehaviour
         
         if (it != null && rb != null)
         {
-            inventory.Add(thing.transform.parent.gameObject);
+            inventory.Add(thing.transform.parent.gameObject.GetComponent<item>());
         }
 
-        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
+        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "<size=60%>in Bag \r\n<size=100%>$" + getTotalValue();
     }
     public int getTotalValue()
     {
         int result = 0;
-        foreach (GameObject thing in inventory) 
+        foreach (item thing in inventory) 
         { 
-            result += thing.GetComponent<item>().value;
+            result += thing.value;
         }
         return result;
     }
@@ -60,16 +62,20 @@ public class BagScript : MonoBehaviour
         {
             it = thing.transform.parent.gameObject.GetComponent<item>();
         }
-        if (it != null && it.handAttached == true) 
+        if (it != null)
         {
-            rb = thing.GetComponent<Rigidbody>();
-            if (rb != null)
+            Vector3 positionToGoTo = transform.position + it.offsetPos;
+            if (it != null && (thing.transform.parent.position == positionToGoTo || it.handAttached == true))
             {
-                inventory.Remove(thing.transform.parent.gameObject);
-                thing.transform.parent.gameObject.GetComponent<item>().bag = null;
+                rb = thing.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    inventory.Remove(thing.transform.parent.gameObject.GetComponent<item>());
+                    thing.transform.parent.gameObject.GetComponent<item>().bag = null;
+                }
             }
+            GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
         }
-        GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
     }
 
 }

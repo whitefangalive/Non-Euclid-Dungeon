@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class SnakeMovement : MonoBehaviour
 {
     public float moveSpeed;
+    private float speed = 0.0f;
     public GameObject target;
 
     private Rigidbody rb;
@@ -17,7 +18,7 @@ public class SnakeMovement : MonoBehaviour
     public float playerScaleMultiplier = 1.5f;
 
     public Animator animator;
-
+    public AudioSource SnakeHiss;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,15 +51,20 @@ public class SnakeMovement : MonoBehaviour
 
         float horizontalDistance = Mathf.Sqrt(Mathf.Pow(transform.position.x - playerPosition.x, 2) + (Mathf.Pow(transform.position.z - playerPosition.z, 2)));
 
-        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier) && horizontalDistance < entityFollowRange)
+        if (target != null && !BeingBlocked(direction) && horizontalDistance > (target.transform.localScale.y * playerScaleMultiplier))
         {
-            // Calculate the desired position the enemy should move towards
-            Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
+            if (horizontalDistance < entityFollowRange) 
+            {
+                // Calculate the desired position the enemy should move towards
+                Vector3 targetPosition = transform.position + direction * moveSpeed * Time.deltaTime;
 
-            // Smoothly move the enemy towards the target position
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-            animator.SetBool("IsMoving", true);
-
+                // Smoothly move the enemy towards the target position
+                speed = 1.0f;
+                speed = Mathf.Clamp(speed, -moveSpeed, moveSpeed) * transform.lossyScale.y;
+                transform.position += speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
+                animator.SetBool("IsMoving", true);
+                
+            }
         }
         else 
         {
@@ -87,6 +93,7 @@ public class SnakeMovement : MonoBehaviour
     {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("SnakeIdle")) 
         {
+            SnakeHiss.Play();
             animator.SetTrigger("Attack");
         }
     }

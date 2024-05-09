@@ -102,7 +102,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
   serializedVersion: 4
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
+  handFollowTransform: 0
   highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
@@ -287,7 +287,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4518745500496161335, guid: 62d220ac387989e4c8e0a730156b99dc, type: 3}
+  m_Mesh: {fileID: -2889835017156348399, guid: 62257e3b628043346b386385b6d941b1, type: 3}
 --- !u!82 &3086336537570561697
 AudioSource:
   m_ObjectHideFlags: 0
@@ -298,9 +298,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 359f2673b0b13524d960e19a10dcf2a1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.564
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -309,7 +309,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -344,7 +344,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b98e4fe531404f4baab45e3a2bee2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMutliplier: 2
+  DamageMutliplier: 1.2
   currentDamage: 0
 --- !u!114 &4269725699591252084
 MonoBehaviour:
@@ -432,7 +432,7 @@ MonoBehaviour:
     type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
     type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: 7341479c20ca4fa40b0c2429809019bb, type: 2}
+  skeletonMainPose: {fileID: 11400000, guid: e12c50f7a68f8be418ce645ee39d45b6, type: 2}
   skeletonAdditionalPoses: []
   showLeftPreview: 0
   showRightPreview: 0
@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5254008095047323949
 Transform:
   m_ObjectHideFlags: 0
@@ -542,8 +542,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
+  postionWanted: {x: 0, y: 0, z: 0}
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -581,7 +584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9176866707452286750
 Transform:
   m_ObjectHideFlags: 0

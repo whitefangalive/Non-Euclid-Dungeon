@@ -337,9 +337,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ab234ac77325f4880f335ed2353dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeMagnitude: 0.8
+  maxIntensity: 0.6
+  explodeMagnitude: 1.3
   exploded: {fileID: 4443780781785082684, guid: cd364f98addfe6a45bffb5a202ce5b06,
     type: 3}
+  explodedParticles: {fileID: 1974319073004612, guid: 4fad053d6ff9ef742ae1f144a674382a,
+    type: 3}
+  healthToAdd: 2
+  range: 3
 --- !u!64 &8099875744814852973
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -392,7 +397,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &164134527404928720
 Transform:
@@ -475,7 +480,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1716082741283262814
 Transform:
@@ -600,14 +605,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6725625680646343489}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.188, y: 1.341, z: 7.422}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.0245, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3783563172811772058}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &2390330860975854392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,8 +626,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
+  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!65 &7664855864130623812
 BoxCollider:
@@ -661,7 +668,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1259814850229447088
 Transform:

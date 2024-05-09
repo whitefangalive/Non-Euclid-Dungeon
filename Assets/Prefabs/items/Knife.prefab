@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
+  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!65 &6609914094247051359
 BoxCollider:
@@ -199,6 +201,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2532689555810335854}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: acd2f66b6c5276d42a09d339efcf678c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2311054632785152163}
   m_SourcePrefab: {fileID: 100100000, guid: acd2f66b6c5276d42a09d339efcf678c, type: 3}
 --- !u!4 &1677934664603988207 stripped
 Transform:
@@ -220,9 +226,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018430684254218837}
   serializedVersion: 4
-  m_Mass: 0.5
+  m_Mass: 2
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.25
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -365,6 +371,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2311054632785152163}
+        m_TargetAssemblyTypeName: HandPassable, Assembly-CSharp
+        m_MethodName: PassThrowHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -394,10 +412,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2b1b1e573fd22104a85677eee5a33124, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.17
+  m_Pitch: 1.34
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -440,7 +458,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -584,3 +602,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5829020448511087073, guid: acd2f66b6c5276d42a09d339efcf678c, type: 3}
+--- !u!114 &2311054632785152163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018430684254218837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6c3a251eb575542a05b2ee92df96c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passThroughHandMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  passableInterval: 1

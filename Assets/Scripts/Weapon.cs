@@ -23,13 +23,19 @@ public class Weapon : MonoBehaviour
         if (collision.collider.transform.tag == "Enemy")
         {
             EntityData data = collision.collider.transform.gameObject.GetComponent<EntityData>();
-            if (data == null)
-            {
-                data = collision.collider.transform.root.gameObject.GetComponentInChildren<EntityData>();
-            } 
+            Transform current = collision.collider.transform;
+            while (data == null && current.parent != null) 
+                {
+                    current = current.parent;
+                    data = current.gameObject.GetComponent<EntityData>();
+                }
             if (data != null) 
             {
-                data.takeDamage(Mathf.FloorToInt(currentDamage), transform);
+                Debug.Log(collision.contacts.Length);
+                Vector3 globalPositionOfContact = collision.GetContact(0).point;
+                Transform fullpos = transform;
+                fullpos.position = globalPositionOfContact;
+                data.takeDamage(Mathf.FloorToInt(currentDamage), fullpos);
             }
         }
     }

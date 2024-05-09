@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5117454444393144613}
   - component: {fileID: 5938924486854623581}
   m_Layer: 0
-  m_Name: Point light (1)
+  m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,10 +84,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 5236
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -139,12 +139,13 @@ GameObject:
   - component: {fileID: 2012227655063573079}
   - component: {fileID: 3441694397164873241}
   - component: {fileID: 4914277594654257572}
+  - component: {fileID: 5076688173183432876}
   m_Layer: 6
   m_Name: TorchItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &8943061026272846846
 Transform:
@@ -243,7 +244,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3827246199134948732}
   serializedVersion: 4
-  m_Mass: 0.6
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -257,7 +258,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -373,12 +374,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onDetachFromHand:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3959061846820914597}
-        m_TargetAssemblyTypeName: item, Assembly-CSharp
-        m_MethodName: unattached
+      - m_Target: {fileID: 7211129498821000339}
+        m_TargetAssemblyTypeName: changeGravity, Assembly-CSharp
+        m_MethodName: GravityOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -388,9 +386,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7211129498821000339}
-        m_TargetAssemblyTypeName: changeGravity, Assembly-CSharp
-        m_MethodName: GravityOn
+  onDetachFromHand:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3959061846820914597}
+        m_TargetAssemblyTypeName: item, Assembly-CSharp
+        m_MethodName: unattached
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -553,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b98e4fe531404f4baab45e3a2bee2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMutliplier: 0.6
+  DamageMutliplier: 0.3
   currentDamage: 0
 --- !u!82 &4914277594654257572
 AudioSource:
@@ -651,6 +652,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5076688173183432876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827246199134948732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a016f0d6a95c5ab49b0fb2cb5dd5841a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6269970338625334072
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +676,7 @@ GameObject:
   - component: {fileID: 7200495681911885186}
   - component: {fileID: 2155187228352427161}
   m_Layer: 0
-  m_Name: torch_Particle (1)
+  m_Name: torch_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5561,6 +5574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 5
+  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0

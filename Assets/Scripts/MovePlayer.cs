@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
@@ -20,13 +17,9 @@ public class MovePlayer : MonoBehaviour
     {
 
 
-        if (BeingBlocked())
+        if (!BeingBlocked())
         {
-
-        }
-        else 
-        {
-            if (moveValue.axis.y > 0 )
+            if (moveValue.axis.y > 0)
             {
                 Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(0, 0, moveValue.axis.y));
                 speed = moveValue.axis.y * sensitivity;
@@ -34,7 +27,6 @@ public class MovePlayer : MonoBehaviour
                 transform.position += speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
             }
         }
-
     }
 
     private bool BeingBlocked() 

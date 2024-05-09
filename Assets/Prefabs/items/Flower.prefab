@@ -21,7 +21,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1309969000715047571
 Transform:
@@ -329,8 +329,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
-  value: 20000
+  value: 300
+  postionWanted: {x: 0, y: 0, z: 0}
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0

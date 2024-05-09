@@ -25,7 +25,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1309969000715047571
 Transform:
@@ -102,7 +102,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182075670451601587}
   serializedVersion: 4
-  m_Mass: 50
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 1
+  handFollowTransform: 0
   highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
@@ -298,10 +298,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_audioClip: {fileID: 8300000, guid: 359f2673b0b13524d960e19a10dcf2a1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.552
+  m_Pitch: 0.75
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -309,7 +309,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -344,7 +344,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b98e4fe531404f4baab45e3a2bee2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMutliplier: 0.25
+  DamageMutliplier: 0.5
   currentDamage: 0
 --- !u!114 &3029712510990421253
 MonoBehaviour:
@@ -654,8 +654,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
+  postionWanted: {x: 0, y: 0, z: 0}
+  inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:
   m_ObjectHideFlags: 0

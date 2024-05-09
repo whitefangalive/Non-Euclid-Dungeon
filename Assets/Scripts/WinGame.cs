@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 
 public class WinGame : MonoBehaviour
 {
-    public HashSet<GameObject> inventory = new HashSet<GameObject>();
+    public HashSet<item> inventory = new HashSet<item>();
     public bool winRightNow;
     // Start is called before the first frame update
     void Start()
@@ -29,11 +29,11 @@ public class WinGame : MonoBehaviour
 
     public void SendToScene(int chanceToLoseItems)
     {
-        foreach (GameObject thing in inventory)
+        foreach (item thing in inventory)
         {
-            if (thing != null && Random.Range(0, chanceToLoseItems) == 1)
+            if (thing != null && Random.Range(0, chanceToLoseItems) == 0)
             {
-                thing.AddComponent<DontDestroyOnLoad>();
+                thing.gameObject.AddComponent<DontDestroyOnLoad>();
             }
         }
         GetComponent<SteamVR_LoadLevel>().enabled = true;

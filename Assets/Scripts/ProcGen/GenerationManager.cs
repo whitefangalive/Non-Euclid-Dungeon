@@ -19,6 +19,7 @@ public class GenerationManager : MonoBehaviour
     RaycastHit hit;
     Vector3 forward;
     public LayerMask m_LayerMask;
+    public LayerMask nonemask;
 
     public bool CanPlaceRoom(GameObject door, GameObject node, QueryTriggerInteraction collide)
     {
@@ -60,8 +61,7 @@ public class GenerationManager : MonoBehaviour
     {
         bool result = true;
         RaycastHit hit;
-
-        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength))
+        if (Physics.Raycast(pos.position, Direction, out hit, prefabLength, nonemask, QueryTriggerInteraction.Collide))
         {
             result = false;
         }
@@ -71,6 +71,11 @@ public class GenerationManager : MonoBehaviour
 
     public bool IsVisibleToCamera(GameObject obj)
     {
-        return obj.GetComponent<Renderer>().isVisible || obj.GetComponentInChildren<Renderer>().isVisible;
+        return obj.GetComponent<Renderer>().isVisible || obj.transform.GetChild(0).GetComponent<MeshRenderer>().isVisible;
+    }
+
+    public bool playerPastGenerationDistance(Vector3 pos) 
+    {
+        return Vector3.Distance(GameObject.Find("Player").transform.position, pos) > generationDistance;
     }
 }
