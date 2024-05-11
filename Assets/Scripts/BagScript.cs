@@ -26,6 +26,12 @@ public class BagScript : MonoBehaviour
             {
                 thing.bag = gameObject;
             }
+            if (Vector3.Distance(thing.transform.position, transform.position) >= 1.10) 
+            {
+                inventory.Remove(thing.transform.parent.gameObject.GetComponent<item>());
+                thing.transform.parent.gameObject.GetComponent<item>().bag = null;
+                GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
+            }
         }
     }
     private void OnTriggerEnter(Collider other)

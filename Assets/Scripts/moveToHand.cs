@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -12,12 +13,18 @@ public class moveToHand : MonoBehaviour
     private GameObject bag;
     private bool inHand = false;
     public GameObject player;
+    private GameObject leftHand;
+    private GameObject rightHand;
+    private GameObject playerFeetPosition;
     // Start is called before the first frame update
     void Start()
     {
         handle = GameObject.Find("BagHandle").transform;
         parent = handle.parent.gameObject;
         bag = GameObject.Find("bag");
+        leftHand = GameObject.Find("HandColliderLeft (clone)");
+        rightHand = GameObject.Find("HandColliderRight (clone)");
+        playerFeetPosition = GameObject.Find("Player");
     }
 
 
@@ -71,7 +78,12 @@ public class moveToHand : MonoBehaviour
             // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
             if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 75, 130))
             {
-                extraDistance = -0.5f;
+                extraDistance = -0.8f;
+                if (Vector3.Distance(playerFeetPosition.transform.position, leftHand.transform.position) < 0.5 ||
+                    Vector3.Distance(playerFeetPosition.transform.position, rightHand.transform.position) < 0.5) 
+                {
+                    extraDistance = -1.1f;
+                }
             }
             Transform forwardOnY = player.transform;
             forwardOnY.rotation = new Quaternion(0, player.transform.rotation.y, 0, player.transform.rotation.w);
