@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b98e4fe531404f4baab45e3a2bee2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMutliplier: 1.35
+  DamageMutliplier: 1.55
   currentDamage: 0
 --- !u!114 &4269725699591252084
 MonoBehaviour:
@@ -491,7 +491,6 @@ MonoBehaviour:
   offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
-  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:

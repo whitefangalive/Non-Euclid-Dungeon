@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5796344550335638712}
   - component: {fileID: 8226894393871717118}
   - component: {fileID: 4269725699591252084}
+  - component: {fileID: 7779730004981229494}
   m_Layer: 6
   m_Name: Phsyics
   m_TagString: Untagged
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b98e4fe531404f4baab45e3a2bee2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMutliplier: 1.2
+  DamageMutliplier: 0.9
   currentDamage: 0
 --- !u!114 &4269725699591252084
 MonoBehaviour:
@@ -441,6 +442,22 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &7779730004981229494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182075670451601587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6c3a251eb575542a05b2ee92df96c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passThroughHandMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  passableInterval: 1
 --- !u!1 &943578513696192797
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +562,6 @@ MonoBehaviour:
   offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
-  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!65 &7710302234394747808
 BoxCollider:

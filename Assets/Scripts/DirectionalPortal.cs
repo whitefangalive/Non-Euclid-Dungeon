@@ -71,7 +71,7 @@ public class DirectionalPortal : MonoBehaviour
                 it = thing.transform.parent.gameObject.GetComponent<item>();
             }
 
-            if (it != null && rb != null)
+            if (it != null && rb != null && !it.handAttached)
             {
                 inventory.Add(thing.transform.parent);
             }

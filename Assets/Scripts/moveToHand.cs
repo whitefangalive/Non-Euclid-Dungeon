@@ -32,8 +32,12 @@ public class moveToHand : MonoBehaviour
     {
         if (other.transform.name == "Sphere (2)")
         {
-            handReaching = true;
-            handle.transform.position = other.transform.position;
+            if (Vector3.Distance(playerFeetPosition.transform.position, leftHand.transform.position) >= 0.65 &&
+                Vector3.Distance(playerFeetPosition.transform.position, rightHand.transform.position) >= 0.65)
+            {
+                handReaching = true;
+                handle.transform.position = other.transform.position;
+            }
         }
         if (other.transform.name == "BagHandle" && inHand == false)
         {
@@ -81,9 +85,9 @@ public class moveToHand : MonoBehaviour
         {
             float extraDistance = 0;
             // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
-            if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 75, 170))
+            
+            if (isInBetweenAngle(player.transform.localRotation.x, -75, -170))
             {
-                
                 extraDistance = -0.5f;
                 if (Vector3.Distance(playerFeetPosition.transform.position, leftHand.transform.position) < 0.65 ||
                     Vector3.Distance(playerFeetPosition.transform.position, rightHand.transform.position) < 0.65) 
@@ -95,6 +99,7 @@ public class moveToHand : MonoBehaviour
             forwardOnY.rotation = new Quaternion(0, player.transform.rotation.y, 0, player.transform.rotation.w);
             Ray r = new Ray(transform.position, forwardOnY.TransformDirection(Vector3.forward));
             Debug.DrawRay(transform.position, forwardOnY.TransformDirection(Vector3.forward) * (extraDistance));
+            
             handle.transform.position = r.GetPoint(extraDistance);
             bag.GetComponent<MeshRenderer>().enabled = false;
         }
@@ -103,14 +108,16 @@ public class moveToHand : MonoBehaviour
     private bool isInBetweenAngle(float playerAngle, float minAngle, float maxAngle)
     {
         bool result = false;
-        // Adjust angles to be in the range [0, 360)
-        playerAngle = (playerAngle + 360) % 360;
-        minAngle = (minAngle + 360) % 360;
-        maxAngle = (maxAngle + 360) % 360;
+        // Convert minAngle and maxAngle to radians
+        float minAngleRad = (minAngle * Mathf.Deg2Rad) * 0.5f;
+        float maxAngleRad = (maxAngle * Mathf.Deg2Rad) * 0.5f;
+
+        // Adjust playerAngle to be in the range [0, 2*pi)
+        playerAngle = (playerAngle + 2 * Mathf.PI) % (2 * Mathf.PI);
 
         // Check if playerAngle is between minAngle and maxAngle
-        if ((minAngle <= maxAngle && playerAngle >= minAngle && playerAngle <= maxAngle) ||
-            (minAngle > maxAngle && (playerAngle >= minAngle || playerAngle <= maxAngle)))
+        if ((minAngleRad <= maxAngleRad && playerAngle >= minAngleRad && playerAngle <= maxAngleRad) ||
+            (minAngleRad > maxAngleRad && (playerAngle >= minAngleRad || playerAngle <= maxAngleRad)))
         {
             result = true;
         }

@@ -19,12 +19,12 @@ public class MovePlayer : MonoBehaviour
 
         if (!BeingBlocked())
         {
-            if (moveValue.axis.y > 0)
+            if (moveValue.axis.y != 0)
             {
                 Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(0, 0, moveValue.axis.y));
                 speed = moveValue.axis.y * sensitivity;
                 speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed) * head.transform.lossyScale.y;
-                transform.position += speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up);
+                transform.position += (speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up)) * Mathf.Sign(speed);
             }
         }
     }

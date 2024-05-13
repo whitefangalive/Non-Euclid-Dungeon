@@ -16,22 +16,24 @@ public class BagScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (item thing in inventory) 
+        foreach (item thing in inventory)
         {
-            if (thing.bag != gameObject) 
+            if (thing.bag != gameObject)
             {
                 thing.bag = gameObject;
             }
-            if (Vector3.Distance(thing.transform.position, transform.position) >= 1.10) 
+            Vector3 positionToGoTo = transform.position + it.offsetPos;
+            
+            if (Vector3.Distance(thing.GetComponentInChildren<Rigidbody>().gameObject.transform.position, transform.position) >= 1.6 && thing.transform.parent.position == positionToGoTo)
             {
-                inventory.Remove(thing.transform.parent.gameObject.GetComponent<item>());
-                thing.transform.parent.gameObject.GetComponent<item>().bag = null;
+                inventory.Remove(thing.GetComponent<item>());
+                thing.GetComponent<item>().bag = null;
                 GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
             }
         }
@@ -41,11 +43,11 @@ public class BagScript : MonoBehaviour
         GameObject thing = other.transform.gameObject;
         rb = thing.GetComponent<Rigidbody>();
         it = null;
-        if (thing.transform.parent != null) 
+        if (thing.transform.parent != null)
         {
             it = thing.transform.parent.gameObject.GetComponent<item>();
         }
-        
+        Debug.Log((it != null).ToString() + " " + (rb != null).ToString());
         if (it != null && rb != null)
         {
             inventory.Add(thing.transform.parent.gameObject.GetComponent<item>());
@@ -56,8 +58,8 @@ public class BagScript : MonoBehaviour
     public int getTotalValue()
     {
         int result = 0;
-        foreach (item thing in inventory) 
-        { 
+        foreach (item thing in inventory)
+        {
             result += thing.value;
         }
         return result;
@@ -85,5 +87,13 @@ public class BagScript : MonoBehaviour
             GameObject.Find("ValueOfItemsText").GetComponent<TMP_Text>().text = "$" + getTotalValue();
         }
     }
+    public void unlock()
+    {
+        locked = false;
+    }
 
+    public void relock() 
+    {
+        locked = true;
+    } 
 }

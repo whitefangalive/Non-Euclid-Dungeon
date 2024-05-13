@@ -11955,6 +11955,7 @@ MonoBehaviour:
   ExludeLayers:
     serializedVersion: 2
     m_Bits: 0
+  locked: 0
 --- !u!114 &1421204848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19681,6 +19682,7 @@ MonoBehaviour:
   onBack: 0
   handReaching: 0
   player: {fileID: 0}
+  leftHand: {fileID: 0}
 --- !u!114 &1831766774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29666,7 +29668,6 @@ MonoBehaviour:
   offsetPos: {x: 0, y: 0, z: 0}
   handAttached: 0
   value: 0
-  postionWanted: {x: 0, y: 0, z: 0}
   inbag: 0
 --- !u!33 &6814086250247141850
 MeshFilter:

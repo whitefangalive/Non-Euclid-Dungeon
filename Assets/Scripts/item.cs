@@ -54,11 +54,16 @@ public class item : MonoBehaviour
                     rotationWanted = bag.transform.rotation * offsetRotRigid;
                     rigidObject.transform.position = postionWanted;
                     rigidObject.transform.rotation = rotationWanted;
+
+                    offsetPos = transform.position - bag.transform.position;
+                    offsetRot = transform.rotation * Quaternion.Inverse(bag.transform.rotation);
                 }
                 else
                 {
                     offsetPosRigid = rigidObject.transform.position - bag.transform.position;
                     offsetRotRigid = rigidObject.transform.rotation * Quaternion.Inverse(bag.transform.rotation);
+
+
                     rotationWanted = bag.transform.rotation * offsetRot;
                     postionWanted = bag.transform.position + offsetPos;
                     transform.position = postionWanted;
