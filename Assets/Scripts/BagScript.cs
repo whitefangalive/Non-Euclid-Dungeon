@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading;
 
 public class BagScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BagScript : MonoBehaviour
     private Rigidbody rb;
     private item it;
     public LayerMask ExludeLayers;
+    public bool locked = false;
 
 
     // Start is called before the first frame update

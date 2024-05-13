@@ -13,7 +13,7 @@ public class moveToHand : MonoBehaviour
     private GameObject bag;
     private bool inHand = false;
     public GameObject player;
-    private GameObject leftHand;
+    public GameObject leftHand;
     private GameObject rightHand;
     private GameObject playerFeetPosition;
     // Start is called before the first frame update
@@ -22,8 +22,8 @@ public class moveToHand : MonoBehaviour
         handle = GameObject.Find("BagHandle").transform;
         parent = handle.parent.gameObject;
         bag = GameObject.Find("bag");
-        leftHand = GameObject.Find("HandColliderLeft (clone)");
-        rightHand = GameObject.Find("HandColliderRight (clone)");
+        leftHand = GameObject.Find("HandColliderLeft(Clone)");
+        rightHand = GameObject.Find("HandColliderRight(Clone)");
         playerFeetPosition = GameObject.Find("Player");
     }
 
@@ -70,17 +70,23 @@ public class moveToHand : MonoBehaviour
         if (player == null)
         {
             player = GameObject.Find("VRCamera");
+            playerFeetPosition = GameObject.Find("Player");
+        }
+        if (leftHand == null) 
+        {
+            leftHand = GameObject.Find("HandColliderLeft(Clone)");
+            rightHand = GameObject.Find("HandColliderRight(Clone)");
         }
         if (onBack && handReaching == false) 
         {
-
             float extraDistance = 0;
             // add extra distance if you're looking down, this is so if you grab directly below you wont grab the backpack
-            if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 75, 130))
+            if (isInBetweenAngle(player.transform.rotation.eulerAngles.x, 75, 170))
             {
-                extraDistance = -0.8f;
-                if (Vector3.Distance(playerFeetPosition.transform.position, leftHand.transform.position) < 0.5 ||
-                    Vector3.Distance(playerFeetPosition.transform.position, rightHand.transform.position) < 0.5) 
+                
+                extraDistance = -0.5f;
+                if (Vector3.Distance(playerFeetPosition.transform.position, leftHand.transform.position) < 0.65 ||
+                    Vector3.Distance(playerFeetPosition.transform.position, rightHand.transform.position) < 0.65) 
                 {
                     extraDistance = -1.1f;
                 }
